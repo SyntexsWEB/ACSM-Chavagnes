@@ -1,22 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
+import HeroPage from '../components/HeroPage.astro';
 import { getEntry } from 'astro:content';
 import siteInfo from '../data/site-info.json';
 
 const page = await getEntry('pages', 'reglement');
 if (!page) throw new Error('Page not found: reglement');
 const { Content } = await page.render();
+
+const heroData = siteInfo.hero_pages.reglement;
 ---
 
 <Layout
   titre={page.data.titre}
   description={page.data.description}
 >
-  <Hero
-    titre={page.data.titre}
-    soustitre={page.data.description}
-    image={siteInfo.images_hero?.reglement || "/images/hero-motocross.jpg"}
+  <HeroPage
+    titre={heroData.titre}
+    soustitre={heroData.soustitre}
+    image={heroData.image}
   />
 
   <section class="section">

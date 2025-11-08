@@ -110,12 +110,13 @@ const { titre, description = siteInfo.description } = Astro.props;
         top: 0;
         z-index: 100;
         background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid var(--color-border);
+        backdrop-filter: blur(30px);
+        border-bottom: 1px solid rgba(0, 255, 135, 0.15);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
       }
 
       .navbar {
-        padding: var(--spacing-md) 0;
+        padding: 1rem 0;
       }
 
       .nav-wrapper {
@@ -131,39 +132,45 @@ const { titre, description = siteInfo.description } = Astro.props;
       }
 
       .logo-text {
-        font-size: 1.75rem;
+        font-size: 1.4rem;
         font-weight: 800;
-        background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        letter-spacing: -0.02em;
+        color: white;
+        letter-spacing: 0.02em;
+        transition: all var(--transition-fast);
+        text-transform: uppercase;
+      }
+
+      .logo:hover .logo-text {
+        color: var(--color-primary);
+        text-shadow: 0 0 20px rgba(0, 255, 135, 0.3);
       }
 
       .logo-subtitle {
-        font-size: 0.75rem;
-        color: var(--color-text-secondary);
+        font-size: 0.65rem;
+        color: rgba(255, 255, 255, 0.5);
         text-transform: uppercase;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.2em;
         margin-top: -4px;
+        font-weight: 400;
       }
 
       .nav-menu {
         display: flex;
         list-style: none;
-        gap: var(--spacing-lg);
+        gap: 2rem;
         align-items: center;
       }
 
       .nav-menu a {
-        color: var(--color-text);
+        color: rgba(255, 255, 255, 0.7);
         font-weight: 500;
-        transition: color var(--transition-fast);
+        font-size: 0.9rem;
+        transition: all var(--transition-fast);
         position: relative;
       }
 
       .nav-menu a:not(.btn-nav):hover {
-        color: var(--color-primary);
+        color: white;
       }
 
       .nav-menu a:not(.btn-nav)::after {
@@ -182,16 +189,21 @@ const { titre, description = siteInfo.description } = Astro.props;
       }
 
       .btn-nav {
-        padding: var(--spacing-xs) var(--spacing-md);
-        background: linear-gradient(135deg, var(--color-primary), #ff8c00);
-        border-radius: var(--radius-md);
-        color: white !important;
-        font-size: 0.9rem;
+        padding: 0.6rem 1.5rem;
+        background: var(--color-primary);
+        border-radius: 6px;
+        color: #0a0a0a !important;
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
       }
 
       .btn-nav:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(255, 107, 0, 0.3);
+        background: var(--color-primary-dark);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(0, 255, 135, 0.4);
+        color: #0a0a0a !important;
       }
 
       .mobile-menu-toggle {

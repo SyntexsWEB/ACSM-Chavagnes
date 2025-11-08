@@ -1,4 +1,37 @@
 {
+  "hero_accueil": {
+    "image": "/images/170822080831_gerhyfnudagcr2ptdb4nxsitctuxdn.jpg",
+    "soustitre": "Votre terrain de motocross à Terranjou",
+    "titre_ligne1": "VOTRE TERRAIN DE",
+    "titre_ligne2": "MOTOCROSS",
+    "description": "Terrain ouvert les 1er et 3ème week-end de chaque mois. Toutes catégories bienvenues dans un cadre exceptionnel.",
+    "bouton1_texte": "DÉCOUVRIR LE TERRAIN",
+    "bouton1_lien": "/presentation",
+    "bouton2_texte": "NOUS CONTACTER",
+    "bouton2_lien": "/contact"
+  },
+  "hero_pages": {
+    "presentation": {
+      "image": "/images/terrain-vue.jpg",
+      "titre": "Présentation du terrain",
+      "soustitre": "Découvrez notre circuit de motocross"
+    },
+    "reglement": {
+      "image": "/images/hero-motocross.jpg",
+      "titre": "Règlement du terrain",
+      "soustitre": "Les règles à respecter pour votre sécurité"
+    },
+    "faq": {
+      "image": "/images/hero-motocross.jpg",
+      "titre": "Questions fréquentes",
+      "soustitre": "Toutes les réponses à vos questions"
+    },
+    "contact": {
+      "image": "/images/hero-motocross.jpg",
+      "titre": "Contactez-nous",
+      "soustitre": "Nous sommes à votre écoute"
+    }
+  },
   "images_hero": {
     "accueil": "/images/170822080831_gerhyfnudagcr2ptdb4nxsitctuxdn.jpg",
     "presentation": "/images/terrain-vue.jpg",

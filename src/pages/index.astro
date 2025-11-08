@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
+import HeroHome from '../components/HeroHome.astro';
 import ActualiteCard from '../components/ActualiteCard.astro';
 import InfoCard from '../components/InfoCard.astro';
 import { getCollection } from 'astro:content';
@@ -10,19 +10,27 @@ const actualites = (await getCollection('actualites'))
   .filter(a => a.data.publie)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 3);
+
+const heroData = siteInfo.hero_accueil;
 ---
 
 <Layout
   titre="Accueil"
   description={siteInfo.description}
 >
-  <Hero
-    titre={siteInfo.nom}
-    soustitre={`Votre terrain de motocross à ${siteInfo.adresse?.split(',')[0] || 'Terranjou'}`}
-    image={siteInfo.images_hero?.accueil || "/images/hero-motocross.jpg"}
-    cta={{
-      texte: "Découvrir le terrain",
-      lien: "/presentation"
+  <HeroHome
+    soustitre={heroData.soustitre}
+    titreLigne1={heroData.titre_ligne1}
+    titreLigne2={heroData.titre_ligne2}
+    description={heroData.description}
+    image={heroData.image}
+    bouton1={{
+      texte: heroData.bouton1_texte,
+      lien: heroData.bouton1_lien
+    }}
+    bouton2={{
+      texte: heroData.bouton2_texte,
+      lien: heroData.bouton2_lien
     }}
   />
 
@@ -122,10 +130,22 @@ const actualites = (await getCollection('actualites'))
     text-align: center;
     font-size: clamp(2rem, 4vw, 2.5rem);
     margin-bottom: var(--spacing-xl);
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--color-text);
+    font-weight: 700;
+    position: relative;
+    padding-bottom: var(--spacing-md);
+  }
+
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--color-primary);
+    border-radius: 2px;
   }
 
   .section-header {
@@ -188,7 +208,8 @@ const actualites = (await getCollection('actualites'))
   }
 
   .cta-section {
-    background: linear-gradient(135deg, var(--color-dark-lighter), var(--color-dark-light));
+    background: var(--color-dark-lighter);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
     margin: var(--spacing-2xl) auto;
     max-width: 1200px;

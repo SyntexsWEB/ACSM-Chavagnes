@@ -1,15 +1,21 @@
 ---
 interface Props {
-  titre: string;
   soustitre: string;
+  titreLigne1: string;
+  titreLigne2: string;
+  description: string;
   image?: string;
-  cta?: {
+  bouton1?: {
+    texte: string;
+    lien: string;
+  };
+  bouton2?: {
     texte: string;
     lien: string;
   };
 }
 
-const { titre, soustitre, image, cta } = Astro.props;
+const { soustitre, titreLigne1, titreLigne2, description, image, bouton1, bouton2 } = Astro.props;
 ---
 
 <section class="hero">
@@ -23,16 +29,18 @@ const { titre, soustitre, image, cta } = Astro.props;
     <div class="hero-content">
       <p class="hero-subtitle">{soustitre}</p>
       <h1 class="hero-title">
-        <span class="title-line">VOTRE TERRAIN DE</span>
-        <span class="title-line"><span class="title-green">MOTOCROSS</span></span>
+        <span class="title-line">{titreLigne1}</span>
+        <span class="title-line"><span class="title-green">{titreLigne2}</span></span>
       </h1>
-      <p class="hero-description">Terrain ouvert les 1er et 3ème week-end de chaque mois. Toutes catégories bienvenues dans un cadre exceptionnel.</p>
-      {cta && (
-        <div class="hero-buttons">
-          <a href={cta.lien} class="btn btn-hero-primary">DÉCOUVRIR LE TERRAIN</a>
-          <a href="/contact" class="btn btn-hero-secondary">NOUS CONTACTER</a>
-        </div>
-      )}
+      <p class="hero-description">{description}</p>
+      <div class="hero-buttons">
+        {bouton1 && (
+          <a href={bouton1.lien} class="btn btn-hero-primary">{bouton1.texte}</a>
+        )}
+        {bouton2 && (
+          <a href={bouton2.lien} class="btn btn-hero-secondary">{bouton2.texte}</a>
+        )}
+      </div>
     </div>
   </div>
   <div class="hero-scroll">

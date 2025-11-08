@@ -1,0 +1,110 @@
+---
+interface Props {
+  titre: string;
+  soustitre: string;
+  image?: string;
+}
+
+const { titre, soustitre, image } = Astro.props;
+---
+
+<section class="hero-page">
+  {image && (
+    <div class="hero-bg">
+      <img src={image} alt="" />
+      <div class="hero-overlay"></div>
+    </div>
+  )}
+  <div class="container">
+    <div class="hero-content">
+      <p class="hero-subtitle">{soustitre}</p>
+      <h1 class="hero-title">{titre}</h1>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-page {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.25) saturate(1.1);
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(10, 10, 10, 0.6) 0%, rgba(10, 10, 10, 0.85) 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    animation: fadeIn 1s ease-out;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: white;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-page {
+      min-height: 40vh;
+      padding: var(--spacing-xl) 0;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+    }
+  }
+</style>

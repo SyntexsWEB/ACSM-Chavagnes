@@ -1,0 +1,120 @@
+<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2a4858;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a2838;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="ground" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3a2a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2a1a0a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grass" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2a4a2a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a3a1a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Ciel -->
+  <rect width="1920" height="600" fill="url(#sky)"/>
+
+  <!-- Arbres en arrière-plan -->
+  <g opacity="0.4">
+    <ellipse cx="200" cy="500" rx="80" ry="120" fill="#0f2f0f"/>
+    <ellipse cx="350" cy="480" rx="100" ry="140" fill="#0f2f0f"/>
+    <ellipse cx="550" cy="490" rx="90" ry="130" fill="#0f2f0f"/>
+    <ellipse cx="1400" cy="500" rx="85" ry="125" fill="#0f2f0f"/>
+    <ellipse cx="1600" cy="480" rx="95" ry="135" fill="#0f2f0f"/>
+    <ellipse cx="1750" cy="490" rx="80" ry="120" fill="#0f2f0f"/>
+  </g>
+
+  <!-- Collines vertes -->
+  <path d="M0 550 Q300 500 600 530 T1200 550 T1920 530 L1920 600 L0 600 Z" fill="url(#grass)"/>
+
+  <!-- Terrain de motocross -->
+  <path d="M0 600 Q480 650 960 620 T1920 650 L1920 1080 L0 1080 Z" fill="url(#ground)"/>
+
+  <!-- Piste principale (tracé sinueux) -->
+  <g opacity="0.6">
+    <path d="M 100 700 Q 400 750 700 700 T 1300 750 T 1800 700"
+          stroke="#1a0a00" stroke-width="120" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Bosses et sauts -->
+  <g opacity="0.8" fill="#2a1a0a">
+    <ellipse cx="500" cy="750" rx="100" ry="40"/>
+    <ellipse cx="800" cy="780" rx="80" ry="35"/>
+    <ellipse cx="1100" cy="760" rx="90" ry="38"/>
+    <ellipse cx="1400" cy="790" rx="85" ry="36"/>
+  </g>
+
+  <!-- Traces de pneus -->
+  <g opacity="0.3">
+    <path d="M 200 720 Q 500 760 800 720 T 1400 760"
+          stroke="#0a0500" stroke-width="8" fill="none" stroke-dasharray="20,10"/>
+    <path d="M 250 740 Q 550 780 850 740 T 1450 780"
+          stroke="#0a0500" stroke-width="8" fill="none" stroke-dasharray="20,10"/>
+  </g>
+
+  <!-- Paddock/Zone d'accueil (rectangles de bâtiments) -->
+  <g transform="translate(100, 850)">
+    <rect x="0" y="0" width="150" height="100" fill="#1a1a2a" stroke="#ff6b00" stroke-width="2"/>
+    <rect x="0" y="0" width="150" height="15" fill="#ff6b00"/>
+    <rect x="20" y="35" width="30" height="40" fill="#3a3a4a"/>
+    <rect x="65" y="35" width="30" height="40" fill="#3a3a4a"/>
+    <rect x="110" y="35" width="30" height="40" fill="#3a3a4a"/>
+  </g>
+
+  <!-- Drapeaux de signalisation -->
+  <g transform="translate(1700, 700)">
+    <line x1="0" y1="0" x2="0" y2="150" stroke="#666" stroke-width="6"/>
+    <polygon points="0,0 80,20 0,40" fill="#ff6b00"/>
+  </g>
+
+  <g transform="translate(1500, 680)">
+    <line x1="0" y1="0" x2="0" y2="140" stroke="#666" stroke-width="6"/>
+    <polygon points="0,0 70,18 0,36" fill="#00d4ff"/>
+  </g>
+
+  <!-- Barrières de sécurité -->
+  <g opacity="0.7">
+    <rect x="300" y="680" width="600" height="8" fill="#1a1a1a"/>
+    <rect x="1000" y="700" width="500" height="8" fill="#1a1a1a"/>
+  </g>
+
+  <!-- Panneau "ACSM CHAVAGNES" -->
+  <g transform="translate(850, 650)">
+    <rect x="0" y="0" width="300" height="80" fill="#1a1a1a" stroke="#ff6b00" stroke-width="3" rx="5"/>
+    <text x="150" y="35" font-family="Arial Black, sans-serif" font-size="28"
+          fill="#ff6b00" text-anchor="middle" font-weight="bold">
+      ACSM
+    </text>
+    <text x="150" y="60" font-family="Arial, sans-serif" font-size="18"
+          fill="#00d4ff" text-anchor="middle" letter-spacing="4">
+      CHAVAGNES
+    </text>
+  </g>
+
+  <!-- Clôtures -->
+  <g opacity="0.5">
+    <line x1="0" y1="620" x2="1920" y2="620" stroke="#3a3a3a" stroke-width="3"/>
+    <line x1="100" y1="600" x2="100" y2="640" stroke="#3a3a3a" stroke-width="2"/>
+    <line x1="250" y1="600" x2="250" y2="640" stroke="#3a3a3a" stroke-width="2"/>
+    <line x1="400" y1="600" x2="400" y2="640" stroke="#3a3a3a" stroke-width="2"/>
+    <line x1="550" y1="600" x2="550" y2="640" stroke="#3a3a3a" stroke-width="2"/>
+    <line x1="700" y1="600" x2="700" y2="640" stroke="#3a3a3a" stroke-width="2"/>
+    <line x1="850" y1="600" x2="850" y2="640" stroke="#3a3a3a" stroke-width="2"/>
+    <line x1="1000" y1="600" x2="1000" y2="640" stroke="#3a3a3a" stroke-width="2"/>
+    <line x1="1150" y1="600" x2="1150" y2="640" stroke="#3a3a3a" stroke-width="2"/>
+    <line x1="1300" y1="600" x2="1300" y2="640" stroke="#3a3a3a" stroke-width="2"/>
+    <line x1="1450" y1="600" x2="1450" y2="640" stroke="#3a3a3a" stroke-width="2"/>
+    <line x1="1600" y1="600" x2="1600" y2="640" stroke="#3a3a3a" stroke-width="2"/>
+    <line x1="1750" y1="600" x2="1750" y2="640" stroke="#3a3a3a" stroke-width="2"/>
+    <line x1="1900" y1="600" x2="1900" y2="640" stroke="#3a3a3a" stroke-width="2"/>
+  </g>
+
+  <!-- Filigrane -->
+  <text x="960" y="1000" font-family="Arial, sans-serif" font-size="40"
+        fill="#ff6b00" opacity="0.1" text-anchor="middle">
+    TERRAIN DE MOTOCROSS - TERRANJOU
+  </text>
+</svg>

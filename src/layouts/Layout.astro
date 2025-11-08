@@ -1,0 +1,296 @@
+---
+import '../styles/global.css';
+import siteInfo from '../data/site-info.json';
+
+interface Props {
+  titre: string;
+  description?: string;
+}
+
+const { titre, description = siteInfo.description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO -->
+    <meta property="og:title" content={titre} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <title>{titre} | {siteInfo.nom}</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="container">
+          <div class="nav-wrapper">
+            <a href="/" class="logo">
+              <span class="logo-text">{siteInfo.nom.split(' ')[0]}</span>
+              <span class="logo-subtitle">{siteInfo.nom.split(' ').slice(1).join(' ')}</span>
+            </a>
+            <ul class="nav-menu">
+              <li><a href="/">Accueil</a></li>
+              <li><a href="/presentation">Présentation</a></li>
+              <li><a href="/reglement">Règlement</a></li>
+              <li><a href="/faq">FAQ</a></li>
+              <li><a href="/contact" class="btn-nav">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="Menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>{siteInfo.nom}</h3>
+            <p>{siteInfo.description}</p>
+            {siteInfo.adresse && <p>📍 {siteInfo.adresse}</p>}
+            {siteInfo.email && <p>✉️ <a href={`mailto:${siteInfo.email}`}>{siteInfo.email}</a></p>}
+            {siteInfo.telephone && <p>📞 {siteInfo.telephone}</p>}
+          </div>
+          <div class="footer-section">
+            <h4>Horaires</h4>
+            <p>{siteInfo.horaires.jours}</p>
+            <p>Samedi: {siteInfo.horaires.samedi}</p>
+            <p>Dimanche: {siteInfo.horaires.dimanche}</p>
+            <p class="tarif">💰 Tarif: {siteInfo.tarif}</p>
+          </div>
+          <div class="footer-section">
+            <h4>Liens rapides</h4>
+            <ul>
+              <li><a href="/presentation">Présentation</a></li>
+              <li><a href="/reglement">Règlement</a></li>
+              <li><a href="/faq">FAQ</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+            {(siteInfo.social?.facebook || siteInfo.social?.instagram || siteInfo.social?.twitter) && (
+              <div class="social-links">
+                {siteInfo.social.facebook && <a href={siteInfo.social.facebook} target="_blank" rel="noopener" aria-label="Facebook">📘</a>}
+                {siteInfo.social.instagram && <a href={siteInfo.social.instagram} target="_blank" rel="noopener" aria-label="Instagram">📷</a>}
+                {siteInfo.social.twitter && <a href={siteInfo.social.twitter} target="_blank" rel="noopener" aria-label="Twitter">🐦</a>}
+              </div>
+            )}
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; {new Date().getFullYear()} {siteInfo.nom}. Tous droits réservés.</p>
+        </div>
+      </div>
+    </footer>
+
+    <style>
+      /* Header & Navigation */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--color-border);
+      }
+
+      .navbar {
+        padding: var(--spacing-md) 0;
+      }
+
+      .nav-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+      }
+
+      .logo-text {
+        font-size: 1.75rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        letter-spacing: -0.02em;
+      }
+
+      .logo-subtitle {
+        font-size: 0.75rem;
+        color: var(--color-text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-top: -4px;
+      }
+
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: var(--spacing-lg);
+        align-items: center;
+      }
+
+      .nav-menu a {
+        color: var(--color-text);
+        font-weight: 500;
+        transition: color var(--transition-fast);
+        position: relative;
+      }
+
+      .nav-menu a:not(.btn-nav):hover {
+        color: var(--color-primary);
+      }
+
+      .nav-menu a:not(.btn-nav)::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--color-primary);
+        transition: width var(--transition-normal);
+      }
+
+      .nav-menu a:not(.btn-nav):hover::after {
+        width: 100%;
+      }
+
+      .btn-nav {
+        padding: var(--spacing-xs) var(--spacing-md);
+        background: linear-gradient(135deg, var(--color-primary), #ff8c00);
+        border-radius: var(--radius-md);
+        color: white !important;
+        font-size: 0.9rem;
+      }
+
+      .btn-nav:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255, 107, 0, 0.3);
+      }
+
+      .mobile-menu-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: var(--spacing-xs);
+      }
+
+      .mobile-menu-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--color-text);
+        border-radius: 2px;
+        transition: all var(--transition-fast);
+      }
+
+      /* Footer */
+      footer {
+        background: var(--color-dark-lighter);
+        border-top: 1px solid var(--color-border);
+        margin-top: var(--spacing-2xl);
+        padding: var(--spacing-2xl) 0 var(--spacing-md);
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--spacing-xl);
+        margin-bottom: var(--spacing-xl);
+      }
+
+      .footer-section h3, .footer-section h4 {
+        color: var(--color-primary);
+        margin-bottom: var(--spacing-sm);
+      }
+
+      .footer-section p {
+        color: var(--color-text-secondary);
+        margin-bottom: var(--spacing-xs);
+        font-size: 0.9rem;
+      }
+
+      .footer-section ul {
+        list-style: none;
+      }
+
+      .footer-section ul li {
+        margin-bottom: var(--spacing-xs);
+      }
+
+      .footer-section ul a {
+        color: var(--color-text-secondary);
+        font-size: 0.9rem;
+      }
+
+      .footer-section ul a:hover {
+        color: var(--color-primary);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: var(--spacing-lg);
+        border-top: 1px solid var(--color-border);
+      }
+
+      .footer-bottom p {
+        color: var(--color-text-secondary);
+        font-size: 0.85rem;
+      }
+
+      /* Mobile */
+      @media (max-width: 768px) {
+        .nav-menu {
+          display: none;
+        }
+
+        .mobile-menu-toggle {
+          display: flex;
+        }
+
+        .footer-content {
+          grid-template-columns: 1fr;
+          gap: var(--spacing-lg);
+        }
+      }
+    </style>
+
+    <script>
+      // Mobile menu toggle (à implémenter si nécessaire)
+      const menuToggle = document.querySelector('.mobile-menu-toggle');
+      const navMenu = document.querySelector('.nav-menu');
+
+      menuToggle?.addEventListener('click', () => {
+        navMenu?.classList.toggle('active');
+      });
+    </script>
+  </body>
+</html>

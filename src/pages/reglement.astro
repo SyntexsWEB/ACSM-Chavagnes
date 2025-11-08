@@ -1,0 +1,125 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import { getEntry } from 'astro:content';
+import siteInfo from '../data/site-info.json';
+
+const page = await getEntry('pages', 'reglement');
+if (!page) throw new Error('Page not found: reglement');
+const { Content } = await page.render();
+---
+
+<Layout
+  titre={page.data.titre}
+  description={page.data.description}
+>
+  <Hero
+    titre={page.data.titre}
+    soustitre={page.data.description}
+    image={siteInfo.images_hero?.reglement || "/images/hero-motocross.jpg"}
+  />
+
+  <section class="section">
+    <div class="container">
+
+      <div class="reglement-content markdown-content">
+        <Content />
+      </div>
+
+      <div class="cta-section">
+        <a href="/faq" class="btn">Consulter la FAQ</a>
+        <a href="/contact" class="btn btn-secondary">Nous contacter</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .reglement-content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .markdown-content :global(h2) {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+    font-size: 1.5rem;
+  }
+
+  .markdown-content :global(h3) {
+    color: var(--color-secondary);
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .markdown-content :global(p) {
+    line-height: 1.8;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-secondary);
+  }
+
+  .markdown-content :global(ul),
+  .markdown-content :global(ol) {
+    margin: var(--spacing-md) 0;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .markdown-content :global(li) {
+    padding: var(--spacing-xs) 0 var(--spacing-xs) var(--spacing-lg);
+    color: var(--color-text-secondary);
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .markdown-content :global(li::before) {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+
+  .markdown-content :global(ul ul) {
+    margin-top: var(--spacing-xs);
+    margin-left: var(--spacing-md);
+  }
+
+  .markdown-content :global(strong) {
+    color: var(--color-text);
+  }
+
+  .markdown-content :global(em) {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+  }
+
+  .markdown-content :global(a) {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  .markdown-content :global(a:hover) {
+    color: var(--color-secondary);
+  }
+
+  .cta-section {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    margin-top: var(--spacing-2xl);
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 768px) {
+    .cta-section {
+      flex-direction: column;
+    }
+
+    .cta-section .btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>

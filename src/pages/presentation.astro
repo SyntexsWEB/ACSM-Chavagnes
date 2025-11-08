@@ -1,0 +1,339 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import { getEntry } from 'astro:content';
+import siteInfo from '../data/site-info.json';
+
+const page = await getEntry('pages', 'presentation');
+if (!page) throw new Error('Page not found: presentation');
+const { Content } = await page.render();
+---
+
+<Layout
+  titre={page.data.titre}
+  description={page.data.description}
+>
+  <Hero
+    titre={page.data.titre}
+    soustitre="Un site exceptionnel pour la pratique du motocross"
+    image={siteInfo.images_hero?.presentation || "/images/terrain-vue.jpg"}
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="content-grid">
+        <div class="content-main markdown-content">
+          <Content />
+        </div>
+
+        <aside class="sidebar">
+          <div class="sidebar-card card">
+            <h3>Infos pratiques</h3>
+            <ul class="info-list">
+              {siteInfo.adresse && <li><strong>Localisation</strong><br>{siteInfo.adresse}</li>}
+              <li><strong>Tarif</strong><br>{siteInfo.tarif} la journée</li>
+              <li><strong>Licence</strong><br>FFM acceptée</li>
+              <li><strong>Ouverture</strong><br>{siteInfo.horaires.jours}</li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card card">
+            <h3>Documents utiles</h3>
+            <ul class="doc-list">
+              <li><a href="/reglement">📋 Règlement du terrain</a></li>
+              <li><a href="/faq">❓ FAQ - Questions fréquentes</a></li>
+              <li><a href="/contact">📧 Nous contacter</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section partners-section">
+    <div class="container">
+      <h2 class="section-title">Nos partenaires</h2>
+      <p class="partners-intro">
+        Nous remercions nos partenaires qui nous soutiennent et contribuent au développement
+        de notre club et de la pratique du motocross dans la région.
+      </p>
+      <div class="partners-grid">
+        <div class="partner-card card">
+          <div class="partner-logo">🏍️</div>
+          <p>Partenaire 1</p>
+        </div>
+        <div class="partner-card card">
+          <div class="partner-logo">⚙️</div>
+          <p>Partenaire 2</p>
+        </div>
+        <div class="partner-card card">
+          <div class="partner-logo">🔧</div>
+          <p>Partenaire 3</p>
+        </div>
+        <div class="partner-card card">
+          <div class="partner-logo">🏁</div>
+          <p>Partenaire 4</p>
+        </div>
+      </div>
+      <p class="partners-cta">
+        <a href="/contact" class="btn">Devenir partenaire</a>
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+  }
+
+  .markdown-content :global(h2) {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+  }
+
+  .markdown-content :global(h3) {
+    color: var(--color-secondary);
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .markdown-content :global(h4) {
+    color: var(--color-text);
+    margin-top: var(--spacing-lg);
+  }
+
+  .markdown-content :global(p) {
+    line-height: 1.8;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .markdown-content :global(ul),
+  .markdown-content :global(ol) {
+    margin: var(--spacing-md) 0;
+    padding-left: var(--spacing-lg);
+    line-height: 1.8;
+  }
+
+  .markdown-content :global(li) {
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .markdown-content :global(strong) {
+    color: var(--color-text);
+  }
+
+  .markdown-content :global(a) {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  .markdown-content :global(a:hover) {
+    color: var(--color-secondary);
+  }
+
+  .content-main h2 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .content-main h3 {
+    color: var(--color-secondary);
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .content-main h4 {
+    color: var(--color-text);
+  }
+
+  .content-main p {
+    line-height: 1.8;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    margin: var(--spacing-xl) 0;
+  }
+
+  .feature {
+    padding: var(--spacing-md);
+    background: var(--color-dark-lighter);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+  }
+
+  .feature h4 {
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.1rem;
+  }
+
+  .feature p {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .schedule-box {
+    margin-top: var(--spacing-xl);
+  }
+
+  .schedule-box h4 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .schedule-item {
+    padding: var(--spacing-md);
+    background: var(--color-dark);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .schedule-item strong {
+    color: var(--color-text);
+    display: block;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .schedule-item p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+  }
+
+  .schedule-item .time {
+    color: var(--color-secondary);
+    font-weight: 600;
+    margin-top: var(--spacing-xs);
+  }
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+
+  .sidebar-card h3 {
+    color: var(--color-primary);
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .info-list {
+    list-style: none;
+  }
+
+  .info-list li {
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+  }
+
+  .info-list li:last-child {
+    border-bottom: none;
+  }
+
+  .info-list strong {
+    color: var(--color-text);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .doc-list {
+    list-style: none;
+  }
+
+  .doc-list li {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .doc-list a {
+    color: var(--color-text-secondary);
+    display: block;
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+  }
+
+  .doc-list a:hover {
+    background: var(--color-dark);
+    color: var(--color-primary);
+    transform: translateX(4px);
+  }
+
+  .partners-section {
+    background: var(--color-dark-lighter);
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: var(--spacing-md);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .partners-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto var(--spacing-xl);
+    color: var(--color-text-secondary);
+  }
+
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .partner-card {
+    text-align: center;
+    padding: var(--spacing-xl);
+  }
+
+  .partner-logo {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .partner-card p {
+    margin: 0;
+    color: var(--color-text-secondary);
+  }
+
+  .partners-cta {
+    text-align: center;
+  }
+
+  @media (max-width: 1024px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+      order: -1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .partners-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

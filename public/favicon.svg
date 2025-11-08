@@ -1,0 +1,33 @@
+<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bikeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff8c00;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Fond circulaire sombre -->
+  <circle cx="32" cy="32" r="32" fill="#0a0a0a"/>
+
+  <!-- Motocross stylisé minimaliste -->
+  <g transform="translate(16, 20)">
+    <!-- Roue arrière -->
+    <circle cx="4" cy="20" r="8" fill="none" stroke="url(#bikeGrad)" stroke-width="2"/>
+
+    <!-- Cadre -->
+    <path d="M 4 20 L 16 16 L 24 14 L 28 16 L 24 20"
+          fill="none" stroke="url(#bikeGrad)" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Guidon/fourche -->
+    <path d="M 16 16 L 18 8" fill="none" stroke="#ff6b00" stroke-width="2"/>
+
+    <!-- Roue avant -->
+    <circle cx="26" cy="20" r="7" fill="none" stroke="url(#bikeGrad)" stroke-width="2"/>
+
+    <!-- Pilote (tête) -->
+    <circle cx="14" cy="8" r="4" fill="#ff6b00"/>
+  </g>
+
+  <!-- Cercle extérieur -->
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#ff6b00" stroke-width="1" opacity="0.5"/>
+</svg>

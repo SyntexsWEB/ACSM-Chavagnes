@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build:*)",
+      "Bash(set PORT=8082)",
+      "Bash(npx decap-server:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

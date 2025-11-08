@@ -1,0 +1,59 @@
+---
+interface Props {
+  icone: string;
+  titre: string;
+  description: string;
+}
+
+const { icone, titre, description } = Astro.props;
+---
+
+<div class="info-card card">
+  <div class="info-icone" set:html={icone}></div>
+  <h3 class="info-titre">{titre}</h3>
+  <p class="info-description">{description}</p>
+</div>
+
+<style>
+  .info-card {
+    text-align: center;
+    transition: all var(--transition-normal);
+  }
+
+  .info-icone {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    border-radius: var(--radius-md);
+    color: white;
+    font-size: 2rem;
+  }
+
+  .info-icone :global(svg) {
+    width: 32px;
+    height: 32px;
+  }
+
+  .info-titre {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text);
+  }
+
+  .info-description {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  .info-card:hover {
+    transform: translateY(-8px);
+  }
+
+  .info-card:hover .info-icone {
+    transform: scale(1.1) rotate(5deg);
+  }
+</style>

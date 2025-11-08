@@ -1,0 +1,119 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="skyOpen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a8ac8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2a6aa8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="doorGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6b00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff8c00;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="sunGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffed00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffd700;stop-opacity:0.5" />
+    </radialGradient>
+  </defs>
+
+  <!-- Fond ciel bleu -->
+  <rect width="800" height="500" fill="url(#skyOpen)"/>
+
+  <!-- Soleil -->
+  <circle cx="650" cy="100" r="60" fill="url(#sunGrad)"/>
+  <circle cx="650" cy="100" r="70" fill="#ffed00" opacity="0.2"/>
+
+  <!-- Rayons de soleil -->
+  <g opacity="0.3" stroke="#ffed00" stroke-width="3">
+    <line x1="650" y1="100" x2="750" y2="50"/>
+    <line x1="650" y1="100" x2="720" y2="180"/>
+    <line x1="650" y1="100" x2="580" y2="30"/>
+    <line x1="650" y1="100" x2="750" y2="150"/>
+  </g>
+
+  <!-- Sol -->
+  <rect x="0" y="400" width="800" height="100" fill="#2a4a2a"/>
+
+  <!-- Portes ouvertes (porte gauche) -->
+  <g transform="translate(200, 150)">
+    <rect x="0" y="0" width="120" height="250" fill="url(#doorGrad)" stroke="#1a1a1a" stroke-width="4" rx="10"/>
+    <circle cx="20" cy="125" r="8" fill="#ffed00"/>
+    <rect x="20" y="30" width="80" height="80" fill="#ffffff" opacity="0.2" rx="5"/>
+    <rect x="20" y="140" width="80" height="80" fill="#ffffff" opacity="0.2" rx="5"/>
+  </g>
+
+  <!-- Portes ouvertes (porte droite) -->
+  <g transform="translate(480, 150)">
+    <rect x="0" y="0" width="120" height="250" fill="url(#doorGrad)" stroke="#1a1a1a" stroke-width="4" rx="10"/>
+    <circle cx="100" cy="125" r="8" fill="#ffed00"/>
+    <rect x="20" y="30" width="80" height="80" fill="#ffffff" opacity="0.2" rx="5"/>
+    <rect x="20" y="140" width="80" height="80" fill="#ffffff" opacity="0.2" rx="5"/>
+  </g>
+
+  <!-- Flèches d'ouverture -->
+  <g opacity="0.8" fill="#ffed00">
+    <polygon points="140,270 120,290 120,250" />
+    <polygon points="660,270 680,290 680,250" />
+  </g>
+
+  <!-- Ballons festifs -->
+  <g opacity="0.9">
+    <ellipse cx="100" cy="180" rx="25" ry="30" fill="#ff6b00"/>
+    <line x1="100" y1="210" x2="100" y2="280" stroke="#1a1a1a" stroke-width="2"/>
+
+    <ellipse cx="130" cy="150" rx="25" ry="30" fill="#00d4ff"/>
+    <line x1="130" y1="180" x2="130" y2="250" stroke="#1a1a1a" stroke-width="2"/>
+
+    <ellipse cx="70" cy="160" rx="25" ry="30" fill="#ffed00"/>
+    <line x1="70" y1="190" x2="70" y2="260" stroke="#1a1a1a" stroke-width="2"/>
+
+    <ellipse cx="700" cy="190" rx="25" ry="30" fill="#00d4ff"/>
+    <line x1="700" y1="220" x2="700" y2="290" stroke="#1a1a1a" stroke-width="2"/>
+
+    <ellipse cx="730" cy="170" rx="25" ry="30" fill="#ff6b00"/>
+    <line x1="730" y1="200" x2="730" y2="270" stroke="#1a1a1a" stroke-width="2"/>
+  </g>
+
+  <!-- Bannière "PORTES OUVERTES" -->
+  <rect x="150" y="80" width="500" height="70" fill="#1a1a1a" opacity="0.9" rx="10"/>
+  <text x="400" y="125" font-family="Impact, Arial Black, sans-serif" font-size="42"
+        fill="#ffed00" text-anchor="middle" font-weight="bold" letter-spacing="6">
+    PORTES OUVERTES
+  </text>
+
+  <!-- Calendrier stylisé -->
+  <g transform="translate(350, 420)">
+    <rect x="0" y="0" width="100" height="70" fill="#ffffff" stroke="#1a1a1a" stroke-width="2" rx="5"/>
+    <rect x="0" y="0" width="100" height="15" fill="#ff6b00"/>
+    <text x="50" y="45" font-family="Arial Black, sans-serif" font-size="32"
+          fill="#1a1a1a" text-anchor="middle" font-weight="bold">15</text>
+    <text x="50" y="65" font-family="Arial, sans-serif" font-size="14"
+          fill="#666" text-anchor="middle">MARS</text>
+  </g>
+
+  <!-- Étoiles décoratives -->
+  <g fill="#ffed00" opacity="0.7">
+    <polygon points="50,80 55,95 70,95 58,105 63,120 50,110 37,120 42,105 30,95 45,95" />
+    <polygon points="750,80 755,95 770,95 758,105 763,120 750,110 737,120 742,105 730,95 745,95" />
+  </g>
+
+  <!-- Personnes stylisées (silhouettes simples) -->
+  <g transform="translate(320, 350)" opacity="0.6">
+    <circle cx="0" cy="0" r="15" fill="#1a1a1a"/>
+    <rect x="-12" y="15" width="24" height="35" fill="#00d4ff" rx="3"/>
+  </g>
+
+  <g transform="translate(380, 350)" opacity="0.6">
+    <circle cx="0" cy="0" r="15" fill="#1a1a1a"/>
+    <rect x="-12" y="15" width="24" height="35" fill="#ff6b00" rx="3"/>
+  </g>
+
+  <g transform="translate(440, 350)" opacity="0.6">
+    <circle cx="0" cy="0" r="15" fill="#1a1a1a"/>
+    <rect x="-12" y="15" width="24" height="35" fill="#ffed00" rx="3"/>
+  </g>
+
+  <!-- Texte "BIENVENUE" -->
+  <text x="400" y="30" font-family="Arial, sans-serif" font-size="28"
+        fill="#ffffff" text-anchor="middle" font-weight="bold" letter-spacing="4" opacity="0.9">
+    BIENVENUE
+  </text>
+</svg>

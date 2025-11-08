@@ -1,0 +1,55 @@
+{
+  "images_hero": {
+    "accueil": "/images/170822080831_gerhyfnudagcr2ptdb4nxsitctuxdn.jpg",
+    "presentation": "/images/terrain-vue.jpg",
+    "reglement": "/images/hero-motocross.jpg"
+  },
+  "tarif": "15€",
+  "telephone": "",
+  "cta_accueil": {
+    "titre": "Prêt à rouler ?",
+    "description": "Rejoignez-nous sur le terrain et vivez votre passion du motocross !",
+    "bouton1_texte": "Voir la FAQ",
+    "bouton1_lien": "/faq",
+    "bouton2_texte": "Nous contacter",
+    "bouton2_lien": "/contact"
+  },
+  "nom": "ACSM Chavagnes",
+  "horaires": {
+    "jours": "1er et 3ème week-end du mois",
+    "samedi": "9h-12h / 13h30-17h35",
+    "dimanche": "9h-12h / 13h30-17h30"
+  },
+  "social": {
+    "facebook": "https://www.facebook.com/profile.php?id=100004808973777",
+    "instagram": "",
+    "twitter": ""
+  },
+  "adresse": "Terranjou, France",
+  "categories": {
+    "samedi": {
+      "jour": "Samedi",
+      "titre": "Pilotes débutants",
+      "liste": [
+        "Minicross",
+        "85cc débutant"
+      ]
+    },
+    "dimanche": {
+      "jour": "Dimanche",
+      "titre": "Pilotes confirmés",
+      "liste": [
+        "85cc confirmés",
+        "125cc",
+        "MX1 & MX2",
+        "Quad & Side-car"
+      ]
+    }
+  },
+  "email": "contact@acsm-chavagnes.fr",
+  "description": "Club de motocross à Terranjou - Terrain ouvert les 1er et 3ème week-end de chaque mois",
+  "vehicules_acceptes": {
+    "titre": "Véhicules acceptés",
+    "description": "Motocross, sidecar, quad, électrique, enduro. Toutes catégories bienvenues."
+  }
+}

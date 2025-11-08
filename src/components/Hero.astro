@@ -1,0 +1,142 @@
+---
+interface Props {
+  titre: string;
+  soustitre: string;
+  image?: string;
+  cta?: {
+    texte: string;
+    lien: string;
+  };
+}
+
+const { titre, soustitre, image, cta } = Astro.props;
+---
+
+<section class="hero">
+  {image && (
+    <div class="hero-bg">
+      <img src={image} alt="" />
+      <div class="hero-overlay"></div>
+    </div>
+  )}
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="hero-title">{titre}</h1>
+      <p class="hero-subtitle">{soustitre}</p>
+      {cta && (
+        <a href={cta.lien} class="btn btn-hero">{cta.texte}</a>
+      )}
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.4);
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 107, 0, 0.2), rgba(0, 212, 255, 0.1));
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    animation: fadeIn 1s ease-out;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    font-weight: 800;
+    margin-bottom: var(--spacing-md);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    color: var(--color-text);
+    margin-bottom: var(--spacing-xl);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-hero {
+    font-size: 1.1rem;
+    padding: var(--spacing-md) var(--spacing-xl);
+    animation: fadeIn 1.2s ease-out;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: var(--spacing-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--color-text-secondary);
+    animation: bounce 2s infinite;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translate(-50%, 0);
+    }
+    50% {
+      transform: translate(-50%, 10px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 70vh;
+      padding: var(--spacing-xl) 0;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+  }
+</style>

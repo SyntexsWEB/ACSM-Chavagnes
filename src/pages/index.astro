@@ -1,0 +1,236 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import ActualiteCard from '../components/ActualiteCard.astro';
+import InfoCard from '../components/InfoCard.astro';
+import { getCollection } from 'astro:content';
+import siteInfo from '../data/site-info.json';
+
+const actualites = (await getCollection('actualites'))
+  .filter(a => a.data.publie)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+---
+
+<Layout
+  titre="Accueil"
+  description={siteInfo.description}
+>
+  <Hero
+    titre={siteInfo.nom}
+    soustitre={`Votre terrain de motocross à ${siteInfo.adresse?.split(',')[0] || 'Terranjou'}`}
+    image={siteInfo.images_hero?.accueil || "/images/hero-motocross.jpg"}
+    cta={{
+      texte: "Découvrir le terrain",
+      lien: "/presentation"
+    }}
+  />
+
+  <!-- Section Horaires & Infos -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Informations pratiques</h2>
+      <div class="grid grid-3">
+        <InfoCard
+          icone='<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>'
+          titre="Horaires d'ouverture"
+          description={`Ouvert ${siteInfo.horaires.jours}. Samedi: ${siteInfo.horaires.samedi}, Dimanche: ${siteInfo.horaires.dimanche}`}
+        />
+        <InfoCard
+          icone='<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" /></svg>'
+          titre="Tarifs"
+          description={`${siteInfo.tarif} la journée pour profiter du terrain. Licence FFM acceptée.`}
+        />
+        <InfoCard
+          icone='<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>'
+          titre={siteInfo.vehicules_acceptes?.titre || "Véhicules acceptés"}
+          description={siteInfo.vehicules_acceptes?.description || "Motocross, sidecar, quad, électrique, enduro. Toutes catégories bienvenues."}
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Catégories -->
+  <section class="section diagonal-section">
+    <div class="container">
+      <h2 class="section-title">Catégories et planning</h2>
+      <div class="grid grid-2">
+        <div class="category-card card">
+          <div class="category-day">{siteInfo.categories?.samedi?.jour || "Samedi"}</div>
+          <h3>{siteInfo.categories?.samedi?.titre || "Pilotes débutants"}</h3>
+          <ul class="category-list">
+            {(siteInfo.categories?.samedi?.liste || ['Minicross', '85cc débutant']).map((cat: string) => (
+              <li>{cat}</li>
+            ))}
+          </ul>
+          <p class="category-time">{siteInfo.horaires.samedi}</p>
+        </div>
+        <div class="category-card card">
+          <div class="category-day">{siteInfo.categories?.dimanche?.jour || "Dimanche"}</div>
+          <h3>{siteInfo.categories?.dimanche?.titre || "Pilotes confirmés"}</h3>
+          <ul class="category-list">
+            {(siteInfo.categories?.dimanche?.liste || ['85cc confirmés', '125cc', 'MX1 & MX2', 'Quad & Side-car']).map((cat: string) => (
+              <li>{cat}</li>
+            ))}
+          </ul>
+          <p class="category-time">{siteInfo.horaires.dimanche}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Actualités -->
+  {actualites.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Dernières actualités</h2>
+          <a href="/actualites" class="btn btn-secondary">Voir toutes les actualités</a>
+        </div>
+        <div class="grid grid-3">
+          {actualites.map((actualite) => (
+            <ActualiteCard
+              titre={actualite.data.titre}
+              date={actualite.data.date}
+              description={actualite.data.description}
+              image={actualite.data.image}
+              slug={actualite.slug}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Section CTA -->
+  <section class="section cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>{siteInfo.cta_accueil?.titre || "Prêt à rouler ?"}</h2>
+        <p>{siteInfo.cta_accueil?.description || "Rejoignez-nous sur le terrain et vivez votre passion du motocross !"}</p>
+        <div class="cta-buttons">
+          <a href={siteInfo.cta_accueil?.bouton1_lien || "/faq"} class="btn">{siteInfo.cta_accueil?.bouton1_texte || "Voir la FAQ"}</a>
+          <a href={siteInfo.cta_accueil?.bouton2_lien || "/contact"} class="btn btn-secondary">{siteInfo.cta_accueil?.bouton2_texte || "Nous contacter"}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .section-title {
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: var(--spacing-xl);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+  }
+
+  .category-card {
+    position: relative;
+  }
+
+  .category-day {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    background: var(--color-primary);
+    color: white;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+  }
+
+  .category-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text);
+  }
+
+  .category-list {
+    list-style: none;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .category-list li {
+    padding: var(--spacing-xs) 0;
+    color: var(--color-text-secondary);
+    position: relative;
+    padding-left: var(--spacing-md);
+  }
+
+  .category-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+
+  .category-time {
+    color: var(--color-secondary);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-dark-lighter), var(--color-dark-light));
+    border-radius: var(--radius-lg);
+    margin: var(--spacing-2xl) auto;
+    max-width: 1200px;
+  }
+
+  .cta-content {
+    text-align: center;
+    padding: var(--spacing-2xl);
+  }
+
+  .cta-content h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 768px) {
+    .section-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .cta-buttons .btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>

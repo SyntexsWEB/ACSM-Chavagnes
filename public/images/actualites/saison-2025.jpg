@@ -1,0 +1,60 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff3d00;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="lightGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Fond dégradé -->
+  <rect width="800" height="500" fill="url(#bgGrad)"/>
+
+  <!-- Effet de lumière -->
+  <circle cx="400" cy="250" r="300" fill="url(#lightGrad)"/>
+
+  <!-- Étoiles décoratives -->
+  <g fill="#ffed00" opacity="0.8">
+    <polygon points="100,80 110,110 140,110 115,130 125,160 100,140 75,160 85,130 60,110 90,110" />
+    <polygon points="680,100 690,130 720,130 695,150 705,180 680,160 655,180 665,150 640,130 670,130" />
+    <polygon points="150,400 160,430 190,430 165,450 175,480 150,460 125,480 135,450 110,430 140,430" />
+  </g>
+
+  <!-- Grand "2025" au centre -->
+  <text x="400" y="280" font-family="Impact, Arial Black, sans-serif" font-size="180"
+        fill="#ffffff" text-anchor="middle" font-weight="bold" opacity="0.9">
+    2025
+  </text>
+
+  <!-- Bannière "SAISON" -->
+  <rect x="200" y="150" width="400" height="60" fill="#0a0a0a" opacity="0.8" rx="5"/>
+  <text x="400" y="190" font-family="Arial Black, sans-serif" font-size="42"
+        fill="#ffed00" text-anchor="middle" font-weight="bold" letter-spacing="8">
+    SAISON
+  </text>
+
+  <!-- Bannière "NOUVELLE" -->
+  <rect x="150" y="320" width="500" height="50" fill="#0a0a0a" opacity="0.8" rx="5"/>
+  <text x="400" y="355" font-family="Arial, sans-serif" font-size="36"
+        fill="#00d4ff" text-anchor="middle" letter-spacing="6">
+    NOUVELLE SAISON
+  </text>
+
+  <!-- Lignes décoratives -->
+  <line x1="50" y1="250" x2="200" y2="250" stroke="#ffffff" stroke-width="4" opacity="0.5"/>
+  <line x1="600" y1="250" x2="750" y2="250" stroke="#ffffff" stroke-width="4" opacity="0.5"/>
+
+  <!-- Logo motocross stylisé -->
+  <g transform="translate(50, 420)" opacity="0.6">
+    <circle cx="20" cy="20" r="18" fill="none" stroke="#ffffff" stroke-width="3"/>
+    <circle cx="50" cy="20" r="15" fill="none" stroke="#ffffff" stroke-width="3"/>
+  </g>
+
+  <g transform="translate(700, 420)" opacity="0.6">
+    <circle cx="20" cy="20" r="18" fill="none" stroke="#ffffff" stroke-width="3"/>
+    <circle cx="50" cy="20" r="15" fill="none" stroke="#ffffff" stroke-width="3"/>
+  </g>
+</svg>

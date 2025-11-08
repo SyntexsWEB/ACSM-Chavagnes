@@ -1,0 +1,21 @@
+{
+  "name": "acsm-chavagnes",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "cms:proxy": "set PORT=8082 && npx decap-server",
+    "dev:cms": "npm run cms:proxy & npm run dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.10",
+    "@astrojs/sitemap": "^3.6.0",
+    "astro": "^5.15.4"
+  },
+  "devDependencies": {
+    "decap-server": "^3.4.0"
+  }
+}

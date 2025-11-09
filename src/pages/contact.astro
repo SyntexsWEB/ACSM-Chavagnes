@@ -1,15 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import HeroPage from '../components/HeroPage.astro';
 import siteInfo from '../data/site-info.json';
+
+const heroData = siteInfo.hero_pages.contact;
 ---
 
 <Layout
   titre="Contact"
   description="Contactez l'ACSM Chavagnes pour toute question ou information sur le terrain de motocross."
 >
+  <HeroPage
+    titre={heroData.titre}
+    soustitre={heroData.soustitre}
+    image={heroData.image}
+  />
+
   <section class="section">
     <div class="container">
-      <div class="contact-header">
+      <div class="contact-header" style="display: none;">
         <h1>Contactez-nous</h1>
         <p>Une question ? Besoin d'informations ? N'hésitez pas à nous contacter !</p>
       </div>
@@ -126,11 +135,23 @@ import siteInfo from '../data/site-info.json';
 
   .contact-header h1 {
     font-size: clamp(2.5rem, 5vw, 3.5rem);
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--color-text);
+    font-weight: 700;
     margin-bottom: var(--spacing-md);
+    position: relative;
+    display: inline-block;
+    padding-bottom: var(--spacing-sm);
+  }
+
+  .contact-header h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: var(--color-primary);
+    border-radius: 2px;
   }
 
   .contact-header p {
@@ -184,7 +205,7 @@ import siteInfo from '../data/site-info.json';
   .form-group textarea:focus {
     outline: none;
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.1);
+    box-shadow: 0 0 0 3px var(--shadow-primary-subtle);
   }
 
   .form-group textarea {

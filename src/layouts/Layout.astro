@@ -29,7 +29,7 @@ const { titre, description = siteInfo.description } = Astro.props;
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
     <title>{titre} | {siteInfo.nom}</title>
   </head>
@@ -39,8 +39,7 @@ const { titre, description = siteInfo.description } = Astro.props;
         <div class="container">
           <div class="nav-wrapper">
             <a href="/" class="logo">
-              <span class="logo-text">{siteInfo.nom.split(' ')[0]}</span>
-              <span class="logo-subtitle">{siteInfo.nom.split(' ').slice(1).join(' ')}</span>
+              <img src="/images/logo_acsm.svg" alt={siteInfo.nom} class="logo-image" />
             </a>
             <ul class="nav-menu">
               <li><a href="/">Accueil</a></li>
@@ -69,16 +68,41 @@ const { titre, description = siteInfo.description } = Astro.props;
           <div class="footer-section">
             <h3>{siteInfo.nom}</h3>
             <p>{siteInfo.description}</p>
-            {siteInfo.adresse && <p>📍 {siteInfo.adresse}</p>}
-            {siteInfo.email && <p>✉️ <a href={`mailto:${siteInfo.email}`}>{siteInfo.email}</a></p>}
-            {siteInfo.telephone && <p>📞 {siteInfo.telephone}</p>}
+            {siteInfo.adresse && <p>{siteInfo.adresse}</p>}
+            {siteInfo.email && <p><a href={`mailto:${siteInfo.email}`}>{siteInfo.email}</a></p>}
+            {siteInfo.telephone && <p>{siteInfo.telephone}</p>}
+            {(siteInfo.social?.facebook || siteInfo.social?.instagram || siteInfo.social?.twitter) && (
+              <div class="social-links">
+                {siteInfo.social.facebook && (
+                  <a href={siteInfo.social.facebook} target="_blank" rel="noopener" aria-label="Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                  </a>
+                )}
+                {siteInfo.social.instagram && (
+                  <a href={siteInfo.social.instagram} target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                  </a>
+                )}
+                {siteInfo.social.twitter && (
+                  <a href={siteInfo.social.twitter} target="_blank" rel="noopener" aria-label="Twitter/X">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                  </a>
+                )}
+              </div>
+            )}
           </div>
           <div class="footer-section">
             <h4>Horaires</h4>
             <p>{siteInfo.horaires.jours}</p>
             <p>Samedi: {siteInfo.horaires.samedi}</p>
             <p>Dimanche: {siteInfo.horaires.dimanche}</p>
-            <p class="tarif">💰 Tarif: {siteInfo.tarif}</p>
+            <p class="tarif">Tarif: {siteInfo.tarif}</p>
           </div>
           <div class="footer-section">
             <h4>Liens rapides</h4>
@@ -88,13 +112,6 @@ const { titre, description = siteInfo.description } = Astro.props;
               <li><a href="/faq">FAQ</a></li>
               <li><a href="/contact">Contact</a></li>
             </ul>
-            {(siteInfo.social?.facebook || siteInfo.social?.instagram || siteInfo.social?.twitter) && (
-              <div class="social-links">
-                {siteInfo.social.facebook && <a href={siteInfo.social.facebook} target="_blank" rel="noopener" aria-label="Facebook">📘</a>}
-                {siteInfo.social.instagram && <a href={siteInfo.social.instagram} target="_blank" rel="noopener" aria-label="Instagram">📷</a>}
-                {siteInfo.social.twitter && <a href={siteInfo.social.twitter} target="_blank" rel="noopener" aria-label="Twitter">🐦</a>}
-              </div>
-            )}
           </div>
         </div>
         <div class="footer-bottom">
@@ -106,16 +123,27 @@ const { titre, description = siteInfo.description } = Astro.props;
     <style>
       /* Header & Navigation */
       header {
-        position: sticky;
+        position: fixed;
         top: 0;
+        left: 0;
+        right: 0;
         z-index: 100;
+        background: var(--header-bg);
+        backdrop-filter: none;
+        border-bottom: 1px solid var(--header-border);
+        box-shadow: var(--header-shadow);
+        transition: all var(--transition-normal);
+      }
+
+      header.scrolled {
         background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid var(--color-border);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 184, 0, 0.1);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
       }
 
       .navbar {
-        padding: var(--spacing-md) 0;
+        padding: 1rem 0;
       }
 
       .nav-wrapper {
@@ -126,40 +154,35 @@ const { titre, description = siteInfo.description } = Astro.props;
 
       .logo {
         display: flex;
-        flex-direction: column;
+        align-items: center;
         text-decoration: none;
       }
 
-      .logo-text {
-        font-size: 1.75rem;
-        font-weight: 800;
-        background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        letter-spacing: -0.02em;
+      .logo-image {
+        height: 70px;
+        width: auto;
+        transition: all var(--transition-fast);
       }
 
-      .logo-subtitle {
-        font-size: 0.75rem;
-        color: var(--color-text-secondary);
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        margin-top: -4px;
+      .logo:hover .logo-image {
+        filter: drop-shadow(0 0 15px var(--glow-primary));
+        transform: scale(1.05);
       }
 
       .nav-menu {
         display: flex;
         list-style: none;
-        gap: var(--spacing-lg);
+        gap: 2rem;
         align-items: center;
       }
 
       .nav-menu a {
-        color: var(--color-text);
+        color: white;
         font-weight: 500;
-        transition: color var(--transition-fast);
+        font-size: 0.9rem;
+        transition: all var(--transition-fast);
         position: relative;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
       }
 
       .nav-menu a:not(.btn-nav):hover {
@@ -182,16 +205,23 @@ const { titre, description = siteInfo.description } = Astro.props;
       }
 
       .btn-nav {
-        padding: var(--spacing-xs) var(--spacing-md);
-        background: linear-gradient(135deg, var(--color-primary), #ff8c00);
-        border-radius: var(--radius-md);
+        padding: 0.6rem 1.5rem;
+        background: var(--color-primary);
+        border-radius: 6px;
         color: white !important;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-shadow: none;
+        border: 2px solid var(--color-primary);
       }
 
       .btn-nav:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(255, 107, 0, 0.3);
+        background: transparent;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px var(--shadow-primary-strong);
+        color: white !important;
+        border-color: var(--color-primary);
       }
 
       .mobile-menu-toggle {
@@ -216,7 +246,7 @@ const { titre, description = siteInfo.description } = Astro.props;
       footer {
         background: var(--color-dark-lighter);
         border-top: 1px solid var(--color-border);
-        margin-top: var(--spacing-2xl);
+        margin-top: 0;
         padding: var(--spacing-2xl) 0 var(--spacing-md);
       }
 
@@ -228,8 +258,9 @@ const { titre, description = siteInfo.description } = Astro.props;
       }
 
       .footer-section h3, .footer-section h4 {
-        color: var(--color-primary);
+        color: white;
         margin-bottom: var(--spacing-sm);
+        font-weight: 700;
       }
 
       .footer-section p {
@@ -253,6 +284,39 @@ const { titre, description = siteInfo.description } = Astro.props;
 
       .footer-section ul a:hover {
         color: var(--color-primary);
+      }
+
+      .footer-section a {
+        color: var(--color-primary);
+        transition: color var(--transition-fast);
+      }
+
+      .footer-section a:hover {
+        color: var(--color-primary-light);
+      }
+
+      .social-links {
+        display: flex;
+        gap: var(--spacing-md);
+        margin-top: var(--spacing-md);
+      }
+
+      .social-links a {
+        color: var(--color-text-secondary);
+        transition: all var(--transition-fast);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .social-links a:hover {
+        color: var(--color-primary);
+        transform: translateY(-2px);
+      }
+
+      .social-links svg {
+        width: 24px;
+        height: 24px;
       }
 
       .footer-bottom {
@@ -284,12 +348,23 @@ const { titre, description = siteInfo.description } = Astro.props;
     </style>
 
     <script>
-      // Mobile menu toggle (à implémenter si nécessaire)
+      // Mobile menu toggle
       const menuToggle = document.querySelector('.mobile-menu-toggle');
       const navMenu = document.querySelector('.nav-menu');
 
       menuToggle?.addEventListener('click', () => {
         navMenu?.classList.toggle('active');
+      });
+
+      // Header scroll effect
+      const header = document.querySelector('header');
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header?.classList.add('scrolled');
+        } else {
+          header?.classList.remove('scrolled');
+        }
       });
     </script>
   </body>

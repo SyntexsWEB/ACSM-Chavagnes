@@ -154,9 +154,73 @@
                         ]
                       },
                       {
-                        label: 'Images Hero (bannières de pages)',
+                        label: 'Hero Section Accueil',
+                        name: 'hero_accueil',
+                        widget: 'object',
+                        fields: [
+                          { label: 'Image de fond', name: 'image', widget: 'image', default: '/images/hero-motocross.jpg' },
+                          { label: 'Sous-titre', name: 'soustitre', widget: 'string', default: 'Votre terrain de motocross à Terranjou' },
+                          { label: 'Titre ligne 1', name: 'titre_ligne1', widget: 'string', default: 'VOTRE TERRAIN DE' },
+                          { label: 'Titre ligne 2 (en vert)', name: 'titre_ligne2', widget: 'string', default: 'MOTOCROSS' },
+                          { label: 'Description', name: 'description', widget: 'text', default: 'Terrain ouvert les 1er et 3ème week-end de chaque mois.' },
+                          { label: 'Bouton 1 - Texte', name: 'bouton1_texte', widget: 'string', default: 'DÉCOUVRIR LE TERRAIN' },
+                          { label: 'Bouton 1 - Lien', name: 'bouton1_lien', widget: 'string', default: '/presentation' },
+                          { label: 'Bouton 2 - Texte', name: 'bouton2_texte', widget: 'string', default: 'NOUS CONTACTER' },
+                          { label: 'Bouton 2 - Lien', name: 'bouton2_lien', widget: 'string', default: '/contact' }
+                        ]
+                      },
+                      {
+                        label: 'Hero Sections Pages',
+                        name: 'hero_pages',
+                        widget: 'object',
+                        fields: [
+                          {
+                            label: 'Page Présentation',
+                            name: 'presentation',
+                            widget: 'object',
+                            fields: [
+                              { label: 'Image', name: 'image', widget: 'image', default: '/images/terrain-vue.jpg' },
+                              { label: 'Titre', name: 'titre', widget: 'string', default: 'Présentation du terrain' },
+                              { label: 'Sous-titre', name: 'soustitre', widget: 'string', default: 'Découvrez notre circuit' }
+                            ]
+                          },
+                          {
+                            label: 'Page Règlement',
+                            name: 'reglement',
+                            widget: 'object',
+                            fields: [
+                              { label: 'Image', name: 'image', widget: 'image', default: '/images/hero-motocross.jpg' },
+                              { label: 'Titre', name: 'titre', widget: 'string', default: 'Règlement du terrain' },
+                              { label: 'Sous-titre', name: 'soustitre', widget: 'string', default: 'Les règles à respecter' }
+                            ]
+                          },
+                          {
+                            label: 'Page FAQ',
+                            name: 'faq',
+                            widget: 'object',
+                            fields: [
+                              { label: 'Image', name: 'image', widget: 'image', default: '/images/hero-motocross.jpg' },
+                              { label: 'Titre', name: 'titre', widget: 'string', default: 'Questions fréquentes' },
+                              { label: 'Sous-titre', name: 'soustitre', widget: 'string', default: 'Toutes les réponses' }
+                            ]
+                          },
+                          {
+                            label: 'Page Contact',
+                            name: 'contact',
+                            widget: 'object',
+                            fields: [
+                              { label: 'Image', name: 'image', widget: 'image', default: '/images/hero-motocross.jpg' },
+                              { label: 'Titre', name: 'titre', widget: 'string', default: 'Contactez-nous' },
+                              { label: 'Sous-titre', name: 'soustitre', widget: 'string', default: 'Nous sommes à votre écoute' }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        label: 'Images Hero (anciennes - à supprimer)',
                         name: 'images_hero',
                         widget: 'object',
+                        collapsed: true,
                         fields: [
                           { label: 'Image Accueil', name: 'accueil', widget: 'image', default: '/images/hero-motocross.jpg' },
                           { label: 'Image Présentation', name: 'presentation', widget: 'image', default: '/images/terrain-vue.jpg' },

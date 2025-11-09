@@ -1,22 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
+import HeroPage from '../components/HeroPage.astro';
 import { getEntry } from 'astro:content';
 import siteInfo from '../data/site-info.json';
 
 const page = await getEntry('pages', 'presentation');
 if (!page) throw new Error('Page not found: presentation');
 const { Content } = await page.render();
+
+const heroData = siteInfo.hero_pages.presentation;
 ---
 
 <Layout
   titre={page.data.titre}
   description={page.data.description}
 >
-  <Hero
-    titre={page.data.titre}
-    soustitre="Un site exceptionnel pour la pratique du motocross"
-    image={siteInfo.images_hero?.presentation || "/images/terrain-vue.jpg"}
+  <HeroPage
+    titre={heroData.titre}
+    soustitre={heroData.soustitre}
+    image={heroData.image}
   />
 
   <section class="section">
@@ -97,7 +99,7 @@ const { Content } = await page.render();
   }
 
   .markdown-content :global(h3) {
-    color: var(--color-secondary);
+    color: var(--color-primary-light);
     margin-top: var(--spacing-xl);
     margin-bottom: var(--spacing-md);
   }
@@ -133,7 +135,7 @@ const { Content } = await page.render();
   }
 
   .markdown-content :global(a:hover) {
-    color: var(--color-secondary);
+    color: var(--color-primary-light);
   }
 
   .content-main h2 {
@@ -142,7 +144,7 @@ const { Content } = await page.render();
   }
 
   .content-main h3 {
-    color: var(--color-secondary);
+    color: var(--color-primary-light);
     margin-top: var(--spacing-xl);
     margin-bottom: var(--spacing-md);
   }
@@ -210,7 +212,7 @@ const { Content } = await page.render();
   }
 
   .schedule-item .time {
-    color: var(--color-secondary);
+    color: var(--color-primary);
     font-weight: 600;
     margin-top: var(--spacing-xs);
   }
@@ -278,10 +280,22 @@ const { Content } = await page.render();
     text-align: center;
     font-size: clamp(2rem, 4vw, 2.5rem);
     margin-bottom: var(--spacing-md);
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--color-text);
+    font-weight: 700;
+    position: relative;
+    padding-bottom: var(--spacing-md);
+  }
+
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--color-primary);
+    border-radius: 2px;
   }
 
   .partners-intro {

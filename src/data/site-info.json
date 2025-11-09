@@ -17,13 +17,24 @@
   "nom": "ACSM Chavagnes",
   "horaires": {
     "jours": "1er et 3ème week-end du mois",
-    "samedi": "9h-12h / 13h30-17h35",
+    "samedi": "9h-12h / 13h30-17h30",
     "dimanche": "9h-12h / 13h30-17h30"
   },
   "social": {
     "facebook": "https://www.facebook.com/profile.php?id=100004808973777",
     "instagram": "",
     "twitter": ""
+  },
+  "hero_accueil": {
+    "bouton2_texte": "NOUS CONTACTER",
+    "soustitre": " ",
+    "image": "/images/170822080831_gerhyfnudagcr2ptdb4nxsitctuxdn.jpg",
+    "description": "Terrain de motocross à Chavagnes-les-Eaux, Terranjou (Maine-et-Loire), à 30 min d'Angers.",
+    "titre_ligne1": "MOTOCROSS",
+    "titre_ligne2": "CHAVAGNES LES EAUX",
+    "bouton2_lien": "/contact",
+    "bouton1_lien": "/presentation",
+    "bouton1_texte": "DÉCOUVRIR LE TERRAIN"
   },
   "adresse": "Terranjou, France",
   "categories": {
@@ -51,5 +62,27 @@
   "vehicules_acceptes": {
     "titre": "Véhicules acceptés",
     "description": "Motocross, sidecar, quad, électrique, enduro. Toutes catégories bienvenues."
+  },
+  "hero_pages": {
+    "presentation": {
+      "image": "/images/terrain-vue.jpg",
+      "titre": "Présentation du terrain",
+      "soustitre": "Découvrez notre circuit de motocross"
+    },
+    "reglement": {
+      "image": "/images/hero-motocross.jpg",
+      "titre": "Règlement du terrain",
+      "soustitre": "Les règles à respecter pour votre sécurité"
+    },
+    "faq": {
+      "image": "/images/hero-motocross.jpg",
+      "titre": "Questions fréquentes",
+      "soustitre": "Toutes les réponses à vos questions"
+    },
+    "contact": {
+      "image": "/images/hero-motocross.jpg",
+      "titre": "Contactez-nous",
+      "soustitre": "Nous sommes à votre écoute"
+    }
   }
 }

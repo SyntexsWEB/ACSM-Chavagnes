@@ -1,14 +1,104 @@
 :root {
-  /* Couleurs motocross - thème sombre */
-  --color-primary: #ff6b00; /* Orange vif motocross */
-  --color-secondary: #00d4ff; /* Bleu électrique */
-  --color-accent: #ffed00; /* Jaune flash */
+  /* Couleurs ACSM Chavagnes - Palette Rouge & Blanc */
+
+  /* 🔴 Rouge - Couleur primaire (motocross dynamique) */
+  --color-primary: #b91c1c;
+  --color-primary-light: #dc2626;
+  --color-primary-lighter: #ef4444;
+  --color-primary-dark: #991b1b;
+  --color-primary-darker: #7f1d1d;
+
+  /* ⚪ Blanc/Gris clair - Couleur secondaire (contraste et élégance) */
+  --color-secondary: #f5f5f5;
+  --color-secondary-light: #ffffff;
+  --color-secondary-lighter: #ffffff;
+  --color-secondary-dark: #e0e0e0;
+  --color-secondary-darker: #cccccc;
+
+  /* 💛 Jaune doré - Accent pour highlights */
+  --color-accent: #FFB800;
+  --color-accent-light: #FFC933;
+  --color-accent-dark: #CC9300;
+
+  /* 🟢 Vert - Accent alternatif */
+  --color-accent-alt: #00cc44;
+  --color-accent-alt-light: #00e64d;
+  --color-accent-alt-dark: #00a838;
+
+  /* ⚫ Noir - Fond principal */
   --color-dark: #0a0a0a;
   --color-dark-lighter: #1a1a1a;
   --color-dark-light: #2a2a2a;
-  --color-text: #e5e5e5;
-  --color-text-secondary: #a0a0a0;
-  --color-border: #333333;
+
+  /* Gris anthracite - Blocs, cartes, contraste doux */
+  --color-steel: #1a1a1a;
+  --color-steel-light: #2a2a2a;
+  --color-steel-lighter: #3a3a3a;
+
+  /* Texte principal */
+  --color-text: #E0E0E0;
+  --color-text-secondary: #aaaaaa;
+  --color-text-muted: rgba(224, 224, 224, 0.5);
+  --color-text-dim: rgba(224, 224, 224, 0.7);
+  --color-text-bright: rgba(224, 224, 224, 0.9);
+
+  /* Couleurs de bordure */
+  --color-border: #2B2B2B;
+  --color-border-light: rgba(185, 28, 28, 0.15);
+
+  /* Couleurs d'arrière-plan CTA et encarts */
+  --color-cta-bg: rgba(185, 28, 28, 0.15);
+  --color-cta-border: rgba(185, 28, 28, 0.3);
+
+  /* Couleurs d'effet et ombres - Rouge (couleur primaire) */
+  --shadow-primary: rgba(185, 28, 28, 0.3);
+  --shadow-primary-strong: rgba(185, 28, 28, 0.5);
+  --shadow-primary-subtle: rgba(185, 28, 28, 0.1);
+
+  /* Couleurs d'effet et ombres - Blanc/Gris (secondaire) */
+  --shadow-secondary: rgba(245, 245, 245, 0.3);
+  --shadow-secondary-strong: rgba(255, 255, 255, 0.5);
+  --shadow-secondary-subtle: rgba(245, 245, 245, 0.1);
+
+  /* Couleurs d'effet et ombres - Jaune (accent) */
+  --shadow-accent: rgba(255, 184, 0, 0.3);
+  --shadow-accent-strong: rgba(255, 184, 0, 0.5);
+
+  /* Couleurs d'effet et ombres - Vert (accent alternatif) */
+  --shadow-accent-alt: rgba(0, 204, 68, 0.3);
+  --shadow-accent-alt-strong: rgba(0, 204, 68, 0.5);
+
+  --shadow-dark: rgba(0, 0, 0, 0.2);
+  --shadow-dark-strong: rgba(0, 0, 0, 0.8);
+
+  /* Couleurs de superposition/overlay */
+  --overlay-dark: rgba(10, 10, 10, 0.6);
+  --overlay-dark-strong: rgba(10, 10, 10, 0.85);
+  --overlay-dark-medium: rgba(10, 10, 10, 0.8);
+  --overlay-dark-light: rgba(10, 10, 10, 0.15);
+  --overlay-dark-medium-2: rgba(10, 10, 10, 0.35);
+
+  /* Couleurs spécifiques pour header transparent */
+  --header-bg: transparent;
+  --header-border: transparent;
+  --header-shadow: none;
+
+  /* Couleurs pour texte hero avec meilleur contraste */
+  --hero-subtitle-color: rgba(255, 255, 255, 0.85);
+  --hero-title-color: #ffffff;
+  --hero-description-color: rgba(255, 255, 255, 0.9);
+  --hero-text-shadow: rgba(0, 0, 0, 0.8);
+  --hero-text-shadow-subtle: rgba(0, 0, 0, 0.5);
+
+  /* Couleurs de glow/lueur */
+  --glow-primary: rgba(185, 28, 28, 0.3);
+  --glow-primary-strong: rgba(185, 28, 28, 0.5);
+  --glow-secondary: rgba(255, 255, 255, 0.3);
+  --glow-secondary-strong: rgba(255, 255, 255, 0.5);
+  --glow-accent: rgba(255, 184, 0, 0.3);
+  --glow-accent-strong: rgba(255, 184, 0, 0.5);
+  --glow-accent-alt: rgba(0, 204, 68, 0.3);
+  --glow-accent-alt-strong: rgba(0, 204, 68, 0.5);
 
   /* Typographie */
   --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -91,7 +181,7 @@ a {
 }
 
 a:hover {
-  color: var(--color-secondary);
+  color: var(--color-primary-light);
 }
 
 /* Utilitaires */
@@ -106,10 +196,84 @@ a:hover {
   padding: var(--spacing-2xl) 0;
 }
 
+/* Sections avec backgrounds alternés (inspiré de Schweyen MX) */
+.section-dark {
+  background: var(--color-dark);
+  position: relative;
+}
+
+.section-dark::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(255, 184, 0, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(107, 142, 35, 0.02) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section-darker {
+  background: #141414;
+  position: relative;
+}
+
+.section-darker::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(255, 184, 0, 0.02) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section-darkest {
+  background: #0a0a0a;
+  position: relative;
+}
+
+.section-steel {
+  background: var(--color-steel);
+  position: relative;
+}
+
+/* Assurer que le contenu soit au-dessus des overlays */
+.section-dark > *,
+.section-darker > *,
+.section-darkest > *,
+.section-steel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.section-light {
+  background: #f3f3f3;
+  color: var(--color-dark);
+  position: relative;
+}
+
+.section-light h2,
+.section-light h3,
+.section-light h4 {
+  color: var(--color-dark);
+}
+
+.section-light p,
+.section-light li {
+  color: #333;
+}
+
 .btn {
   display: inline-block;
   padding: var(--spacing-sm) var(--spacing-lg);
-  background: linear-gradient(135deg, var(--color-primary), #ff8c00);
+  background: var(--color-primary);
   color: white;
   border: none;
   border-radius: var(--radius-md);
@@ -123,16 +287,21 @@ a:hover {
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(255, 107, 0, 0.3);
+  box-shadow: 0 10px 25px var(--shadow-primary-strong);
+  background: var(--color-primary-light);
   color: white;
 }
 
 .btn-secondary {
-  background: linear-gradient(135deg, var(--color-secondary), #00b8d4);
+  background: var(--color-secondary);
+  color: white;
+  border: none;
 }
 
 .btn-secondary:hover {
-  box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+  box-shadow: 0 10px 25px var(--shadow-secondary-strong);
+  background: var(--color-secondary-light);
+  color: white;
 }
 
 /* Grille responsive */
@@ -151,7 +320,7 @@ a:hover {
 
 /* Cards */
 .card {
-  background: var(--color-dark-lighter);
+  background: var(--color-steel);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--spacing-lg);
@@ -161,7 +330,7 @@ a:hover {
 .card:hover {
   transform: translateY(-5px);
   border-color: var(--color-primary);
-  box-shadow: 0 10px 30px rgba(255, 107, 0, 0.2);
+  box-shadow: 0 10px 30px var(--shadow-dark);
 }
 
 /* Images */
@@ -200,10 +369,38 @@ img {
   left: 0;
   right: 0;
   height: 100%;
-  background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-lighter) 100%);
+  background: var(--color-steel);
   transform: skewY(-3deg);
   transform-origin: top left;
   z-index: -1;
+}
+
+/* Séparateurs visuels entre sections */
+.section-separator {
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--color-primary) 50%, transparent 100%);
+  margin: 0;
+}
+
+.section-separator-bold {
+  height: 4px;
+  background: var(--color-primary);
+  margin: 0;
+}
+
+/* Amélioration du contraste pour les sections sombres */
+.section-darker .card,
+.section-darkest .card,
+.section-dark .card {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 184, 0, 0.15);
+}
+
+.section-darker .card:hover,
+.section-darkest .card:hover,
+.section-dark .card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--color-primary);
 }
 
 /* Responsive */
@@ -238,5 +435,7 @@ img {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-secondary);
+  background: var(--color-primary-light);
 }
+
+/* Les scrollbars sont maintenant en rouge pour correspondre au thème */

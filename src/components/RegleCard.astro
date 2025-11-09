@@ -1,0 +1,113 @@
+---
+interface Props {
+  icone: string;
+  titre: string;
+  description: string;
+  important?: boolean;
+}
+
+const { icone, titre, description, important = false } = Astro.props;
+---
+
+<div class={`regle-card ${important ? 'important' : ''}`}>
+  <div class="regle-icon" set:html={icone} />
+  <div class="regle-content">
+    <h3 class="regle-titre">{titre}</h3>
+    <p class="regle-description">{description}</p>
+  </div>
+</div>
+
+<style>
+  .regle-card {
+    background: var(--color-steel);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    transition: all var(--transition-normal);
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+  }
+
+  .regle-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-primary);
+    box-shadow: 0 10px 30px var(--shadow-dark);
+  }
+
+  .regle-card.important {
+    background: linear-gradient(135deg, var(--color-primary-lighter) 0%, var(--color-primary) 100%);
+    border-color: var(--color-primary);
+  }
+
+  .regle-card.important:hover {
+    box-shadow: 0 10px 30px var(--shadow-primary-strong);
+  }
+
+  .regle-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background: var(--color-primary);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-dark);
+  }
+
+  .regle-card.important .regle-icon {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .regle-icon :global(svg) {
+    width: 32px;
+    height: 32px;
+    stroke-width: 2;
+  }
+
+  .regle-content {
+    flex: 1;
+  }
+
+  .regle-titre {
+    font-size: 1.25rem;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-xs);
+    font-weight: 700;
+  }
+
+  .regle-card.important .regle-titre {
+    color: white;
+  }
+
+  .regle-description {
+    color: var(--color-text-secondary);
+    margin: 0;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  .regle-card.important .regle-description {
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  @media (max-width: 768px) {
+    .regle-card {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+
+    .regle-icon {
+      width: 50px;
+      height: 50px;
+    }
+
+    .regle-icon :global(svg) {
+      width: 28px;
+      height: 28px;
+    }
+  }
+</style>

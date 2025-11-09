@@ -1,11 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import HeroPage from '../components/HeroPage.astro';
 import Accordion from '../components/Accordion.astro';
 import { getEntry } from 'astro:content';
+import siteInfo from '../data/site-info.json';
 
 const page = await getEntry('pages', 'faq');
 if (!page) throw new Error('Page not found: faq');
 const { body } = page;
+
+const heroData = siteInfo.hero_pages.faq;
 
 // Parser le contenu Markdown pour extraire les sections
 const sections: { category: string; questions: { question: string; answer: string }[] }[] = [];
@@ -73,10 +77,16 @@ function simpleMarkdownToHtml(text: string): string {
   titre={page.data.titre}
   description={page.data.description}
 >
+  <HeroPage
+    titre={heroData.titre}
+    soustitre={heroData.soustitre}
+    image={heroData.image}
+  />
+
   <section class="section">
     <div class="container">
       <div class="faq-header">
-        <h1>{page.data.titre}</h1>
+        <h1 style="display: none;">{page.data.titre}</h1>
         <p>Trouvez rapidement les réponses à vos questions</p>
       </div>
 
@@ -126,11 +136,23 @@ function simpleMarkdownToHtml(text: string): string {
 
   .faq-header h1 {
     font-size: clamp(2.5rem, 5vw, 3.5rem);
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--color-text);
+    font-weight: 700;
     margin-bottom: var(--spacing-md);
+    position: relative;
+    display: inline-block;
+    padding-bottom: var(--spacing-sm);
+  }
+
+  .faq-header h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: var(--color-primary);
+    border-radius: 2px;
   }
 
   .faq-header p {

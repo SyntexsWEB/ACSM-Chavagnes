@@ -19,15 +19,33 @@
 
     if (isDev) {
       console.log('🛠️ MODE DÉVELOPPEMENT - Backend test-repo');
-
-      // En développement, on charge config.dev.yml en le renommant en config.yml
-      // car le CMS cherche toujours /admin/config.yml par défaut
-      // Il faut donc s'assurer que config.dev.yml est copié comme config.yml en dev
     } else {
       console.log('🚀 MODE PRODUCTION - Backend git-gateway');
     }
 
-    // Le CMS s'initialise automatiquement avec /admin/config.yml
+    // Gestion de l'authentification Netlify Identity
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        // Si pas d'utilisateur connecté et qu'on est sur /admin, ouvrir le widget
+        if (!user) {
+          window.netlifyIdentity.open();
+        }
+      });
+
+      // Redirection après login/signup
+      window.netlifyIdentity.on("login", () => {
+        window.location.reload();
+      });
+
+      window.netlifyIdentity.on("signup", () => {
+        window.location.reload();
+      });
+
+      // Déconnexion
+      window.netlifyIdentity.on("logout", () => {
+        window.location.href = "/";
+      });
+    }
   </script>
 </body>
 </html>

@@ -1,0 +1,224 @@
+---
+import siteInfo from '../data/site-info.json';
+
+interface Props {
+  image: string;
+}
+
+const { image } = Astro.props;
+---
+
+<section class="infos-image-section">
+  <div class="infos-split">
+    <!-- Partie gauche : Informations sur fond clair -->
+    <div class="infos-content">
+      <div class="infos-header">
+        <h2 class="infos-subtitle">À SAVOIR</h2>
+        <h3 class="infos-title">INFORMATIONS</h3>
+        <div class="title-underline"></div>
+      </div>
+
+      <div class="infos-list">
+        <!-- Horaires -->
+        <div class="info-block">
+          <div class="info-icon-inline">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <div class="info-text">
+            <h4>HORAIRES D'OUVERTURE</h4>
+            <p>{siteInfo.horaires.jours}</p>
+            <p class="info-detail">Samedi: {siteInfo.horaires.samedi}</p>
+            <p class="info-detail">Dimanche: {siteInfo.horaires.dimanche}</p>
+          </div>
+        </div>
+
+        <!-- Tarif -->
+        <div class="info-block">
+          <div class="info-icon-inline">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+          </div>
+          <div class="info-text">
+            <h4>TARIF JOURNÉE</h4>
+            <p class="tarif-highlight">{siteInfo.tarif}</p>
+            <p class="info-detail">Licence FFM acceptée</p>
+          </div>
+        </div>
+
+        <!-- Véhicules acceptés -->
+        <div class="info-block">
+          <div class="info-icon-inline">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div class="info-text">
+            <h4>VÉHICULES ACCEPTÉS</h4>
+            <p>Motocross, sidecar, quad</p>
+            <p class="info-detail">Électrique, enduro</p>
+            <p class="info-detail">Toutes catégories bienvenues</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Partie droite : Grande image -->
+    <div class="infos-image">
+      <img src={image} alt="Motocross ACSM Chavagnes" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .infos-image-section {
+    background: #f3f3f3;
+    position: relative;
+  }
+
+  .infos-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 700px;
+  }
+
+  /* Partie gauche - Informations */
+  .infos-content {
+    padding: var(--spacing-2xl) var(--spacing-2xl) var(--spacing-2xl) 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #f3f3f3;
+  }
+
+  .infos-header {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .infos-subtitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: var(--spacing-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .infos-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: #0a0a0a;
+    line-height: 1.1;
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+
+  .title-underline {
+    width: 60px;
+    height: 4px;
+    background: var(--color-primary);
+    border-radius: 2px;
+  }
+
+  .infos-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+  }
+
+  .info-block {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+  }
+
+  .info-icon-inline {
+    width: 50px;
+    height: 50px;
+    background: var(--color-primary);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .info-icon-inline svg {
+    width: 26px;
+    height: 26px;
+    color: white;
+  }
+
+  .info-text h4 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #0a0a0a;
+    margin-bottom: var(--spacing-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .info-text p {
+    color: #333;
+    margin: var(--spacing-xs) 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .info-detail {
+    color: #666 !important;
+    font-size: 0.9rem !important;
+  }
+
+  .tarif-highlight {
+    font-size: 1.75rem !important;
+    font-weight: 800 !important;
+    color: #0a0a0a !important;
+    margin: var(--spacing-xs) 0 !important;
+  }
+
+  /* Partie droite - Image */
+  .infos-image {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .infos-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .infos-split {
+      grid-template-columns: 1fr;
+    }
+
+    .infos-content {
+      padding: var(--spacing-2xl) var(--spacing-lg);
+    }
+
+    .infos-image {
+      min-height: 400px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .infos-content {
+      padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    .infos-image {
+      min-height: 300px;
+    }
+
+    .infos-list {
+      gap: var(--spacing-lg);
+    }
+  }
+</style>

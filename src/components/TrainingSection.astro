@@ -1,0 +1,180 @@
+---
+interface Props {
+  image: string;
+  titre: string;
+  soustitre?: string;
+  description: string;
+  boutonTexte?: string;
+  boutonLien?: string;
+}
+
+const {
+  image,
+  titre,
+  soustitre = "MOTOCROSS",
+  description,
+  boutonTexte,
+  boutonLien
+} = Astro.props;
+---
+
+<section class="training-section">
+  <div class="training-background">
+    <img src={image} alt={titre} />
+    <div class="training-overlay"></div>
+  </div>
+
+  <div class="training-content">
+    <div class="container">
+      <div class="training-text">
+        <div class="training-header">
+          <h2 class="training-subtitle">{soustitre}</h2>
+          <h3 class="training-title">{titre}</h3>
+          <div class="title-underline"></div>
+        </div>
+
+        <p class="training-description">{description}</p>
+
+        {boutonTexte && boutonLien && (
+          <a href={boutonLien} class="training-btn">
+            {boutonTexte}
+          </a>
+        )}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .training-section {
+    position: relative;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .training-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .training-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .training-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      rgba(10, 10, 10, 0.9) 0%,
+      rgba(10, 10, 10, 0.7) 50%,
+      rgba(10, 10, 10, 0.4) 100%
+    );
+  }
+
+  .training-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .training-text {
+    max-width: 1100px;
+  }
+
+  .training-header {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .training-subtitle {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 700;
+    color: white;
+    margin-bottom: var(--spacing-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .training-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: white;
+    line-height: 1.1;
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+  }
+
+  .title-underline {
+    width: 80px;
+    height: 4px;
+    background: var(--color-primary);
+    border-radius: 2px;
+  }
+
+  .training-description {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: var(--spacing-xl);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .training-btn {
+    display: inline-block;
+    padding: var(--spacing-md) var(--spacing-xl);
+    background: transparent;
+    color: white;
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-lg);
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all var(--transition-normal);
+    text-shadow: none;
+  }
+
+  .training-btn:hover {
+    background: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px var(--shadow-primary-strong);
+  }
+
+  @media (max-width: 768px) {
+    .training-section {
+      min-height: 600px;
+    }
+
+    .training-overlay {
+      background: linear-gradient(
+        135deg,
+        rgba(10, 10, 10, 0.85) 0%,
+        rgba(10, 10, 10, 0.75) 100%
+      );
+    }
+
+    .training-text {
+      max-width: 100%;
+    }
+
+    .training-description {
+      font-size: 1rem;
+    }
+  }
+</style>

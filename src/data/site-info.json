@@ -1,10 +1,10 @@
 {
   "hero_accueil": {
     "image": "/images/170822080831_gerhyfnudagcr2ptdb4nxsitctuxdn.jpg",
-    "soustitre": "Votre terrain de motocross à Terranjou",
-    "titre_ligne1": "VOTRE TERRAIN DE",
-    "titre_ligne2": "MOTOCROSS",
-    "description": "Terrain ouvert les 1er et 3ème week-end de chaque mois. Toutes catégories bienvenues dans un cadre exceptionnel.",
+    "soustitre": "",
+    "titre_ligne1": "MOTOCROSS",
+    "titre_ligne2": "CHAVAGNES LES EAUX",
+    "description": "Terrain de motocross à Chavagnes-les-Eaux, Terranjou (Maine-et-Loire), à 30 min d'Angers.",
     "bouton1_texte": "DÉCOUVRIR LE TERRAIN",
     "bouton1_lien": "/presentation",
     "bouton2_texte": "NOUS CONTACTER",

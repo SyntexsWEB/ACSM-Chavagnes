@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import HeroPage from '../components/HeroPage.astro';
+import RegleCard from '../components/RegleCard.astro';
 import { getEntry } from 'astro:content';
 import siteInfo from '../data/site-info.json';
 
@@ -21,11 +22,83 @@ const heroData = siteInfo.hero_pages.reglement;
     image={heroData.image}
   />
 
-  <section class="section">
+  <section class="section reglement-section">
     <div class="container">
 
-      <div class="reglement-content markdown-content">
-        <Content />
+      <!-- Introduction -->
+      <div class="reglement-intro">
+        <h2>Règles essentielles de sécurité</h2>
+        <p>Pour garantir la sécurité de tous, merci de respecter scrupuleusement le règlement suivant :</p>
+      </div>
+
+      <!-- Règles principales avec icônes -->
+      <div class="regles-grid">
+        <RegleCard
+          icone='<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>'
+          titre="Inscription obligatoire"
+          description="Tout pilote doit s'inscrire à l'accueil avant de rouler. Présentation de la licence FFM ou signature d'une décharge pour les non-licenciés."
+        />
+
+        <RegleCard
+          icone='<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>'
+          titre="Équipement de protection"
+          description="Port obligatoire du casque homologué, gants, bottes, pantalon et maillot de protection. Les protections dorsales et plastrons sont fortement recommandés."
+        />
+
+        <RegleCard
+          icone='<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>'
+          titre="Respect des autres pilotes"
+          description="Adaptez votre vitesse en fonction de votre niveau et de celui des autres. Ne doublez que si vous êtes sûr de ne pas gêner. Priorité aux pilotes plus rapides."
+          important={true}
+        />
+
+        <RegleCard
+          icone='<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>'
+          titre="Bâches environnementales"
+          description="Les bâches sont obligatoires pour tous les véhicules afin de protéger l'environnement. Aucune fuite d'huile ou de carburant n'est tolérée sur le terrain."
+        />
+
+        <RegleCard
+          icone='<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>'
+          titre="Propreté du site"
+          description="Chaque pilote doit gérer ses déchets. Des poubelles sont à disposition. Laissez le terrain aussi propre que vous l'avez trouvé."
+        />
+
+        <RegleCard
+          icone='<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" /></svg>'
+          titre="Sécurité incendie"
+          description="Interdiction formelle de faire du feu. Respectez les zones de ravitaillement. Un extincteur doit être à disposition dans chaque paddock."
+          important={true}
+        />
+
+        <RegleCard
+          icone='<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>'
+          titre="Respect des horaires"
+          description="Le terrain est ouvert uniquement aux horaires indiqués. Merci de respecter les créneaux horaires définis pour chaque catégorie de pilotes."
+        />
+
+        <RegleCard
+          icone='<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" /></svg>'
+          titre="Véhicule en bon état"
+          description="Votre véhicule doit être en bon état de fonctionnement. Contrôlez freins, suspensions et niveau sonore avant de rouler."
+        />
+
+        <RegleCard
+          icone='<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>'
+          titre="Mineurs accompagnés"
+          description="Les mineurs doivent obligatoirement être accompagnés d'un adulte responsable présent sur le site durant toute la session."
+        />
+      </div>
+
+      <!-- Règlement complet en texte -->
+      <div class="reglement-details">
+        <div class="details-header">
+          <h2>Règlement complet</h2>
+          <div class="header-underline"></div>
+        </div>
+        <div class="reglement-content markdown-content">
+          <Content />
+        </div>
       </div>
 
       <div class="cta-section">
@@ -37,6 +110,64 @@ const heroData = siteInfo.hero_pages.reglement;
 </Layout>
 
 <style>
+  .reglement-section {
+    background: var(--color-dark);
+  }
+
+  .reglement-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--spacing-2xl);
+  }
+
+  .reglement-intro h2 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: var(--color-text);
+    margin-bottom: var(--spacing-md);
+    font-weight: 700;
+  }
+
+  .reglement-intro p {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  .regles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .reglement-details {
+    background: var(--color-dark-lighter);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-2xl);
+    margin-bottom: var(--spacing-2xl);
+    border: 1px solid var(--color-border);
+  }
+
+  .details-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .details-header h2 {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    color: var(--color-text);
+    margin-bottom: var(--spacing-md);
+    font-weight: 700;
+  }
+
+  .header-underline {
+    width: 60px;
+    height: 4px;
+    background: var(--color-primary);
+    margin: 0 auto;
+    border-radius: 2px;
+  }
+
   .reglement-content {
     max-width: 900px;
     margin: 0 auto;

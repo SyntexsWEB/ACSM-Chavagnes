@@ -1,0 +1,78 @@
+---
+interface Props {
+  titre?: string;
+  soustitre?: string;
+}
+
+const { titre = "ACTUALITÉS", soustitre = "Suivez toute l'actualité de l'ACSM Chavagnes" } = Astro.props;
+---
+
+<section class="news-section">
+  <div class="news-header">
+    <div class="news-logo">
+      <span class="mx-prefix">MX</span>
+      <h2 class="news-title">{titre}</h2>
+    </div>
+    <div class="news-underline"></div>
+    <p class="news-subtitle">{soustitre}</p>
+  </div>
+  <slot />
+</section>
+
+<style>
+  .news-section {
+    background: var(--color-dark);
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .news-header {
+    text-align: left;
+    margin-bottom: var(--spacing-xl);
+    max-width: 600px;
+  }
+
+  .news-logo {
+    display: flex;
+    align-items: baseline;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .mx-prefix {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .news-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+    margin: 0;
+    line-height: 1;
+  }
+
+  .news-underline {
+    width: 60px;
+    height: 4px;
+    background: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    border-radius: 2px;
+  }
+
+  .news-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
+    .news-section {
+      padding: var(--spacing-xl) 0;
+    }
+  }
+</style>

@@ -1,15 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import HeroHome from '../components/HeroHome.astro';
-import ActualiteCard from '../components/ActualiteCard.astro';
-import InfoCard from '../components/InfoCard.astro';
+import InfosImageSection from '../components/InfosImageSection.astro';
+import ImageSplitSection from '../components/ImageSplitSection.astro';
+import TrainingSection from '../components/TrainingSection.astro';
 import { getCollection } from 'astro:content';
 import siteInfo from '../data/site-info.json';
 
 const actualites = (await getCollection('actualites'))
   .filter(a => a.data.publie)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 3);
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+// Récupérer la dernière actualité pour la section featured
+const latestNews = actualites[0];
 
 const heroData = siteInfo.hero_accueil;
 ---
@@ -18,6 +21,7 @@ const heroData = siteInfo.hero_accueil;
   titre="Accueil"
   description={siteInfo.description}
 >
+  <!-- Hero principal -->
   <HeroHome
     soustitre={heroData.soustitre}
     titreLigne1={heroData.titre_ligne1}
@@ -34,91 +38,110 @@ const heroData = siteInfo.hero_accueil;
     }}
   />
 
-  <!-- Section Horaires & Infos -->
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title">Informations pratiques</h2>
-      <div class="grid grid-3">
-        <InfoCard
-          icone='<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>'
-          titre="Horaires d'ouverture"
-          description={`Ouvert ${siteInfo.horaires.jours}. Samedi: ${siteInfo.horaires.samedi}, Dimanche: ${siteInfo.horaires.dimanche}`}
-        />
-        <InfoCard
-          icone='<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" /></svg>'
-          titre="Tarifs"
-          description={`${siteInfo.tarif} la journée pour profiter du terrain. Licence FFM acceptée.`}
-        />
-        <InfoCard
-          icone='<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>'
-          titre={siteInfo.vehicules_acceptes?.titre || "Véhicules acceptés"}
-          description={siteInfo.vehicules_acceptes?.description || "Motocross, sidecar, quad, électrique, enduro. Toutes catégories bienvenues."}
-        />
-      </div>
-    </div>
-  </section>
-
-  <!-- Section Catégories -->
-  <section class="section diagonal-section">
-    <div class="container">
-      <h2 class="section-title">Catégories et planning</h2>
-      <div class="grid grid-2">
-        <div class="category-card card">
-          <div class="category-day">{siteInfo.categories?.samedi?.jour || "Samedi"}</div>
-          <h3>{siteInfo.categories?.samedi?.titre || "Pilotes débutants"}</h3>
-          <ul class="category-list">
-            {(siteInfo.categories?.samedi?.liste || ['Minicross', '85cc débutant']).map((cat: string) => (
-              <li>{cat}</li>
-            ))}
-          </ul>
-          <p class="category-time">{siteInfo.horaires.samedi}</p>
-        </div>
-        <div class="category-card card">
-          <div class="category-day">{siteInfo.categories?.dimanche?.jour || "Dimanche"}</div>
-          <h3>{siteInfo.categories?.dimanche?.titre || "Pilotes confirmés"}</h3>
-          <ul class="category-list">
-            {(siteInfo.categories?.dimanche?.liste || ['85cc confirmés', '125cc', 'MX1 & MX2', 'Quad & Side-car']).map((cat: string) => (
-              <li>{cat}</li>
-            ))}
-          </ul>
-          <p class="category-time">{siteInfo.horaires.dimanche}</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section Actualités -->
-  {actualites.length > 0 && (
-    <section class="section">
+  <!-- Section Actualité à la une -->
+  {latestNews && (
+    <section class="featured-news-dark">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Dernières actualités</h2>
-          <a href="/actualites" class="btn btn-secondary">Voir toutes les actualités</a>
-        </div>
-        <div class="grid grid-3">
-          {actualites.map((actualite) => (
-            <ActualiteCard
-              titre={actualite.data.titre}
-              date={actualite.data.date}
-              description={actualite.data.description}
-              image={actualite.data.image}
-              slug={actualite.slug}
-            />
-          ))}
+        <div class="featured-news-content">
+          <div class="featured-news-header">
+            <h2 class="featured-news-title">ACTUALITÉ À LA UNE</h2>
+            <div class="title-underline"></div>
+          </div>
+
+          <h4 class="news-article-title">{latestNews.data.titre}</h4>
+          <p class="featured-news-description">{latestNews.data.description}</p>
+
+          <div class="featured-news-buttons">
+            <a href={`/actualites/${latestNews.slug}`} class="btn-featured-primary">
+              Lire l'article
+            </a>
+            <a href="/actualites" class="btn-featured-secondary">
+              Toutes les actualités
+            </a>
+          </div>
         </div>
       </div>
     </section>
   )}
 
-  <!-- Section CTA -->
-  <section class="section cta-section">
+  <!-- Section Informations avec image -->
+  <InfosImageSection
+    image="/images/adobestock_68949462_preview.jpeg"
+  />
+
+  <!-- Section Terrain d'entraînement supplémentaire -->
+  <TrainingSection
+    image="/images/terrain-vue.jpg"
+    titre="TERRAIN D'ENTRAÎNEMENT"
+    soustitre="MOTOCROSS"
+    description="Notre terrain offre une piste technique avec de multiples sauts, virages relevés et whoops. Parfait pour progresser et s'entraîner dans des conditions optimales. Le terrain est entretenu régulièrement pour garantir la meilleure expérience de pilotage."
+    boutonTexte="EN SAVOIR PLUS"
+    boutonLien="/presentation"
+  />
+
+  <!-- Section Catégories Samedi/Dimanche -->
+  <ImageSplitSection
+    imageSamedi="/images/debutant-mx.jpg"
+    imageDimanche="/images/confirmes-mx.jpg"
+  />
+
+  <!-- Section Dernières Actualités -->
+  {actualites.length > 0 && (
+    <section class="recent-news-section">
+      <div class="container">
+        <div class="section-header-mx">
+          <div class="header-logo">
+            <span class="mx-prefix">MX</span>
+            <h2>ACTUALITÉS</h2>
+          </div>
+          <div class="header-underline"></div>
+          <p class="section-subtitle">Les dernières nouvelles de l'ACSM Chavagnes</p>
+        </div>
+
+        <div class="grid grid-3">
+          {actualites.slice(0, 3).map((actualite) => (
+            <article class="news-card">
+              <div class="news-card-image">
+                <img src={actualite.data.image} alt={actualite.data.titre} />
+                <div class="news-card-overlay"></div>
+              </div>
+              <div class="news-card-content">
+                <time class="news-card-date">
+                  {new Intl.DateTimeFormat('fr-FR', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                  }).format(actualite.data.date)}
+                </time>
+                <h3 class="news-card-title">{actualite.data.titre}</h3>
+                <p class="news-card-description">{actualite.data.description}</p>
+                <a href={`/actualites/${actualite.slug}`} class="news-card-link">
+                  Lire la suite
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div class="news-footer">
+          <a href="/actualites" class="btn-all-news">Voir toutes les actualités</a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Section CTA finale -->
+  <section class="cta-section-final">
     <div class="container">
       <div class="cta-content">
         <h2>{siteInfo.cta_accueil?.titre || "Prêt à rouler ?"}</h2>
         <p>{siteInfo.cta_accueil?.description || "Rejoignez-nous sur le terrain et vivez votre passion du motocross !"}</p>
         <div class="cta-buttons">
-          <a href={siteInfo.cta_accueil?.bouton1_lien || "/faq"} class="btn">{siteInfo.cta_accueil?.bouton1_texte || "Voir la FAQ"}</a>
-          <a href={siteInfo.cta_accueil?.bouton2_lien || "/contact"} class="btn btn-secondary">{siteInfo.cta_accueil?.bouton2_texte || "Nous contacter"}</a>
+          <a href={siteInfo.cta_accueil?.bouton1_lien || "/faq"} class="btn-cta">{siteInfo.cta_accueil?.bouton1_texte || "Voir la FAQ"}</a>
+          <a href={siteInfo.cta_accueil?.bouton2_lien || "/contact"} class="btn-cta-outline">{siteInfo.cta_accueil?.bouton2_texte || "Nous contacter"}</a>
         </div>
       </div>
     </div>
@@ -126,104 +149,308 @@ const heroData = siteInfo.hero_accueil;
 </Layout>
 
 <style>
-  .section-title {
-    text-align: center;
-    font-size: clamp(2rem, 4vw, 2.5rem);
-    margin-bottom: var(--spacing-xl);
-    color: var(--color-text);
-    font-weight: 700;
-    position: relative;
-    padding-bottom: var(--spacing-md);
+  /* Section Actualité à la une (fond noir) */
+  .featured-news-dark {
+    background: var(--color-dark);
+    padding: var(--spacing-2xl) 0;
+    border-top: 1px solid var(--color-border);
   }
 
-  .section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
+  .featured-news-content {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .featured-news-header {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .featured-news-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: white;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+
+  .title-underline {
+    width: 80px;
+    height: 4px;
     background: var(--color-primary);
     border-radius: 2px;
   }
 
-  .section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--spacing-xl);
-    flex-wrap: wrap;
-    gap: var(--spacing-md);
+  .news-meta {
+    margin-bottom: var(--spacing-md);
   }
 
-  .category-card {
-    position: relative;
-  }
-
-  .category-day {
-    position: absolute;
-    top: var(--spacing-md);
-    right: var(--spacing-md);
+  .news-date {
+    display: inline-block;
+    padding: 0.5rem 1rem;
     background: var(--color-primary);
-    color: var(--color-dark-lighter);
-    padding: var(--spacing-xs) var(--spacing-md);
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 600;
     border-radius: var(--radius-md);
-    font-weight: 600;
-    font-size: 0.85rem;
     text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
-  .category-card h3 {
-    font-size: 1.5rem;
+  .news-article-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: white;
     margin-bottom: var(--spacing-md);
-    color: var(--color-text);
+    line-height: 1.3;
   }
 
-  .category-list {
-    list-style: none;
-    margin-bottom: var(--spacing-md);
-  }
-
-  .category-list li {
-    padding: var(--spacing-xs) 0;
+  .featured-news-description {
+    font-size: 1.15rem;
+    line-height: 1.8;
     color: var(--color-text-secondary);
-    position: relative;
-    padding-left: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
   }
 
-  .category-list li::before {
-    content: '▸';
-    position: absolute;
-    left: 0;
-    color: var(--color-primary);
-    font-weight: bold;
+  .featured-news-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
   }
 
-  .category-time {
-    color: var(--color-primary);
-    font-weight: 600;
+  .btn-featured-primary {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: var(--color-primary);
+    color: white;
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all var(--transition-normal);
+  }
+
+  .btn-featured-primary:hover {
+    background: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px var(--shadow-primary-strong);
+  }
+
+  .btn-featured-secondary {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all var(--transition-normal);
+  }
+
+  .btn-featured-secondary:hover {
+    background: white;
+    color: var(--color-dark);
+    transform: translateY(-2px);
+  }
+
+  /* Section Dernières Actualités */
+  .recent-news-section {
+    background: var(--color-dark);
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .section-header-mx {
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .header-logo {
+    display: flex;
+    align-items: baseline;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .mx-prefix {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .header-logo h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+    margin: 0;
+    line-height: 1;
+  }
+
+  .header-underline {
+    width: 60px;
+    height: 4px;
+    background: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    border-radius: 2px;
+  }
+
+  .section-subtitle {
     font-size: 1.1rem;
+    color: var(--color-text-secondary);
     margin: 0;
   }
 
-  .cta-section {
-    background: var(--color-secondary);
-    border: 1px solid var(--color-secondary);
+  .news-card {
+    background: var(--color-steel);
     border-radius: var(--radius-lg);
-    margin: var(--spacing-2xl) auto;
-    max-width: 1200px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .news-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-primary);
+    box-shadow: 0 10px 30px var(--shadow-dark);
+  }
+
+  .news-card-image {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+  }
+
+  .news-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+  }
+
+  .news-card:hover .news-card-image img {
+    transform: scale(1.05);
+  }
+
+  .news-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(10, 10, 10, 0.7) 100%);
+  }
+
+  .news-card-content {
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .news-card-date {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .news-card-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.3;
+  }
+
+  .news-card-description {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+    flex: 1;
+  }
+
+  .news-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all var(--transition-fast);
+  }
+
+  .news-card-link:hover {
+    gap: var(--spacing-sm);
+    color: var(--color-primary-light);
+  }
+
+  .news-card-link svg {
+    transition: transform var(--transition-fast);
+  }
+
+  .news-card-link:hover svg {
+    transform: translateX(4px);
+  }
+
+  .news-footer {
+    text-align: center;
+    margin-top: var(--spacing-2xl);
+  }
+
+  .btn-all-news {
+    display: inline-block;
+    padding: var(--spacing-md) var(--spacing-xl);
+    background: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all var(--transition-normal);
+  }
+
+  .btn-all-news:hover {
+    background: var(--color-primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px var(--shadow-primary-strong);
+  }
+
+  /* Section CTA finale */
+  .cta-section-final {
+    background: var(--color-secondary);
+    padding: var(--spacing-2xl) 0;
   }
 
   .cta-content {
     text-align: center;
-    padding: var(--spacing-2xl);
+    max-width: 800px;
+    margin: 0 auto;
   }
 
   .cta-content h2 {
     font-size: clamp(2rem, 4vw, 3rem);
     margin-bottom: var(--spacing-md);
     color: var(--color-dark);
+    font-weight: 800;
   }
 
   .cta-content p {
@@ -240,40 +467,61 @@ const heroData = siteInfo.hero_accueil;
     flex-wrap: wrap;
   }
 
-  .cta-section .btn {
+  .btn-cta {
+    display: inline-block;
+    padding: var(--spacing-md) var(--spacing-xl);
     background: var(--color-dark);
     color: white;
     border: 2px solid var(--color-dark);
-    box-shadow: 0 4px 15px rgba(10, 10, 10, 0.3);
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all var(--transition-normal);
   }
 
-  .cta-section .btn:hover {
+  .btn-cta:hover {
     background: var(--color-dark-lighter);
-    color: white;
-    border-color: var(--color-dark-lighter);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(10, 10, 10, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(10, 10, 10, 0.4);
   }
 
-  .cta-section .btn-secondary {
+  .btn-cta-outline {
+    display: inline-block;
+    padding: var(--spacing-md) var(--spacing-xl);
     background: transparent;
     color: var(--color-dark);
     border: 2px solid var(--color-dark);
-    box-shadow: 0 4px 15px rgba(10, 10, 10, 0.2);
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all var(--transition-normal);
   }
 
-  .cta-section .btn-secondary:hover {
+  .btn-cta-outline:hover {
     background: var(--color-dark);
     color: white;
-    border-color: var(--color-dark);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(10, 10, 10, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(10, 10, 10, 0.4);
   }
 
+  /* Responsive */
   @media (max-width: 768px) {
-    .section-header {
+    .featured-news-buttons {
       flex-direction: column;
-      align-items: flex-start;
+    }
+
+    .btn-featured-primary,
+    .btn-featured-secondary {
+      width: 100%;
+      text-align: center;
+    }
+
+    .news-card-image {
+      height: 200px;
     }
 
     .cta-buttons {
@@ -281,7 +529,9 @@ const heroData = siteInfo.hero_accueil;
       width: 100%;
     }
 
-    .cta-buttons .btn {
+    .btn-cta,
+    .btn-cta-outline,
+    .btn-all-news {
       width: 100%;
       text-align: center;
     }

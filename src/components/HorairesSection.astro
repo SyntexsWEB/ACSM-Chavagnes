@@ -1,0 +1,277 @@
+---
+import siteInfo from '../data/site-info.json';
+
+interface Props {
+  titre?: string;
+  soustitre?: string;
+}
+
+const { titre = "HORAIRES D'OUVERTURE", soustitre = "Letztes Wochenende in Schweyen MX für 2025." } = Astro.props;
+---
+
+<section class="horaires-section">
+  <div class="container">
+    <div class="horaires-header">
+      <div class="horaires-logo">
+        <span class="mx-prefix">MX</span>
+        <h2 class="horaires-title">HORAIRES</h2>
+      </div>
+      <div class="horaires-underline"></div>
+    </div>
+
+    <div class="horaires-content">
+      <div class="horaires-card">
+        <div class="horaires-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+        </div>
+        <h3>Ouverture du terrain</h3>
+        <p class="horaires-jours">{siteInfo.horaires.jours}</p>
+      </div>
+
+      <div class="horaires-card highlight">
+        <div class="horaires-day-badge">Samedi</div>
+        <div class="horaires-time">
+          <span class="time-label">Horaires</span>
+          <span class="time-value">{siteInfo.horaires.samedi}</span>
+        </div>
+        <p class="horaires-categorie">{siteInfo.categories?.samedi?.titre || "Pilotes débutants"}</p>
+      </div>
+
+      <div class="horaires-card highlight">
+        <div class="horaires-day-badge dimanche">Dimanche</div>
+        <div class="horaires-time">
+          <span class="time-label">Horaires</span>
+          <span class="time-value">{siteInfo.horaires.dimanche}</span>
+        </div>
+        <p class="horaires-categorie">{siteInfo.categories?.dimanche?.titre || "Pilotes confirmés"}</p>
+      </div>
+
+      <div class="horaires-card tarif-card">
+        <div class="horaires-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+        </div>
+        <h3>Tarif journée</h3>
+        <p class="tarif-price">{siteInfo.tarif}</p>
+        <p class="tarif-details">Licence FFM acceptée</p>
+      </div>
+    </div>
+
+    <div class="horaires-notice">
+      <p><strong>⚠️ Important :</strong> Pensez à vérifier nos actualités pour tout changement d'horaires ou fermeture exceptionnelle.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .horaires-section {
+    background: var(--color-dark-lighter);
+    padding: var(--spacing-2xl) 0;
+    position: relative;
+  }
+
+  .horaires-header {
+    text-align: left;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .horaires-logo {
+    display: flex;
+    align-items: baseline;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .mx-prefix {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .horaires-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+    margin: 0;
+    line-height: 1;
+  }
+
+  .horaires-underline {
+    width: 60px;
+    height: 4px;
+    background: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    border-radius: 2px;
+  }
+
+  .horaires-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .horaires-card {
+    background: var(--color-steel);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    transition: all var(--transition-normal);
+    position: relative;
+  }
+
+  .horaires-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-primary);
+    box-shadow: 0 10px 30px var(--shadow-dark);
+  }
+
+  .horaires-card.highlight {
+    background: linear-gradient(135deg, var(--color-steel) 0%, var(--color-dark-light) 100%);
+    border: 2px solid var(--color-primary);
+  }
+
+  .horaires-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--color-primary);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .horaires-icon svg {
+    width: 28px;
+    height: 28px;
+    color: var(--color-dark);
+  }
+
+  .horaires-card h3 {
+    color: var(--color-text);
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .horaires-jours {
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .horaires-day-badge {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    background: var(--color-primary);
+    color: var(--color-dark);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .horaires-day-badge.dimanche {
+    background: var(--color-secondary);
+    color: white;
+  }
+
+  .horaires-time {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .time-label {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .time-value {
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .horaires-categorie {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  .tarif-card {
+    background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary-darker) 100%);
+    border: 2px solid var(--color-primary);
+  }
+
+  .tarif-card .horaires-icon {
+    background: white;
+  }
+
+  .tarif-card .horaires-icon svg {
+    color: var(--color-primary);
+  }
+
+  .tarif-card h3 {
+    color: white;
+  }
+
+  .tarif-price {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: white;
+    margin: var(--spacing-sm) 0;
+    line-height: 1;
+  }
+
+  .tarif-details {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .horaires-notice {
+    background: var(--color-cta-bg);
+    border: 1px solid var(--color-cta-border);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    text-align: center;
+  }
+
+  .horaires-notice p {
+    color: var(--color-text-secondary);
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  .horaires-notice strong {
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 768px) {
+    .horaires-section {
+      padding: var(--spacing-xl) 0;
+    }
+
+    .horaires-content {
+      grid-template-columns: 1fr;
+    }
+
+    .tarif-price {
+      font-size: 2rem;
+    }
+  }
+</style>

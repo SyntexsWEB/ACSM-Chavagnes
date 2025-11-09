@@ -166,7 +166,7 @@ const heroData = siteInfo.hero_accueil;
     top: var(--spacing-md);
     right: var(--spacing-md);
     background: var(--color-primary);
-    color: white;
+    color: var(--color-dark-lighter);
     padding: var(--spacing-xs) var(--spacing-md);
     border-radius: var(--radius-md);
     font-weight: 600;
@@ -201,15 +201,15 @@ const heroData = siteInfo.hero_accueil;
   }
 
   .category-time {
-    color: var(--color-secondary);
+    color: var(--color-primary);
     font-weight: 600;
     font-size: 1.1rem;
     margin: 0;
   }
 
   .cta-section {
-    background: var(--color-dark-lighter);
-    border: 1px solid var(--color-border);
+    background: var(--color-secondary);
+    border: 1px solid var(--color-secondary);
     border-radius: var(--radius-lg);
     margin: var(--spacing-2xl) auto;
     max-width: 1200px;
@@ -223,11 +223,13 @@ const heroData = siteInfo.hero_accueil;
   .cta-content h2 {
     font-size: clamp(2rem, 4vw, 3rem);
     margin-bottom: var(--spacing-md);
+    color: var(--color-dark);
   }
 
   .cta-content p {
     font-size: 1.25rem;
-    color: var(--color-text-secondary);
+    color: var(--color-dark);
+    opacity: 0.85;
     margin-bottom: var(--spacing-xl);
   }
 
@@ -236,6 +238,36 @@ const heroData = siteInfo.hero_accueil;
     gap: var(--spacing-md);
     justify-content: center;
     flex-wrap: wrap;
+  }
+
+  .cta-section .btn {
+    background: var(--color-dark);
+    color: white;
+    border: 2px solid var(--color-dark);
+    box-shadow: 0 4px 15px rgba(10, 10, 10, 0.3);
+  }
+
+  .cta-section .btn:hover {
+    background: var(--color-dark-lighter);
+    color: white;
+    border-color: var(--color-dark-lighter);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(10, 10, 10, 0.4);
+  }
+
+  .cta-section .btn-secondary {
+    background: transparent;
+    color: var(--color-dark);
+    border: 2px solid var(--color-dark);
+    box-shadow: 0 4px 15px rgba(10, 10, 10, 0.2);
+  }
+
+  .cta-section .btn-secondary:hover {
+    background: var(--color-dark);
+    color: white;
+    border-color: var(--color-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(10, 10, 10, 0.4);
   }
 
   @media (max-width: 768px) {

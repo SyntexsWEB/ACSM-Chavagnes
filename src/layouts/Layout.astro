@@ -39,8 +39,7 @@ const { titre, description = siteInfo.description } = Astro.props;
         <div class="container">
           <div class="nav-wrapper">
             <a href="/" class="logo">
-              <span class="logo-text">{siteInfo.nom.split(' ')[0]}</span>
-              <span class="logo-subtitle">{siteInfo.nom.split(' ').slice(1).join(' ')}</span>
+              <img src="/images/logo_acsm.svg" alt={siteInfo.nom} class="logo-image" />
             </a>
             <ul class="nav-menu">
               <li><a href="/">Accueil</a></li>
@@ -111,8 +110,8 @@ const { titre, description = siteInfo.description } = Astro.props;
         z-index: 100;
         background: rgba(10, 10, 10, 0.95);
         backdrop-filter: blur(30px);
-        border-bottom: 1px solid rgba(0, 255, 135, 0.15);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        border-bottom: 1px solid var(--color-border-light);
+        box-shadow: 0 4px 20px var(--shadow-dark);
       }
 
       .navbar {
@@ -127,31 +126,19 @@ const { titre, description = siteInfo.description } = Astro.props;
 
       .logo {
         display: flex;
-        flex-direction: column;
+        align-items: center;
         text-decoration: none;
       }
 
-      .logo-text {
-        font-size: 1.4rem;
-        font-weight: 800;
-        color: white;
-        letter-spacing: 0.02em;
+      .logo-image {
+        height: 70px;
+        width: auto;
         transition: all var(--transition-fast);
-        text-transform: uppercase;
       }
 
-      .logo:hover .logo-text {
-        color: var(--color-primary);
-        text-shadow: 0 0 20px rgba(0, 255, 135, 0.3);
-      }
-
-      .logo-subtitle {
-        font-size: 0.65rem;
-        color: rgba(255, 255, 255, 0.5);
-        text-transform: uppercase;
-        letter-spacing: 0.2em;
-        margin-top: -4px;
-        font-weight: 400;
+      .logo:hover .logo-image {
+        filter: drop-shadow(0 0 15px var(--glow-primary));
+        transform: scale(1.05);
       }
 
       .nav-menu {
@@ -162,7 +149,7 @@ const { titre, description = siteInfo.description } = Astro.props;
       }
 
       .nav-menu a {
-        color: rgba(255, 255, 255, 0.7);
+        color: var(--color-text-dim);
         font-weight: 500;
         font-size: 0.9rem;
         transition: all var(--transition-fast);
@@ -192,18 +179,17 @@ const { titre, description = siteInfo.description } = Astro.props;
         padding: 0.6rem 1.5rem;
         background: var(--color-primary);
         border-radius: 6px;
-        color: #0a0a0a !important;
+        color: var(--color-dark-lighter) !important;
         font-size: 0.85rem;
         font-weight: 700;
-        text-transform: uppercase;
         letter-spacing: 0.05em;
       }
 
       .btn-nav:hover {
-        background: var(--color-primary-dark);
+        background: var(--color-primary-light);
         transform: translateY(-1px);
-        box-shadow: 0 6px 20px rgba(0, 255, 135, 0.4);
-        color: #0a0a0a !important;
+        box-shadow: 0 6px 20px var(--shadow-primary-strong);
+        color: var(--color-dark-lighter) !important;
       }
 
       .mobile-menu-toggle {

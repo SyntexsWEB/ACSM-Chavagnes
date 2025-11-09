@@ -2,14 +2,8 @@
   command = "npm run build"
   publish = "dist"
 
-# Redirect /admin to /admin/ (trailing slash)
-[[redirects]]
-  from = "/admin"
-  to = "/admin/"
-  status = 301
-  force = true
-
 # Fallback pour SPA routing
+# Sans 'force = true', les fichiers existants (comme /admin/index.html) seront servis normalement
 [[redirects]]
   from = "/*"
   to = "/index.html"

@@ -1,0 +1,129 @@
+# Configuration Decap CMS pour la PRODUCTION (Netlify)
+
+# Backend production (Git Gateway) - Authentification via Netlify Identity
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+locale: "fr"
+
+collections:
+  # Collection des actualités
+  - name: "actualites"
+    label: "Actualités"
+    folder: "src/content/actualites"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titre", name: "titre", widget: "string" }
+      - { label: "Date de publication", name: "date", widget: "datetime", date_format: "DD/MM/YYYY", time_format: false }
+      - { label: "Description courte", name: "description", widget: "text" }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Auteur", name: "auteur", widget: "string", default: "ACSM Chavagnes" }
+      - { label: "Publié", name: "publie", widget: "boolean", default: true }
+      - { label: "Contenu", name: "body", widget: "markdown" }
+
+  # Collection des pages
+  - name: "pages"
+    label: "Pages"
+    folder: "src/content/pages"
+    create: false
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titre", name: "titre", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Contenu", name: "body", widget: "markdown" }
+
+  # Paramètres du site
+  - name: "parametres"
+    label: "Paramètres du site"
+    files:
+      - label: "Informations du site"
+        name: "site_info"
+        file: "src/data/site-info.json"
+        fields:
+          - { label: "Nom du site", name: "nom", widget: "string", default: "ACSM Chavagnes" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Email de contact", name: "email", widget: "string" }
+          - { label: "Téléphone", name: "telephone", widget: "string", required: false }
+          - { label: "Adresse", name: "adresse", widget: "text" }
+          - { label: "Tarif journée", name: "tarif", widget: "string", default: "15€" }
+
+          - label: "Hero Accueil"
+            name: "hero_accueil"
+            widget: "object"
+            fields:
+              - { label: "Image de fond", name: "image", widget: "image", default: "/images/170822080831_gerhyfnudagcr2ptdb4nxsitctuxdn.jpg" }
+              - { label: "Sous-titre", name: "soustitre", widget: "string", required: false }
+              - { label: "Titre ligne 1", name: "titre_ligne1", widget: "string", default: "MOTOCROSS" }
+              - { label: "Titre ligne 2", name: "titre_ligne2", widget: "string", default: "CHAVAGNES LES EAUX" }
+              - { label: "Description", name: "description", widget: "text", default: "Terrain de motocross à Chavagnes-les-Eaux" }
+              - { label: "Bouton 1 - Texte", name: "bouton1_texte", widget: "string", default: "DÉCOUVRIR LE TERRAIN" }
+              - { label: "Bouton 1 - Lien", name: "bouton1_lien", widget: "string", default: "/presentation" }
+              - { label: "Bouton 2 - Texte", name: "bouton2_texte", widget: "string", default: "NOUS CONTACTER" }
+              - { label: "Bouton 2 - Lien", name: "bouton2_lien", widget: "string", default: "/contact" }
+
+          - label: "Horaires"
+            name: "horaires"
+            widget: "object"
+            fields:
+              - { label: "Jours d'ouverture", name: "jours", widget: "string", default: "1er et 3ème week-end du mois" }
+              - { label: "Horaires samedi", name: "samedi", widget: "string", default: "9h-12h / 13h30-17h30" }
+              - { label: "Horaires dimanche", name: "dimanche", widget: "string", default: "9h-12h / 13h30-17h30" }
+
+          - label: "Catégories et planning"
+            name: "categories"
+            widget: "object"
+            fields:
+              - label: "Samedi"
+                name: "samedi"
+                widget: "object"
+                fields:
+                  - { label: "Jour", name: "jour", widget: "string", default: "Samedi" }
+                  - { label: "Titre", name: "titre", widget: "string", default: "Pilotes débutants" }
+                  - { label: "Liste des catégories", name: "liste", widget: "list", default: ["Minicross", "85cc débutant"] }
+              - label: "Dimanche"
+                name: "dimanche"
+                widget: "object"
+                fields:
+                  - { label: "Jour", name: "jour", widget: "string", default: "Dimanche" }
+                  - { label: "Titre", name: "titre", widget: "string", default: "Pilotes confirmés" }
+                  - { label: "Liste des catégories", name: "liste", widget: "list", default: ["85cc confirmés", "125cc", "MX1 & MX2", "Quad & Side-car"] }
+
+          - label: "Véhicules acceptés"
+            name: "vehicules_acceptes"
+            widget: "object"
+            fields:
+              - { label: "Titre", name: "titre", widget: "string", default: "Véhicules acceptés" }
+              - { label: "Description", name: "description", widget: "text", default: "Motocross, sidecar, quad, électrique, enduro. Toutes catégories bienvenues." }
+
+          - label: "Réseaux sociaux"
+            name: "social"
+            widget: "object"
+            required: false
+            fields:
+              - { label: "Facebook", name: "facebook", widget: "string", required: false }
+              - { label: "Instagram", name: "instagram", widget: "string", required: false }
+              - { label: "Twitter", name: "twitter", widget: "string", required: false }
+
+          - label: "Section CTA (Appel à l'action)"
+            name: "cta_accueil"
+            widget: "object"
+            fields:
+              - { label: "Titre", name: "titre", widget: "string", default: "Prêt à rouler ?" }
+              - { label: "Description", name: "description", widget: "text", default: "Rejoignez-nous sur le terrain et vivez votre passion du motocross !" }
+              - { label: "Bouton 1 - Texte", name: "bouton1_texte", widget: "string", default: "Voir la FAQ" }
+              - { label: "Bouton 1 - Lien", name: "bouton1_lien", widget: "string", default: "/faq" }
+              - { label: "Bouton 2 - Texte", name: "bouton2_texte", widget: "string", default: "Nous contacter" }
+              - { label: "Bouton 2 - Lien", name: "bouton2_lien", widget: "string", default: "/contact" }
+
+          - label: "Images Hero (bannières de pages)"
+            name: "images_hero"
+            widget: "object"
+            fields:
+              - { label: "Image Accueil", name: "accueil", widget: "image", default: "/images/hero-motocross.jpg" }
+              - { label: "Image Présentation", name: "presentation", widget: "image", default: "/images/terrain-vue.jpg" }
+              - { label: "Image Règlement", name: "reglement", widget: "image", default: "/images/hero-motocross.jpg" }

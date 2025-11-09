@@ -136,6 +136,36 @@ Pour plus de détails, consulte le [guide complet de déploiement](./DEPLOIEMENT
 
 ## 🔧 Configuration
 
+### Variables d'environnement
+
+Le projet utilise des fichiers `.env` pour la configuration locale :
+
+```bash
+# Copier le template pour le développement
+cp .env.example .env.development
+```
+
+**Fichiers disponibles** :
+- `.env.example` - Template (commité sur Git)
+- `.env.development` - Développement local (ignoré par Git) ✅
+- `.env.production` - Production (ignoré par Git, géré par Netlify) ✅
+
+**En développement local** :
+- Aucune variable nécessaire par défaut
+- Le CMS fonctionne avec le backend `test-repo`
+- Modifications locales uniquement
+
+**En production (Netlify)** :
+- Variables gérées dans l'interface Netlify
+- Va dans **Site settings** → **Environment variables**
+- Le CMS utilise automatiquement Git Gateway
+- Aucun fichier `.env` nécessaire
+
+**Sécurité** :
+- ⚠️ Les fichiers `.env.*` sont **automatiquement ignorés** par Git
+- ⚠️ Ne jamais commiter de secrets sur GitHub
+- ✅ Utilise Netlify pour gérer les variables en production
+
 ### Modifier l'URL du site
 
 Dans `astro.config.mjs`, changez l'URL du site :

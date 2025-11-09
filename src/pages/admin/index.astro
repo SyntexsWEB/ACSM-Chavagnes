@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Administration - ACSM Chavagnes</title>
+
+  <!-- Netlify Identity Widget (pour la production uniquement) -->
+  <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+  <!-- Chargement du CMS -->
+  <script is:inline src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+  <!-- Initialisation selon l'environnement -->
+  <script is:inline>
+    const isDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+    if (isDev) {
+      console.log('🛠️ MODE DÉVELOPPEMENT - Backend test-repo');
+
+      // En développement, on charge config.dev.yml en le renommant en config.yml
+      // car le CMS cherche toujours /admin/config.yml par défaut
+      // Il faut donc s'assurer que config.dev.yml est copié comme config.yml en dev
+    } else {
+      console.log('🚀 MODE PRODUCTION - Backend git-gateway');
+    }
+
+    // Le CMS s'initialise automatiquement avec /admin/config.yml
+  </script>
+</body>
+</html>

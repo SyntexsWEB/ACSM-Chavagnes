@@ -3,10 +3,12 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "config:dev": "copy public\\admin\\config.dev.yml public\\admin\\config.yml",
+    "config:prod": "copy public\\admin\\config.prod.yml public\\admin\\config.yml",
+    "dev": "npm run config:dev && astro dev",
     "cms:proxy": "set PORT=8082 && npx decap-server",
     "dev:cms": "npm run cms:proxy & npm run dev",
-    "build": "astro build",
+    "build": "npm run config:prod && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },

@@ -92,9 +92,10 @@ Les actualités sont écrites en Markdown et stockées dans `src/content/actuali
 Les couleurs principales sont définies dans `src/styles/global.css` :
 
 ```css
---color-primary: #ff6b00;    /* Orange motocross */
---color-secondary: #00d4ff;  /* Bleu électrique */
---color-accent: #ffed00;     /* Jaune flash */
+--color-primary: #b91c1c;      /* Rouge motocross */
+--color-secondary: #f5f5f5;    /* Blanc/Gris clair */
+--color-dark: #0a0a0a;         /* Noir - Fond principal */
+--color-accent: #FFB800;       /* Jaune doré - Accent */
 ```
 
 ### Images
@@ -111,24 +112,27 @@ Placez vos images dans `public/images/` et référencez-les avec `/images/nom-im
 - **Actualités** (`/actualites`) - Liste des actualités
 - **Admin** (`/admin`) - Interface Decap CMS
 
-## 🚀 Déploiement sur Netlify
+## 🚀 Déploiement
 
-### Via GitHub
+### 📖 Guides de déploiement détaillés
 
-1. Poussez votre code sur GitHub
-2. Connectez votre repository à Netlify
-3. Configuration de build :
+- **[📘 Guide Netlify (recommandé)](./DEPLOIEMENT.md)** - Guide complet pour déployer sur Netlify avec CMS fonctionnel
+- **[📙 Guide Railway (alternative)](./DEPLOIEMENT-RAILWAY.md)** - Alternative avec Railway (non recommandé pour ce projet)
+
+### ⚡ Déploiement rapide sur Netlify
+
+1. Pousse ton code sur GitHub
+2. Connecte ton repository à Netlify
+3. Configure :
    - Build command: `npm run build`
    - Publish directory: `dist`
-4. Déployez !
+4. Active **Netlify Identity** et **Git Gateway**
+5. Crée un utilisateur admin via invitation
+6. Accède au CMS sur `/admin`
 
-### Configuration Netlify
+**Le fichier `netlify.toml` contient déjà toute la configuration nécessaire !**
 
-Le fichier `netlify.toml` contient la configuration optimale pour Astro.
-
-### Variables d'environnement
-
-Aucune variable d'environnement n'est nécessaire pour le moment.
+Pour plus de détails, consulte le [guide complet de déploiement](./DEPLOIEMENT.md).
 
 ## 🔧 Configuration
 

@@ -1,11 +1,11 @@
-# Backend de production (à décommenter après déploiement Netlify)
-# backend:
-#   name: git-gateway
-#   branch: main
-
-# Backend local pour développement (utilise le backend intégré)
+# Backend de production (Git Gateway pour Netlify)
 backend:
-  name: test-repo
+  name: git-gateway
+  branch: main
+
+# Backend local pour développement (à utiliser en local avec npx decap-server)
+# backend:
+#   name: test-repo
 
 media_folder: "public/images"
 public_folder: "/images"
@@ -98,6 +98,19 @@ collections:
               - { label: "Bouton 1 - Texte", name: "bouton1_texte", widget: "string", default: "Voir la FAQ" }
               - { label: "Bouton 1 - Lien", name: "bouton1_lien", widget: "string", default: "/faq" }
               - { label: "Bouton 2 - Texte", name: "bouton2_texte", widget: "string", default: "Nous contacter" }
+              - { label: "Bouton 2 - Lien", name: "bouton2_lien", widget: "string", default: "/contact" }
+          - label: "Hero Accueil"
+            name: "hero_accueil"
+            widget: "object"
+            fields:
+              - { label: "Image de fond", name: "image", widget: "image", default: "/images/170822080831_gerhyfnudagcr2ptdb4nxsitctuxdn.jpg" }
+              - { label: "Sous-titre", name: "soustitre", widget: "string", required: false }
+              - { label: "Titre ligne 1", name: "titre_ligne1", widget: "string", default: "MOTOCROSS" }
+              - { label: "Titre ligne 2", name: "titre_ligne2", widget: "string", default: "CHAVAGNES LES EAUX" }
+              - { label: "Description", name: "description", widget: "text", default: "Terrain de motocross à Chavagnes-les-Eaux" }
+              - { label: "Bouton 1 - Texte", name: "bouton1_texte", widget: "string", default: "DÉCOUVRIR LE TERRAIN" }
+              - { label: "Bouton 1 - Lien", name: "bouton1_lien", widget: "string", default: "/presentation" }
+              - { label: "Bouton 2 - Texte", name: "bouton2_texte", widget: "string", default: "NOUS CONTACTER" }
               - { label: "Bouton 2 - Lien", name: "bouton2_lien", widget: "string", default: "/contact" }
           - label: "Images Hero (bannières de pages)"
             name: "images_hero"

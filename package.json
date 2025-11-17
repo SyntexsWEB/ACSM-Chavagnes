@@ -3,8 +3,8 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "config:dev": "cpy public/admin/config.dev.yml public/admin --rename=config.yml",
-    "config:prod": "cpy public/admin/config.prod.yml public/admin --rename=config.yml",
+    "config:dev": "cpy public/admin/config.dev.yml public --rename=config.yml",
+    "config:prod": "cpy public/admin/config.prod.yml public --rename=config.yml",
     "dev": "npm run config:dev && astro dev",
     "cms:proxy": "set PORT=8082 && npx decap-server",
     "dev:cms": "npm run cms:proxy & npm run dev",

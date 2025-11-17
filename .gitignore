@@ -26,6 +26,7 @@ pnpm-debug.log*
 
 # CMS config (généré automatiquement)
 public/admin/config.yml
+public/config.yml
 
 # macOS-specific files
 .DS_Store

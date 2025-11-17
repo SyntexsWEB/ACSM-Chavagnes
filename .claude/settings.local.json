@@ -3,7 +3,10 @@
     "allow": [
       "Bash(npm run build:*)",
       "Bash(set PORT=8082)",
-      "Bash(npx decap-server:*)"
+      "Bash(npx decap-server:*)",
+      "Bash(git restore:*)",
+      "Bash(npm run config:prod:*)",
+      "Bash(npm run config:dev:*)"
     ],
     "deny": [],
     "ask": []

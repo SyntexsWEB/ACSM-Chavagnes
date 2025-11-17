@@ -32,18 +32,22 @@
         }
       });
 
-      // Redirection après login/signup
+      // Redirection après login/signup - seulement si pas déjà sur /admin
       window.netlifyIdentity.on("login", () => {
-        window.location.reload();
+        if (!document.location.pathname.includes("/admin")) {
+          document.location.href = "/admin/";
+        }
       });
 
       window.netlifyIdentity.on("signup", () => {
-        window.location.reload();
+        if (!document.location.pathname.includes("/admin")) {
+          document.location.href = "/admin/";
+        }
       });
 
       // Déconnexion
       window.netlifyIdentity.on("logout", () => {
-        window.location.href = "/";
+        document.location.href = "/";
       });
     }
   </script>

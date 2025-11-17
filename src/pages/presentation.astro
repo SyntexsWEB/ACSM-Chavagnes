@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import HeroPage from '../components/HeroPage.astro';
+import PhotoGallery from '../components/PhotoGallery.astro';
 import { getEntry } from 'astro:content';
 import siteInfo from '../data/site-info.json';
 
@@ -8,7 +9,12 @@ const page = await getEntry('pages', 'presentation');
 if (!page) throw new Error('Page not found: presentation');
 const { Content } = await page.render();
 
-const heroData = siteInfo.hero_pages.presentation;
+const heroData = page.data.hero || {
+  image: '/images/vue-aerienne-terrain-1.jpg',
+  titre: 'Présentation du terrain',
+  soustitre: 'Découvrez notre circuit de motocross'
+};
+const galerieData = page.data.galerie;
 ---
 
 <Layout
@@ -16,9 +22,9 @@ const heroData = siteInfo.hero_pages.presentation;
   description={page.data.description}
 >
   <HeroPage
-    titre={heroData.titre}
-    soustitre={heroData.soustitre}
-    image={heroData.image}
+    titre={heroData.titre ?? 'Présentation du terrain'}
+    soustitre={heroData.soustitre ?? 'Découvrez notre circuit de motocross'}
+    image={heroData.image ?? '/images/vue-aerienne-terrain-1.jpg'}
   />
 
   <section class="section">
@@ -51,6 +57,14 @@ const heroData = siteInfo.hero_pages.presentation;
       </div>
     </div>
   </section>
+
+  {galerieData?.afficher && galerieData.photos && (
+    <PhotoGallery
+      photos={galerieData.photos}
+      titre={galerieData.titre}
+      description={galerieData.description}
+    />
+  )}
 
   <section class="section partners-section">
     <div class="container">

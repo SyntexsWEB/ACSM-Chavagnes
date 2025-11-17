@@ -47,7 +47,7 @@ const { titre, soustitre, image } = Astro.props;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.25) saturate(1.1);
+    filter: brightness(0.5) saturate(1.1);
   }
 
   .hero-overlay {
@@ -56,7 +56,7 @@ const { titre, soustitre, image } = Astro.props;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(180deg, var(--overlay-dark) 0%, var(--overlay-dark-strong) 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 100%);
   }
 
   .hero-content {

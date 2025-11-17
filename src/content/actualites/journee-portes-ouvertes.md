@@ -3,7 +3,7 @@ titre: Journée portes ouvertes - Mars 2026
 date: 12/11/2025
 description: Venez découvrir le motocross lors de notre journée portes ouvertes
   ! Démonstrations, essais et rencontres au programme. test
-image: /images/adobestock_68949462_preview.jpeg
+image: /images/20250503_211455.jpg
 auteur: ACSM Chavagnes
 publie: true
 ---

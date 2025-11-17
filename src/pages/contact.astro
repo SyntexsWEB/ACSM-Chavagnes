@@ -1,18 +1,26 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import HeroPage from '../components/HeroPage.astro';
+import { getEntry } from 'astro:content';
 import siteInfo from '../data/site-info.json';
 
-const heroData = siteInfo.hero_pages.contact;
+const page = await getEntry('pages', 'contact');
+if (!page) throw new Error('Page not found: contact');
+
+const heroData = page.data.hero || {
+  image: '/images/20250504_133808.jpg',
+  titre: 'Contactez-nous',
+  soustitre: 'Nous sommes à votre écoute'
+};
 ---
 
 <Layout
-  titre="Contact"
-  description="Contactez l'ACSM Chavagnes pour toute question ou information sur le terrain de motocross."
+  titre={page.data.titre}
+  description={page.data.description}
 >
   <HeroPage
-    titre={heroData.titre}
-    soustitre={heroData.soustitre}
+    titre={heroData.titre ?? 'Contactez-nous'}
+    soustitre={heroData.soustitre ?? 'Nous sommes à votre écoute'}
     image={heroData.image}
   />
 

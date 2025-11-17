@@ -17,6 +17,21 @@ const pagesCollection = defineCollection({
   schema: z.object({
     titre: z.string(),
     description: z.string(),
+    hero: z.object({
+      image: z.string().optional(),
+      titre: z.string().optional(),
+      soustitre: z.string().optional(),
+    }).optional(),
+    galerie: z.object({
+      afficher: z.boolean().default(false),
+      titre: z.string().optional(),
+      description: z.string().optional(),
+      photos: z.array(z.object({
+        src: z.string(),
+        alt: z.string(),
+        titre: z.string().optional(),
+      })).optional(),
+    }).optional(),
   }),
 });
 

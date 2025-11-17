@@ -1,0 +1,337 @@
+---
+interface Photo {
+  src: string;
+  alt: string;
+  titre?: string;
+}
+
+interface Props {
+  photos: Photo[];
+  titre?: string;
+  description?: string;
+}
+
+const { photos, titre = "Galerie photos", description } = Astro.props;
+---
+
+<section class="photo-gallery-section">
+  <div class="container">
+    {titre && <h2 class="gallery-title">{titre}</h2>}
+    {description && <p class="gallery-description">{description}</p>}
+
+    <div class="gallery-grid">
+      {photos.map((photo, index) => (
+        <div class="gallery-item" data-index={index}>
+          <img
+            src={photo.src}
+            alt={photo.alt}
+            loading="lazy"
+          />
+          {photo.titre && <div class="photo-caption">{photo.titre}</div>}
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox">
+    <button class="lightbox-close" aria-label="Fermer">&times;</button>
+    <button class="lightbox-prev" aria-label="Précédent">&#10094;</button>
+    <button class="lightbox-next" aria-label="Suivant">&#10095;</button>
+    <div class="lightbox-content">
+      <img id="lightbox-image" src="" alt="" />
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+    <div class="lightbox-counter"></div>
+  </div>
+</section>
+
+<style>
+  .photo-gallery-section {
+    padding: var(--spacing-2xl) 0;
+    background: var(--color-dark-lighter);
+  }
+
+  .gallery-title {
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text);
+    font-weight: 700;
+    position: relative;
+    padding-bottom: var(--spacing-md);
+  }
+
+  .gallery-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--color-primary);
+    border-radius: 2px;
+  }
+
+  .gallery-description {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto var(--spacing-xl);
+    color: var(--color-text-secondary);
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+  }
+
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    aspect-ratio: 4/3;
+    background: var(--color-dark);
+    transition: transform var(--transition-normal);
+  }
+
+  .gallery-item:hover {
+    transform: translateY(-4px);
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition-normal);
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.05);
+  }
+
+  .photo-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    padding: var(--spacing-md);
+    font-size: 0.9rem;
+    transform: translateY(100%);
+    transition: transform var(--transition-normal);
+  }
+
+  .gallery-item:hover .photo-caption {
+    transform: translateY(0);
+  }
+
+  /* Lightbox styles */
+  .lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox.active {
+    display: flex;
+  }
+
+  .lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #lightbox-image {
+    max-width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: var(--radius-md);
+  }
+
+  .lightbox-caption {
+    color: white;
+    text-align: center;
+    padding: var(--spacing-md);
+    font-size: 1rem;
+    margin-top: var(--spacing-sm);
+  }
+
+  .lightbox-close,
+  .lightbox-prev,
+  .lightbox-next {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: var(--spacing-md);
+    transition: background var(--transition-fast);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-sm);
+  }
+
+  .lightbox-close:hover,
+  .lightbox-prev:hover,
+  .lightbox-next:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .lightbox-close {
+    top: 20px;
+    right: 20px;
+    font-size: 2.5rem;
+    line-height: 1;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox-prev {
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .lightbox-next {
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .lightbox-counter {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 768px) {
+    .gallery-grid {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--spacing-sm);
+    }
+
+    .lightbox-prev,
+    .lightbox-next {
+      font-size: 1.5rem;
+      padding: var(--spacing-sm);
+    }
+
+    .lightbox-close {
+      font-size: 2rem;
+      width: 40px;
+      height: 40px;
+      top: 10px;
+      right: 10px;
+    }
+  }
+</style>
+
+<script>
+  // Lightbox functionality
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImage = document.getElementById('lightbox-image') as HTMLImageElement;
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  const lightboxClose = document.querySelector('.lightbox-close');
+  const lightboxPrev = document.querySelector('.lightbox-prev');
+  const lightboxNext = document.querySelector('.lightbox-next');
+  const lightboxCounter = document.querySelector('.lightbox-counter');
+
+  let currentIndex = 0;
+  const photos: { src: string; alt: string; titre?: string }[] = [];
+
+  // Collect photos data
+  galleryItems.forEach((item, index) => {
+    const img = item.querySelector('img') as HTMLImageElement;
+    const caption = item.querySelector('.photo-caption');
+
+    photos.push({
+      src: img.src,
+      alt: img.alt,
+      titre: caption?.textContent || img.alt
+    });
+
+    item.addEventListener('click', () => {
+      openLightbox(index);
+    });
+  });
+
+  function openLightbox(index: number) {
+    currentIndex = index;
+    updateLightbox();
+    lightbox?.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox?.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function updateLightbox() {
+    const photo = photos[currentIndex];
+    if (lightboxImage) lightboxImage.src = photo.src;
+    if (lightboxImage) lightboxImage.alt = photo.alt;
+    if (lightboxCaption) lightboxCaption.textContent = photo.titre || '';
+    if (lightboxCounter) {
+      lightboxCounter.textContent = `${currentIndex + 1} / ${photos.length}`;
+    }
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % photos.length;
+    updateLightbox();
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + photos.length) % photos.length;
+    updateLightbox();
+  }
+
+  // Event listeners
+  lightboxClose?.addEventListener('click', closeLightbox);
+  lightboxNext?.addEventListener('click', showNext);
+  lightboxPrev?.addEventListener('click', showPrev);
+
+  // Close on background click
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox?.classList.contains('active')) return;
+
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') showNext();
+    if (e.key === 'ArrowLeft') showPrev();
+  });
+</script>

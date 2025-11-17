@@ -1,9 +1,10 @@
 ---
-titre: "Résultats du championnat régional"
+titre: Résultats du championnat régional
 date: 2025-01-20
-description: "Félicitations à nos pilotes qui ont brillé lors du championnat régional de motocross ce week-end !"
-image: "/images/actualites/competition.jpg"
-auteur: "ACSM Chavagnes"
+description: Félicitations à nos pilotes qui ont brillé lors du championnat
+  régional de motocross ce week-end !
+image: /images/20250504_133808.jpg
+auteur: ACSM Chavagnes
 publie: true
 ---
 

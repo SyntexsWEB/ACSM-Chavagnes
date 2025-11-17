@@ -9,7 +9,11 @@ const page = await getEntry('pages', 'faq');
 if (!page) throw new Error('Page not found: faq');
 const { body } = page;
 
-const heroData = siteInfo.hero_pages.faq;
+const heroData = page.data.hero || {
+  image: '/images/motocross-saut-2.jpg',
+  titre: 'Questions fréquentes',
+  soustitre: 'Toutes les réponses à vos questions'
+};
 
 // Parser le contenu Markdown pour extraire les sections
 const sections: { category: string; questions: { question: string; answer: string }[] }[] = [];

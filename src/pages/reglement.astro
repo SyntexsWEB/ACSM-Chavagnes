@@ -9,7 +9,11 @@ const page = await getEntry('pages', 'reglement');
 if (!page) throw new Error('Page not found: reglement');
 const { Content } = await page.render();
 
-const heroData = siteInfo.hero_pages.reglement;
+const heroData = page.data.hero || {
+  image: '/images/motocross-saut-1.jpg',
+  titre: 'Règlement du terrain',
+  soustitre: 'Les règles à respecter pour votre sécurité'
+};
 ---
 
 <Layout

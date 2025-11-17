@@ -1,7 +1,7 @@
 {
   "images_hero": {
     "accueil": "/images/170822080831_gerhyfnudagcr2ptdb4nxsitctuxdn.jpg",
-    "presentation": "/images/terrain-vue.jpg",
+    "presentation": "/images/vue-aerienne-terrain-1.jpg",
     "reglement": "/images/hero-motocross.jpg"
   },
   "tarif": "15€",
@@ -22,8 +22,8 @@
   },
   "social": {
     "facebook": "https://www.facebook.com/profile.php?id=100004808973777",
-    "instagram": "",
-    "twitter": ""
+    "instagram": "https://www.instagram.com/acsm_chavagnes_les_eaux/",
+    "tiktok": "https://www.tiktok.com/@acsm_chavagnes_les_eaux"
   },
   "hero_accueil": {
     "bouton2_texte": "NOUS CONTACTER",
@@ -62,27 +62,5 @@
   "vehicules_acceptes": {
     "titre": "Véhicules acceptés",
     "description": "Motocross, sidecar, quad, électrique, enduro. Toutes catégories bienvenues."
-  },
-  "hero_pages": {
-    "presentation": {
-      "image": "/images/terrain-vue.jpg",
-      "titre": "Présentation du terrain",
-      "soustitre": "Découvrez notre circuit de motocross"
-    },
-    "reglement": {
-      "image": "/images/hero-motocross.jpg",
-      "titre": "Règlement du terrain",
-      "soustitre": "Les règles à respecter pour votre sécurité"
-    },
-    "faq": {
-      "image": "/images/hero-motocross.jpg",
-      "titre": "Questions fréquentes",
-      "soustitre": "Toutes les réponses à vos questions"
-    },
-    "contact": {
-      "image": "/images/hero-motocross.jpg",
-      "titre": "Contactez-nous",
-      "soustitre": "Nous sommes à votre écoute"
-    }
   }
 }

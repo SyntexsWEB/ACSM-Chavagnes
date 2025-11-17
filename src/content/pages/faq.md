@@ -1,6 +1,12 @@
 ---
 titre: "Questions fréquentes"
 description: "Questions fréquentes sur l'ACSM Chavagnes : inscription, licence, horaires, tarifs et accès au terrain."
+hero:
+  image: /images/motocross-saut-2.jpg
+  titre: Questions fréquentes
+  soustitre: Toutes les réponses à vos questions
+galerie:
+  afficher: false
 ---
 
 ## Inscription & Licence

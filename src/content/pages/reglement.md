@@ -1,6 +1,13 @@
 ---
-titre: "Règlement du terrain"
-description: "Règlement du terrain de motocross ACSM Chavagnes. Consignes de sécurité et règles à respecter."
+titre: Règlement du terrain
+description: Règlement du terrain de motocross ACSM Chavagnes. Consignes de
+  sécurité et règles à respecter.
+hero:
+  image: /images/motocross-saut-4.jpg
+  titre: Règlement du terrain
+  soustitre: Les règles à respecter pour votre sécurité
+galerie:
+  afficher: false
 ---
 
 ## Important

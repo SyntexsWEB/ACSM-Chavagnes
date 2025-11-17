@@ -2,6 +2,39 @@
 titre: Présentation du terrain
 description: Découvrez le terrain de motocross de l'ACSM Chavagnes les Eaux à
   Terranjou. Histoire, installations et partenaires.
+hero:
+  image: /images/vue-aerienne-terrain-1.jpg
+  titre: Présentation du terrain
+  soustitre: Découvrez notre circuit de motocross
+galerie:
+  afficher: true
+  titre: Le terrain en images
+  description: Découvrez notre circuit de motocross à travers ces photos
+  photos:
+    - src: /images/vue-aerienne-terrain-1.jpg
+      alt: Vue aérienne du terrain de motocross
+      titre: Vue aérienne du terrain
+    - src: /images/vue-aerienne-terrain-2.jpg
+      alt: Vue aérienne du circuit
+      titre: Vue aérienne du circuit
+    - src: /images/depart-premier-virage.jpg
+      alt: Départ et premier virage
+      titre: Départ et premier virage
+    - src: /images/motocross-expert.png
+      alt: Saut sur le circuit
+      titre: Les sauts du circuit
+    - src: /images/motocross-saut-2.jpg
+      alt: Pilote en action
+      titre: Pilote en action
+    - src: /images/motocross-saut-3.jpg
+      alt: Zone de sauts
+      titre: Zone de sauts
+    - src: /images/motocross-saut-4.jpg
+      alt: Parcours technique
+      titre: Parcours technique
+    - src: /images/acsm-v68-1-.jpg
+      titre: Plan du circuit
+      alt: plan du circuit
 ---
 ## L'ACSM Chavagnes les Eaux
 

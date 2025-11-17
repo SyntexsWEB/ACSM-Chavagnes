@@ -1,9 +1,10 @@
 ---
-titre: "Ouverture de la saison 2025"
+titre: Ouverture de la saison 2025
 date: 2025-01-15
-description: "La nouvelle saison démarre ! Retrouvez-nous dès le premier week-end de février pour l'ouverture officielle du terrain."
-image: "/images/actualites/saison-2025.jpg"
-auteur: "ACSM Chavagnes"
+description: La nouvelle saison démarre ! Retrouvez-nous dès le premier week-end
+  de février pour l'ouverture officielle du terrain.
+image: /images/Pascal-dirigeant-ACSM.jpg
+auteur: ACSM Chavagnes
 publie: true
 ---
 

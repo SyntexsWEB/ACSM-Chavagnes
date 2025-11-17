@@ -1,5 +1,5 @@
 ---
-titre: Présentation du terrain 1
+titre: Présentation du terrain
 description: Découvrez le terrain de motocross de l'ACSM Chavagnes les Eaux à
   Terranjou. Histoire, installations et partenaires.
 hero:

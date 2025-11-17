@@ -36,7 +36,7 @@ galerie:
       titre: Plan du circuit
       alt: plan du circuit
 ---
-## L'ACSM Chavagnes les Eaux
+## L'ACSM Chavagnes les EauxXX
 
 Bienvenue sur le terrain de motocross de l'ACSM Chavagnes les Eaux, situé à Terranjou. Notre club accueille les passionnés de motocross dans un cadre naturel exceptionnel, avec des installations modernes et sécurisées.
 

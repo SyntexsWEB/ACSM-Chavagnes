@@ -82,8 +82,8 @@ function simpleMarkdownToHtml(text: string): string {
   description={page.data.description}
 >
   <HeroPage
-    titre={heroData.titre}
-    soustitre={heroData.soustitre}
+    titre={heroData.titre ?? 'Questions fréquentes'}
+    soustitre={heroData.soustitre ?? 'Toutes les réponses à vos questions'}
     image={heroData.image}
   />
 
@@ -95,12 +95,12 @@ function simpleMarkdownToHtml(text: string): string {
       </div>
 
       <div class="faq-content">
-        {sections.map((section) => (
+        {sections.map((section, sectionIndex) => (
           <div class="faq-category">
             <h2 class="category-title">{section.category}</h2>
             <div class="accordion-list">
-              {section.questions.map((item, index) => (
-                <Accordion question={item.question} index={`${section.category}-${index}`}>
+              {section.questions.map((item, questionIndex) => (
+                <Accordion question={item.question} index={sectionIndex * section.questions.length + questionIndex}>
                   <div set:html={`<p>${simpleMarkdownToHtml(item.answer)}</p>`} />
                 </Accordion>
               ))}

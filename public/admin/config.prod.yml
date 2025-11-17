@@ -36,6 +36,30 @@ collections:
       - { label: "Titre", name: "titre", widget: "string" }
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Contenu", name: "body", widget: "markdown" }
+      - label: "Image Hero"
+        name: "hero"
+        widget: "object"
+        required: false
+        fields:
+          - { label: "Image de fond", name: "image", widget: "image", required: false }
+          - { label: "Titre", name: "titre", widget: "string", required: false }
+          - { label: "Sous-titre", name: "soustitre", widget: "string", required: false }
+      - label: "Galerie photos (Page présentation uniquement)"
+        name: "galerie"
+        widget: "object"
+        required: false
+        fields:
+          - { label: "Afficher la galerie", name: "afficher", widget: "boolean", default: false }
+          - { label: "Titre de la section", name: "titre", widget: "string", default: "Le terrain en images", required: false }
+          - { label: "Description", name: "description", widget: "text", default: "Découvrez notre circuit de motocross à travers ces photos", required: false }
+          - label: "Photos"
+            name: "photos"
+            widget: "list"
+            required: false
+            fields:
+              - { label: "Image", name: "src", widget: "image" }
+              - { label: "Texte alternatif", name: "alt", widget: "string" }
+              - { label: "Titre de la photo", name: "titre", widget: "string", required: false }
 
   # Paramètres du site
   - name: "parametres"
@@ -107,7 +131,7 @@ collections:
             fields:
               - { label: "Facebook", name: "facebook", widget: "string", required: false }
               - { label: "Instagram", name: "instagram", widget: "string", required: false }
-              - { label: "Twitter", name: "twitter", widget: "string", required: false }
+              - { label: "TikTok", name: "tiktok", widget: "string", required: false }
 
           - label: "Section CTA (Appel à l'action)"
             name: "cta_accueil"

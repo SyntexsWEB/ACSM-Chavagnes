@@ -19,8 +19,8 @@ const heroData = page.data.hero || {
   description={page.data.description}
 >
   <HeroPage
-    titre={heroData.titre}
-    soustitre={heroData.soustitre}
+    titre={heroData.titre ?? 'Contactez-nous'}
+    soustitre={heroData.soustitre ?? 'Nous sommes à votre écoute'}
     image={heroData.image}
   />
 

@@ -27,16 +27,18 @@ const {
 ---
 
 <section class="news-carousel-section">
-  <div class="carousel-header">
-    <div class="header-left">
-      <h2 class="carousel-title">MX-{titre}</h2>
-      <div class="header-underline"></div>
-      <p class="carousel-subtitle">{soustitre}</p>
+  <div class="container">
+    <div class="carousel-header">
+      <div class="header-left">
+        <h2 class="carousel-title">MX-{titre}</h2>
+        <div class="header-underline"></div>
+        <p class="carousel-subtitle">{soustitre}</p>
+      </div>
+      <a href={lienUrl} class="voir-tout-link">
+        {lienTexte}
+        <span class="voir-tout-arrow">→</span>
+      </a>
     </div>
-    <a href={lienUrl} class="voir-tout-link">
-      {lienTexte}
-      <span class="voir-tout-arrow">→</span>
-    </a>
   </div>
 
   <div class="carousel-wrapper">
@@ -65,13 +67,15 @@ const {
     </div>
   </div>
 
-  <div class="carousel-controls">
-    <button class="carousel-btn prev" id="carousel-prev" aria-label="Précédent">
-      ←
-    </button>
-    <button class="carousel-btn next" id="carousel-next" aria-label="Suivant">
-      →
-    </button>
+  <div class="container">
+    <div class="carousel-controls">
+      <button class="carousel-btn prev" id="carousel-prev" aria-label="Précédent">
+        ←
+      </button>
+      <button class="carousel-btn next" id="carousel-next" aria-label="Suivant">
+        →
+      </button>
+    </div>
   </div>
 </section>
 
@@ -86,11 +90,7 @@ const {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    padding: 0 var(--spacing-xl);
     margin-bottom: var(--spacing-xl);
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   .header-left {
@@ -168,7 +168,8 @@ const {
     gap: var(--spacing-2xl);
     transition: transform 0.5s ease-in-out;
     will-change: transform;
-    padding-left: var(--spacing-xl);
+    /* Aligner avec le container (max-width 1200px + padding) */
+    padding-left: max(var(--spacing-md), calc((100% - 1200px) / 2 + var(--spacing-md)));
   }
 
   .news-slide {
@@ -249,9 +250,7 @@ const {
   .carousel-controls {
     display: flex;
     gap: var(--spacing-sm);
-    padding: var(--spacing-xl) var(--spacing-xl) 0;
-    max-width: 1400px;
-    margin: 0 auto;
+    padding-top: var(--spacing-xl);
   }
 
   .carousel-btn {
@@ -284,11 +283,10 @@ const {
       flex-direction: column;
       align-items: flex-start;
       gap: var(--spacing-md);
-      padding: 0 var(--spacing-md);
     }
 
     .carousel-track {
-      padding-left: var(--spacing-md);
+      padding-left: var(--spacing-sm);
     }
 
     .news-slide {
@@ -306,7 +304,7 @@ const {
 
     .carousel-controls {
       justify-content: center;
-      padding: var(--spacing-lg) var(--spacing-md) 0;
+      padding-top: var(--spacing-lg);
     }
   }
 </style>

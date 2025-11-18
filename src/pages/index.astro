@@ -87,52 +87,9 @@ const heroData = siteInfo.hero_accueil;
   />
 
   <!-- Section Dernières Actualités - Carrousel -->
-  {actualites.length > 0 && (
-    <section class="recent-news-section">
-      <div class="container">
-        <div class="section-header-mx">
-          <div class="header-logo">
-            <span class="mx-prefix">MX</span>
-            <h2>ACTUALITÉS</h2>
-          </div>
-          <div class="header-underline"></div>
-          <p class="section-subtitle">Les dernières nouvelles de l'ACSM Chavagnes</p>
-        </div>
-
-        <div class="grid grid-3">
-          {actualites.slice(0, 3).map((actualite) => (
-            <article class="news-card">
-              <div class="news-card-image">
-                <img src={actualite.data.image} alt={actualite.data.titre} />
-                <div class="news-card-overlay"></div>
-              </div>
-              <div class="news-card-content">
-                <time class="news-card-date">
-                  {new Intl.DateTimeFormat('fr-FR', {
-                    day: 'numeric',
-                    month: 'long',
-                    year: 'numeric'
-                  }).format(actualite.data.date)}
-                </time>
-                <h3 class="news-card-title">{actualite.data.titre}</h3>
-                <p class="news-card-description">{actualite.data.description}</p>
-                <a href={`/actualites/${actualite.slug}`} class="news-card-link">
-                  Lire la suite
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                  </svg>
-                </a>
-              </div>
-            </article>
-          ))}
-        </div>
-
-        <div class="news-footer">
-          <a href="/actualites" class="btn-all-news">Voir toutes les actualités</a>
-        </div>
-      </div>
-    </section>
-  )}
+    {actualites.length > 0 && (
+      <NewsCarousel actualites={actualites} />
+    )}
 
   <!-- Section CTA finale style moderne -->
   <section class="cta-section-final">
@@ -321,18 +278,10 @@ const heroData = siteInfo.hero_accueil;
     border-color: var(--color-primary);
   }
 
-  .cta-card h2 {
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    margin-bottom: var(--spacing-lg);
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px var(--shadow-primary-strong);
-  }
-
-  /* Section CTA finale - Style identique à l'image (couleurs inversées) */
+  /* Section CTA finale  */
   .cta-section-final {
     background: var(--color-dark);
-    padding: var(--spacing-2xl) 0;
+    padding: var(--spacing-2xl) 0 var(--spacing-lg) 0;
   }
 
   .cta-content {

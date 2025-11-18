@@ -67,58 +67,58 @@ const { titre, description = siteInfo.description } = Astro.props;
 
     <footer>
       <div class="container">
-        <div class="footer-content">
-          <div class="footer-section">
-            <h3>{siteInfo.nom}</h3>
-            <p>{siteInfo.description}</p>
-            {siteInfo.adresse && <p>{siteInfo.adresse}</p>}
-            {siteInfo.email && <p><a href={`mailto:${siteInfo.email}`}>{siteInfo.email}</a></p>}
-            {siteInfo.telephone && <p>{siteInfo.telephone}</p>}
-            {(siteInfo.social?.facebook || siteInfo.social?.instagram || siteInfo.social?.tiktok) && (
-              <div class="social-links">
-                {siteInfo.social.facebook && (
-                  <a href={siteInfo.social.facebook} target="_blank" rel="noopener" aria-label="Facebook">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                    </svg>
-                  </a>
-                )}
-                {siteInfo.social.instagram && (
-                  <a href={siteInfo.social.instagram} target="_blank" rel="noopener" aria-label="Instagram">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                  </a>
-                )}
-                {siteInfo.social.tiktok && (
-                  <a href={siteInfo.social.tiktok} target="_blank" rel="noopener" aria-label="TikTok">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-                    </svg>
-                  </a>
-                )}
-              </div>
+        <!-- Logo centré -->
+        <div class="footer-logo-section">
+          <a href="/" class="footer-logo">
+            <img src="/images/logo_acsm.svg" alt={siteInfo.nom} />
+          </a>
+        </div>
+
+        <!-- Réseaux sociaux avec labels -->
+        {(siteInfo.social?.facebook || siteInfo.social?.instagram || siteInfo.social?.tiktok) && (
+          <div class="social-links">
+            {siteInfo.social.instagram && (
+              <a href={siteInfo.social.instagram} target="_blank" rel="noopener" class="social-item">
+                <span class="social-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  </svg>
+                </span>
+                <span class="social-label">INSTAGRAM</span>
+              </a>
+            )}
+            {siteInfo.social.facebook && (
+              <a href={siteInfo.social.facebook} target="_blank" rel="noopener" class="social-item">
+                <span class="social-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                  </svg>
+                </span>
+                <span class="social-label">FACEBOOK</span>
+              </a>
+            )}
+            {siteInfo.social.tiktok && (
+              <a href={siteInfo.social.tiktok} target="_blank" rel="noopener" class="social-item">
+                <span class="social-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                  </svg>
+                </span>
+                <span class="social-label">TIKTOK</span>
+              </a>
             )}
           </div>
-          <div class="footer-section">
-            <h4>Horaires</h4>
-            <p>{siteInfo.horaires.jours}</p>
-            <p>Samedi: {siteInfo.horaires.samedi}</p>
-            <p>Dimanche: {siteInfo.horaires.dimanche}</p>
-            <p class="tarif">Tarif: {siteInfo.tarif}</p>
-          </div>
-          <div class="footer-section">
-            <h4>Liens rapides</h4>
-            <ul>
-              <li><a href="/presentation">Présentation</a></li>
-              <li><a href="/reglement">Règlement</a></li>
-              <li><a href="/faq">FAQ</a></li>
-              <li><a href="/contact">Contact</a></li>
-            </ul>
-          </div>
-        </div>
+        )}
+
+        <!-- Footer bottom avec copyright et contact -->
         <div class="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} {siteInfo.nom}. Tous droits réservés.</p>
+          <div class="footer-bottom-content">
+            <p class="copyright">Réalisé par <a href="https://syntexs.com" target="_blank" rel="noopener" class="credit-link">Syntexs</a></p>
+            <div class="footer-contact">
+              {siteInfo.email && <a href={`mailto:${siteInfo.email}`}>{siteInfo.email}</a>}
+              {siteInfo.telephone && <a href={`tel:${siteInfo.telephone}`}>{siteInfo.telephone}</a>}
+            </div>
+          </div>
         </div>
       </div>
     </footer>
@@ -245,92 +245,125 @@ const { titre, description = siteInfo.description } = Astro.props;
         transition: all var(--transition-fast);
       }
 
-      /* Footer */
+      /* Footer Minimaliste - Style identique à l'image */
       footer {
-        background: var(--color-dark-lighter);
-        border-top: 1px solid var(--color-border);
+        background: var(--color-dark);
         margin-top: 0;
-        padding: var(--spacing-2xl) 0 var(--spacing-md);
+        padding: var(--spacing-2xl) 0 var(--spacing-lg);
       }
 
-      .footer-content {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: var(--spacing-xl);
+      /* Logo Section */
+      .footer-logo-section {
+        text-align: center;
         margin-bottom: var(--spacing-xl);
       }
 
-      .footer-section h3, .footer-section h4 {
-        color: white;
-        margin-bottom: var(--spacing-sm);
-        font-weight: 700;
+      .footer-logo {
+        display: inline-block;
       }
 
-      .footer-section p {
-        color: var(--color-text-secondary);
-        margin-bottom: var(--spacing-xs);
-        font-size: 0.9rem;
+      .footer-logo img {
+        height: 100px;
+        width: auto;
+        transition: all var(--transition-fast);
       }
 
-      .footer-section ul {
-        list-style: none;
+      .footer-logo:hover img {
+        filter: drop-shadow(0 0 15px var(--color-primary));
+        transform: scale(1.05);
       }
 
-      .footer-section ul li {
-        margin-bottom: var(--spacing-xs);
-      }
-
-      .footer-section ul a {
-        color: var(--color-text-secondary);
-        font-size: 0.9rem;
-      }
-
-      .footer-section ul a:hover {
-        color: var(--color-primary);
-      }
-
-      .footer-section a {
-        color: var(--color-primary);
-        transition: color var(--transition-fast);
-      }
-
-      .footer-section a:hover {
-        color: var(--color-primary-light);
-      }
-
+      /* Social Links */
       .social-links {
         display: flex;
-        gap: var(--spacing-md);
-        margin-top: var(--spacing-md);
+        justify-content: center;
+        align-items: center;
+        gap: var(--spacing-xl);
+        margin-bottom: var(--spacing-xl);
+        flex-wrap: wrap;
       }
 
-      .social-links a {
-        color: var(--color-text-secondary);
+      .social-item {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+        color: white;
+        text-decoration: none;
         transition: all var(--transition-fast);
+      }
+
+      .social-item:hover {
+        color: var(--color-primary);
+      }
+
+      .social-icon {
         display: flex;
         align-items: center;
         justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: white;
+        color: var(--color-dark);
+        transition: all var(--transition-fast);
       }
 
-      .social-links a:hover {
-        color: var(--color-primary);
-        transform: translateY(-2px);
+      .social-item:hover .social-icon {
+        background: var(--color-primary);
+        color: white;
       }
 
-      .social-links svg {
-        width: 24px;
-        height: 24px;
+      .social-label {
+        font-weight: 700;
+        font-size: 0.85rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
       }
 
+      /* Footer Bottom */
       .footer-bottom {
-        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
         padding-top: var(--spacing-lg);
-        border-top: 1px solid var(--color-border);
       }
 
-      .footer-bottom p {
+      .footer-bottom-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+      }
+
+      .copyright {
         color: var(--color-text-secondary);
         font-size: 0.85rem;
+        margin: 0;
+      }
+
+      .credit-link {
+        color: white;
+        font-weight: 600;
+        transition: color var(--transition-fast);
+      }
+
+      .credit-link:hover {
+        color: var(--color-primary);
+      }
+
+      .footer-contact {
+        display: flex;
+        gap: var(--spacing-lg);
+        flex-wrap: wrap;
+      }
+
+      .footer-contact a {
+        color: var(--color-text-secondary);
+        font-size: 0.85rem;
+        transition: color var(--transition-fast);
+      }
+
+      .footer-contact a:hover {
+        color: var(--color-primary);
       }
 
       /* Mobile */
@@ -343,9 +376,26 @@ const { titre, description = siteInfo.description } = Astro.props;
           display: flex;
         }
 
-        .footer-content {
-          grid-template-columns: 1fr;
-          gap: var(--spacing-lg);
+        .social-links {
+          gap: var(--spacing-md);
+        }
+
+        .social-label {
+          display: none;
+        }
+
+        .social-icon {
+          width: 44px;
+          height: 44px;
+        }
+
+        .footer-bottom-content {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .footer-contact {
+          justify-content: center;
         }
       }
     </style>

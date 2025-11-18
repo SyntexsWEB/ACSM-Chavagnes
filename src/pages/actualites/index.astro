@@ -1,36 +1,100 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import ActualiteCard from '../../components/ActualiteCard.astro';
-import { getCollection } from 'astro:content';
+import HeroPage from '../../components/HeroPage.astro';
+import { getCollection, getEntry } from 'astro:content';
+
+// Récupérer les données de la page depuis le CMS
+const page = await getEntry('pages', 'actualites');
+if (!page) throw new Error('Page not found: actualites');
+
+const heroData = page.data.hero || {
+  image: '/images/20250504_133808.jpg',
+  titre: 'Actualités',
+  soustitre: 'Restez informé de toutes les nouveautés du club'
+};
 
 const actualites = (await getCollection('actualites'))
   .filter(a => a.data.publie)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+// Pagination
+const ITEMS_PER_PAGE = 9;
+const totalPages = Math.ceil(actualites.length / ITEMS_PER_PAGE);
 ---
 
 <Layout
-  titre="Actualités"
-  description="Suivez toutes les actualités de l'ACSM Chavagnes : événements, résultats de compétitions, informations pratiques."
+  titre={page.data.titre}
+  description={page.data.description}
 >
+  <HeroPage
+    titre={heroData.titre ?? 'Actualités'}
+    soustitre={heroData.soustitre ?? 'Restez informé de toutes les nouveautés du club'}
+    image={heroData.image}
+  />
+
   <section class="section">
     <div class="container">
-      <div class="actualites-header">
-        <h1>Actualités</h1>
-        <p>Restez informé de toutes les nouveautés du club</p>
+      <!-- Barre de recherche et tri -->
+      <div class="actualites-controls">
+        <div class="search-container">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Rechercher une actualité..."
+            class="search-input"
+          />
+          <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="sort-container">
+          <label for="sort-select">Trier par :</label>
+          <select id="sort-select" class="sort-select">
+            <option value="desc">Plus récent</option>
+            <option value="asc">Plus ancien</option>
+          </select>
+        </div>
       </div>
 
       {actualites.length > 0 ? (
-        <div class="grid grid-3">
-          {actualites.map((actualite) => (
-            <ActualiteCard
-              titre={actualite.data.titre}
-              date={actualite.data.date}
-              description={actualite.data.description}
-              image={actualite.data.image}
-              slug={actualite.slug}
-            />
-          ))}
-        </div>
+        <>
+          <div class="actualites-grid" id="actualites-grid">
+            {actualites.map((actualite) => (
+              <div class="actualite-item" data-date={actualite.data.date.valueOf()} data-titre={actualite.data.titre.toLowerCase()} data-description={actualite.data.description.toLowerCase()}>
+                <ActualiteCard
+                  titre={actualite.data.titre}
+                  date={actualite.data.date}
+                  description={actualite.data.description}
+                  image={actualite.data.image}
+                  slug={actualite.slug}
+                />
+              </div>
+            ))}
+          </div>
+
+          <div class="no-results card" id="no-results">
+            <p>Aucune actualité ne correspond à votre recherche.</p>
+          </div>
+
+          <div class="pagination" id="pagination">
+            <button class="pagination-btn" id="prev-page" disabled>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Précédent
+            </button>
+            <div class="pagination-info">
+              Page <span id="current-page">1</span> sur <span id="total-pages">{totalPages}</span>
+            </div>
+            <button class="pagination-btn" id="next-page">
+              Suivant
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </>
       ) : (
         <div class="no-actualites card">
           <p>Aucune actualité pour le moment. Revenez bientôt !</p>
@@ -41,35 +105,100 @@ const actualites = (await getCollection('actualites'))
 </Layout>
 
 <style>
-  .actualites-header {
-    text-align: center;
-    margin-bottom: var(--spacing-2xl);
+  .actualites-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
   }
 
-  .actualites-header h1 {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    color: var(--color-text);
-    font-weight: 700;
-    margin-bottom: var(--spacing-md);
+  .search-container {
     position: relative;
-    display: inline-block;
-    padding-bottom: var(--spacing-sm);
+    flex: 1;
+    max-width: 400px;
   }
 
-  .actualites-header h1::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 80px;
-    height: 4px;
-    background: var(--color-primary);
-    border-radius: 2px;
+  .search-input {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    padding-left: var(--spacing-2xl);
+    background: var(--color-steel);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    font-size: 1rem;
+    transition: all var(--transition-fast);
   }
 
-  .actualites-header p {
-    font-size: 1.25rem;
+  .search-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--shadow-primary-subtle);
+  }
+
+  .search-input::placeholder {
     color: var(--color-text-secondary);
+  }
+
+  .search-icon {
+    position: absolute;
+    left: var(--spacing-sm);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-secondary);
+    pointer-events: none;
+  }
+
+  .sort-container {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background: var(--color-steel);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+  }
+
+  .sort-container label {
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  .sort-select {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: transparent;
+    border: none;
+    color: var(--color-text);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .sort-select:focus {
+    outline: none;
+  }
+
+  .sort-select option {
+    background: var(--color-steel);
+    color: var(--color-text);
+  }
+
+  .actualites-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+  }
+
+  .actualite-item {
+    display: block;
+  }
+
+  .actualite-item.hidden {
+    display: none;
   }
 
   .no-actualites {
@@ -82,4 +211,193 @@ const actualites = (await getCollection('actualites'))
     font-size: 1.1rem;
     margin: 0;
   }
+
+  .no-results {
+    text-align: center;
+    padding: var(--spacing-2xl);
+    display: none;
+  }
+
+  .no-results p {
+    color: var(--color-text-secondary);
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  .no-results.visible {
+    display: block;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-2xl);
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .pagination.hidden {
+    display: none;
+  }
+
+  .pagination-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--color-steel);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .pagination-btn:hover:not(:disabled) {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-dark);
+  }
+
+  .pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .pagination-info {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 1024px) {
+    .actualites-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .actualites-controls {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .search-container {
+      max-width: none;
+    }
+
+    .sort-container {
+      justify-content: space-between;
+    }
+
+    .actualites-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .pagination {
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+  }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const grid = document.getElementById('actualites-grid');
+    const searchInput = document.getElementById('search-input') as HTMLInputElement;
+    const sortSelect = document.getElementById('sort-select') as HTMLSelectElement;
+    const prevBtn = document.getElementById('prev-page') as HTMLButtonElement;
+    const nextBtn = document.getElementById('next-page') as HTMLButtonElement;
+    const currentPageSpan = document.getElementById('current-page');
+    const totalPagesSpan = document.getElementById('total-pages');
+    const noResults = document.getElementById('no-results');
+    const pagination = document.getElementById('pagination');
+
+    if (!grid) return;
+
+    const items = Array.from(grid.querySelectorAll('.actualite-item')) as HTMLElement[];
+    const ITEMS_PER_PAGE = 9;
+    let currentPage = 1;
+    let filteredItems = [...items];
+
+    // Fonction pour filtrer et trier
+    const filterAndSort = () => {
+      const searchTerm = searchInput?.value.toLowerCase() || '';
+      const sortOrder = sortSelect?.value || 'desc';
+
+      // Filtrer
+      filteredItems = items.filter(item => {
+        const titre = item.dataset.titre || '';
+        const description = item.dataset.description || '';
+        return titre.includes(searchTerm) || description.includes(searchTerm);
+      });
+
+      // Trier
+      filteredItems.sort((a, b) => {
+        const dateA = parseInt(a.dataset.date || '0');
+        const dateB = parseInt(b.dataset.date || '0');
+        return sortOrder === 'desc' ? dateB - dateA : dateA - dateB;
+      });
+
+      // Réorganiser le DOM
+      filteredItems.forEach(item => grid.appendChild(item));
+
+      // Reset à la page 1
+      currentPage = 1;
+      updatePagination();
+    };
+
+    // Fonction pour mettre à jour la pagination
+    const updatePagination = () => {
+      const totalPages = Math.ceil(filteredItems.length / ITEMS_PER_PAGE);
+      const start = (currentPage - 1) * ITEMS_PER_PAGE;
+      const end = start + ITEMS_PER_PAGE;
+
+      // Afficher/masquer les items
+      items.forEach(item => item.classList.add('hidden'));
+      filteredItems.slice(start, end).forEach(item => item.classList.remove('hidden'));
+
+      // Mettre à jour les boutons et infos
+      if (prevBtn) prevBtn.disabled = currentPage === 1;
+      if (nextBtn) nextBtn.disabled = currentPage >= totalPages || totalPages === 0;
+      if (currentPageSpan) currentPageSpan.textContent = currentPage.toString();
+      if (totalPagesSpan) totalPagesSpan.textContent = Math.max(totalPages, 1).toString();
+
+      // Afficher/masquer le message "Aucun résultat" et la pagination
+      const hasResults = filteredItems.length > 0;
+      if (noResults) {
+        noResults.classList.toggle('visible', !hasResults);
+      }
+      if (pagination) {
+        pagination.classList.toggle('hidden', !hasResults);
+      }
+      grid.style.display = hasResults ? '' : 'none';
+    };
+
+    // Event listeners
+    searchInput?.addEventListener('input', filterAndSort);
+    sortSelect?.addEventListener('change', filterAndSort);
+
+    prevBtn?.addEventListener('click', () => {
+      if (currentPage > 1) {
+        currentPage--;
+        updatePagination();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+
+    nextBtn?.addEventListener('click', () => {
+      const totalPages = Math.ceil(filteredItems.length / ITEMS_PER_PAGE);
+      if (currentPage < totalPages) {
+        currentPage++;
+        updatePagination();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+
+    // Initialisation
+    updatePagination();
+  });
+</script>

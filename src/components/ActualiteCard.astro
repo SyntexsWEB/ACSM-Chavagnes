@@ -43,6 +43,7 @@ const formattedDate = new Intl.DateTimeFormat('fr-FR', {
     flex-direction: column;
     height: 100%;
     overflow: hidden;
+    padding: 0;
   }
 
   .actualite-image {
@@ -50,8 +51,6 @@ const formattedDate = new Intl.DateTimeFormat('fr-FR', {
     height: 200px;
     overflow: hidden;
     border-radius: var(--radius-md) var(--radius-md) 0 0;
-    margin: calc(-1 * var(--spacing-lg));
-    margin-bottom: var(--spacing-md);
   }
 
   .actualite-image img {
@@ -69,6 +68,7 @@ const formattedDate = new Intl.DateTimeFormat('fr-FR', {
     display: flex;
     flex-direction: column;
     flex: 1;
+    padding: var(--spacing-lg);
   }
 
   .actualite-date {

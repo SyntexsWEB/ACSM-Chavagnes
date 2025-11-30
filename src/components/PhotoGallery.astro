@@ -14,7 +14,7 @@ interface Props {
 const { photos, titre = "Galerie photos", description } = Astro.props;
 ---
 
-<section class="photo-gallery-section">
+<section id="galerie-photo" class="photo-gallery-section">
   <div class="container">
     {titre && <h2 class="gallery-title">{titre}</h2>}
     {description && <p class="gallery-description">{description}</p>}

@@ -42,7 +42,7 @@ const { titre, description = siteInfo.description } = Astro.props;
         <div class="container">
           <div class="nav-wrapper">
             <a href="/" class="logo">
-              <img src="/images/logo_acsm.svg" alt={siteInfo.nom} class="logo-image" />
+              <img src="/images/logo_acsm.svg" alt={siteInfo.nom} class="logo-image" loading="eager" />
             </a>
             <ul class="nav-menu">
               <li><a href="/">Accueil</a></li>
@@ -70,7 +70,7 @@ const { titre, description = siteInfo.description } = Astro.props;
         <!-- Logo centré -->
         <div class="footer-logo-section">
           <a href="/" class="footer-logo">
-            <img src="/images/logo_acsm.svg" alt={siteInfo.nom} />
+            <img src="/images/logo_acsm.svg" alt={siteInfo.nom} loading="lazy" />
           </a>
         </div>
 

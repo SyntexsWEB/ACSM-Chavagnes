@@ -80,18 +80,43 @@ const heroData = page.data.hero || {
 
         <div class="contact-info">
           <div class="info-card card">
+            <h3>Contacts</h3>
+            <div class="info-item">
+              <div>
+                <strong>Président</strong>
+                <p>Mr Renault Pascal</p>
+                <p>Portable: 07 49 24 03 62</p>
+                <p>Email: <a href="mailto:pezotmickael@gmail.com">pezotmickael@gmail.com</a></p>
+              </div>
+            </div>
+            <div class="info-item">
+              <div>
+                <strong>Responsable permanent de terrain</strong>
+                <p>Grégoire Monchin</p>
+                <p>Téléphone: 06 31 23 46 66</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <div>
+                <strong>Responsable communication et presse</strong>
+                <p>Fabrice Tulane</p>
+                <p>Téléphone: 07 74 73 53 90</p>
+                <p>Email: <a href="mailto:fabtulane@hotmail.com">fabtulane@hotmail.com</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-card card">
             <h3>Informations pratiques</h3>
             {siteInfo.adresse && (
               <div class="info-item">
-                <div class="info-icon">📍</div>
                 <div>
-                  <strong>Adresse</strong>
+                  <strong>Adresse du terrain</strong>
                   <p>{siteInfo.adresse}</p>
                 </div>
               </div>
             )}
             <div class="info-item">
-              <div class="info-icon">⏰</div>
               <div>
                 <strong>Horaires</strong>
                 <p>{siteInfo.horaires.jours}</p>
@@ -100,36 +125,31 @@ const heroData = page.data.hero || {
               </div>
             </div>
             <div class="info-item">
-              <div class="info-icon">💶</div>
               <div>
                 <strong>Tarif</strong>
                 <p>{siteInfo.tarif} la journée</p>
               </div>
             </div>
           </div>
-
-          <div class="info-card card">
-            <h3>Avant de venir</h3>
-            <ul class="checklist">
-              <li>✓ Vérifier le calendrier d'ouverture</li>
-              <li>✓ Avoir sa licence FFM à jour</li>
-              <li>✓ Préparer son équipement de sécurité</li>
-              <li>✓ Prévoir {siteInfo.tarif} pour l'entrée</li>
-              <li>✓ Consulter le règlement du terrain</li>
-            </ul>
-            <a href="/reglement" class="btn btn-secondary" style="margin-top: var(--spacing-md); display: inline-block;">
-              Voir le règlement
-            </a>
-          </div>
-
-          <div class="info-card card">
-            <h3>Besoin d'aide ?</h3>
-            <p>Consultez notre FAQ pour trouver rapidement des réponses à vos questions les plus fréquentes.</p>
-            <a href="/faq" class="btn" style="margin-top: var(--spacing-md); display: inline-block;">
-              Consulter la FAQ
-            </a>
-          </div>
         </div>
+      </div>
+
+      <div class="help-cta-card">
+        <a href="/faq" class="help-cta-link">
+          <div class="help-cta-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </div>
+          <div class="help-cta-content">
+            <h3>BESOIN D'AIDE ?</h3>
+            <p>Consultez notre FAQ pour trouver rapidement des réponses à vos questions les plus fréquentes</p>
+            <div class="help-cta-button">
+              <span class="btn-help-outline">Consulter la FAQ</span>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -236,7 +256,12 @@ const heroData = page.data.hero || {
   .info-item {
     display: flex;
     gap: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .info-item:last-child {
+    border-bottom: none;
   }
 
   .info-icon {
@@ -256,6 +281,17 @@ const heroData = page.data.hero || {
     font-size: 0.9rem;
   }
 
+  .info-item a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .info-item a:hover {
+    color: var(--color-primary-light);
+    text-decoration: underline;
+  }
+
   .checklist {
     list-style: none;
     padding: 0;
@@ -264,6 +300,95 @@ const heroData = page.data.hero || {
   .checklist li {
     padding: var(--spacing-xs) 0;
     color: var(--color-text-secondary);
+  }
+
+  /* Help CTA Card - Style moderne */
+  .help-cta-card {
+    position: relative;
+    margin-top: var(--spacing-3xl);
+  }
+
+  .help-cta-link {
+    display: block;
+    text-decoration: none;
+    position: relative;
+  }
+
+  .help-cta-icon {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    z-index: 10;
+    transition: all var(--transition-normal);
+  }
+
+  .help-cta-link:hover .help-cta-icon {
+    transform: translateX(-50%) scale(1.2);
+    box-shadow: 0 8px 25px rgba(185, 28, 28, 0.6);
+  }
+
+  .help-cta-content {
+    background: var(--color-dark-lighter);
+    border-radius: 20px;
+    padding: 3.5rem 2rem 3rem;
+    text-align: center;
+    transition: all var(--transition-normal);
+    border: 2px solid transparent;
+  }
+
+  .help-cta-link:hover .help-cta-content {
+    border-color: var(--color-primary);
+  }
+
+  .help-cta-content h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: var(--spacing-md);
+    color: white;
+    font-weight: 900;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+
+  .help-cta-content p {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.6;
+  }
+
+  .help-cta-button {
+    display: flex;
+    justify-content: center;
+  }
+
+  .btn-help-outline {
+    display: inline-block;
+    padding: 0.9rem 1.8rem;
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all var(--transition-normal);
+  }
+
+  .help-cta-link:hover .btn-help-outline {
+    background: white;
+    color: var(--color-dark);
+    transform: translateY(-2px);
   }
 
   @media (max-width: 1024px) {

@@ -11,7 +11,7 @@ const { titre, soustitre, image } = Astro.props;
 <section class="hero-page">
   {image && (
     <div class="hero-bg">
-      <img src={image} alt="" />
+      <img src={image} alt="" loading="eager" />
       <div class="hero-overlay"></div>
     </div>
   )}

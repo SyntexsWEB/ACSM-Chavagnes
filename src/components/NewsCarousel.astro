@@ -29,15 +29,9 @@ const {
 <section class="news-carousel-section">
   <div class="container">
     <div class="carousel-header">
-      <div class="header-left">
-        <h2 class="carousel-title">MX-{titre}</h2>
-        <div class="header-underline"></div>
-        <p class="carousel-subtitle">{soustitre}</p>
-      </div>
-      <a href={lienUrl} class="voir-tout-link">
-        {lienTexte}
-        <span class="voir-tout-arrow">→</span>
-      </a>
+      <h2 class="carousel-title">MX-{titre}</h2>
+      <div class="header-underline"></div>
+      <p class="carousel-subtitle">{soustitre}</p>
     </div>
   </div>
 
@@ -46,7 +40,7 @@ const {
       {actualites.map((actualite) => (
         <article class="news-slide">
           <div class="slide-image">
-            <img src={actualite.data.image} alt={actualite.data.titre} />
+            <img src={actualite.data.image} alt={actualite.data.titre} loading="lazy" />
           </div>
           <div class="slide-content">
             <p class="slide-description">"{actualite.data.description}"</p>
@@ -69,12 +63,18 @@ const {
 
   <div class="container">
     <div class="carousel-controls">
-      <button class="carousel-btn prev" id="carousel-prev" aria-label="Précédent">
-        ←
-      </button>
-      <button class="carousel-btn next" id="carousel-next" aria-label="Suivant">
-        →
-      </button>
+      <div class="carousel-nav-buttons">
+        <button class="carousel-btn prev" id="carousel-prev" aria-label="Précédent">
+          ←
+        </button>
+        <button class="carousel-btn next" id="carousel-next" aria-label="Suivant">
+          →
+        </button>
+      </div>
+      <a href={lienUrl} class="voir-tout-link">
+        {lienTexte}
+        <span class="voir-tout-arrow">→</span>
+      </a>
     </div>
   </div>
 </section>
@@ -87,18 +87,7 @@ const {
   }
 
   .carousel-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
     margin-bottom: var(--spacing-xl);
-  }
-
-  .header-left {
-    flex: 1;
-  }
-
-  .header-left p:last-child {
-    margin-bottom: 0;
   }
 
   .carousel-title {
@@ -249,8 +238,14 @@ const {
 
   .carousel-controls {
     display: flex;
-    gap: var(--spacing-sm);
+    justify-content: space-between;
+    align-items: center;
     padding-top: var(--spacing-xl);
+  }
+
+  .carousel-nav-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
   }
 
   .carousel-btn {
@@ -279,12 +274,6 @@ const {
   }
 
   @media (max-width: 768px) {
-    .carousel-header {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: var(--spacing-md);
-    }
-
     .carousel-track {
       padding-left: var(--spacing-sm);
     }
@@ -303,8 +292,18 @@ const {
     }
 
     .carousel-controls {
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--spacing-md);
       padding-top: var(--spacing-lg);
+    }
+
+    .carousel-nav-buttons {
+      order: 2;
+    }
+
+    .voir-tout-link {
+      order: 1;
     }
   }
 </style>

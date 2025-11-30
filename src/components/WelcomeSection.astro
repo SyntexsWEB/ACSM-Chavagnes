@@ -11,7 +11,7 @@ const { image, titre, soustitre, description } = Astro.props;
 
 <section class="welcome-section">
   <div class="welcome-background">
-    <img src={image} alt={titre} />
+    <img src={image} alt={titre} loading="lazy" />
     <div class="welcome-overlay"></div>
   </div>
 

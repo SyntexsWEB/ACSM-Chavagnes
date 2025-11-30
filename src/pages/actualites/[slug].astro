@@ -29,7 +29,7 @@ const formattedDate = new Intl.DateTimeFormat('fr-FR', {
   <article class="actualite-detail">
     {actualite.data.image && (
       <div class="actualite-hero">
-        <img src={actualite.data.image} alt={actualite.data.titre} />
+        <img src={actualite.data.image} alt={actualite.data.titre} loading="eager" />
         <div class="actualite-hero-overlay"></div>
       </div>
     )}

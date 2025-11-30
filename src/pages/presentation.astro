@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import HeroPage from '../components/HeroPage.astro';
 import PhotoGallery from '../components/PhotoGallery.astro';
+import VideoGallery from '../components/VideoGallery.astro';
 import { getEntry } from 'astro:content';
 import siteInfo from '../data/site-info.json';
 
@@ -48,9 +49,9 @@ const galerieData = page.data.galerie;
           <div class="sidebar-card card">
             <h3>Documents utiles</h3>
             <ul class="doc-list">
-              <li><a href="/reglement">📋 Règlement du terrain</a></li>
-              <li><a href="/faq">❓ FAQ - Questions fréquentes</a></li>
-              <li><a href="/contact">📧 Nous contacter</a></li>
+              <li><a href="/reglement">Règlement du terrain</a></li>
+              <li><a href="/faq">FAQ - Questions fréquentes</a></li>
+              <li><a href="/contact">Nous contacter</a></li>
             </ul>
           </div>
         </aside>
@@ -66,34 +67,34 @@ const galerieData = page.data.galerie;
     />
   )}
 
-  <section class="section partners-section">
+  <VideoGallery
+    videos={[
+      { src: "/videos/terrain1.mp4", poster: "/images/poster-terrain-1.webp", titre: "Le terrain en action" },
+      { src: "/videos/terrain2.mp4", poster: "/images/poster-terrain-2.webp", titre: "Vue du circuit" },
+      { src: "/videos/terrain3.mp4", poster: "/images/poster-terrain-3.webp", titre: "Vue aérienne du terrain dans son ensemble" }
+    ]}
+    titre="Vidéos"
+    description="Découvrez notre terrain en action à travers ces vidéos"
+  />
+
+  <!-- Section CTA finale -->
+  <section class="cta-section-final">
     <div class="container">
-      <h2 class="section-title">Nos partenaires</h2>
-      <p class="partners-intro">
-        Nous remercions nos partenaires qui nous soutiennent et contribuent au développement
-        de notre club et de la pratique du motocross dans la région.
-      </p>
-      <div class="partners-grid">
-        <div class="partner-card card">
-          <div class="partner-logo">🏍️</div>
-          <p>Partenaire 1</p>
+      <a href={siteInfo.cta_accueil?.bouton2_lien || "/contact"} class="cta-card-link">
+        <div class="cta-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
         </div>
-        <div class="partner-card card">
-          <div class="partner-logo">⚙️</div>
-          <p>Partenaire 2</p>
+        <div class="cta-card">
+          <h2>{siteInfo.cta_accueil?.titre || "Prêt à rouler ?"}</h2>
+          <p>{siteInfo.cta_accueil?.description || "Rejoignez-nous sur le terrain et vivez votre passion du motocross !"}</p>
+          <div class="cta-buttons">
+            <span class="btn-cta-outline">{siteInfo.cta_accueil?.bouton2_texte || "Nous contacter"}</span>
+          </div>
         </div>
-        <div class="partner-card card">
-          <div class="partner-logo">🔧</div>
-          <p>Partenaire 3</p>
-        </div>
-        <div class="partner-card card">
-          <div class="partner-logo">🏁</div>
-          <p>Partenaire 4</p>
-        </div>
-      </div>
-      <p class="partners-cta">
-        <a href="/contact" class="btn">Devenir partenaire</a>
-      </p>
+      </a>
     </div>
   </section>
 </Layout>
@@ -285,66 +286,6 @@ const galerieData = page.data.galerie;
     transform: translateX(4px);
   }
 
-  .partners-section {
-    background: var(--color-dark-lighter);
-    padding: var(--spacing-2xl) 0;
-  }
-
-  .section-title {
-    text-align: center;
-    font-size: clamp(2rem, 4vw, 2.5rem);
-    margin-bottom: var(--spacing-md);
-    color: var(--color-text);
-    font-weight: 700;
-    position: relative;
-    padding-bottom: var(--spacing-md);
-  }
-
-  .section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: var(--color-primary);
-    border-radius: 2px;
-  }
-
-  .partners-intro {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto var(--spacing-xl);
-    color: var(--color-text-secondary);
-  }
-
-  .partners-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--spacing-lg);
-    margin-bottom: var(--spacing-xl);
-  }
-
-  .partner-card {
-    text-align: center;
-    padding: var(--spacing-xl);
-  }
-
-  .partner-logo {
-    font-size: 3rem;
-    margin-bottom: var(--spacing-md);
-  }
-
-  .partner-card p {
-    margin: 0;
-    color: var(--color-text-secondary);
-  }
-
-  .partners-cta {
-    text-align: center;
-  }
-
   @media (max-width: 1024px) {
     .content-grid {
       grid-template-columns: 1fr;
@@ -359,9 +300,98 @@ const galerieData = page.data.galerie;
     .features-grid {
       grid-template-columns: 1fr;
     }
+  }
 
-    .partners-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+  /* Section CTA finale */
+  .cta-section-final {
+    background: var(--color-dark);
+    padding: var(--spacing-2xl) 0 var(--spacing-lg) 0;
+  }
+
+  .cta-card-link {
+    display: block;
+    text-decoration: none;
+    position: relative;
+  }
+
+  .cta-icon {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    z-index: 10;
+    transition: all var(--transition-normal);
+  }
+
+  .cta-card-link:hover .cta-icon {
+    transform: translateX(-50%) scale(1.2);
+    box-shadow: 0 8px 25px rgba(185, 28, 28, 0.6);
+  }
+
+  .cta-card {
+    background: var(--color-dark-lighter);
+    border-radius: 20px;
+    padding: clamp(3.5rem, 8vw, 5rem) clamp(2rem, 5vw, 5rem) clamp(3rem, 8vw, 5rem);
+    text-align: center;
+    transition: all var(--transition-normal);
+    border: 2px solid transparent;
+  }
+
+  .cta-card-link:hover .cta-card {
+    border-color: var(--color-primary);
+  }
+
+  .cta-card h2 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    margin-bottom: var(--spacing-lg);
+    color: white;
+    font-weight: 900;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+
+  .cta-card p {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xl);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-cta-outline {
+    display: inline-block;
+    padding: 0.9rem 1.8rem;
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all var(--transition-normal);
+  }
+
+  .cta-card-link:hover .btn-cta-outline {
+    background: white;
+    color: var(--color-dark);
+    transform: translateY(-2px);
   }
 </style>

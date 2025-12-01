@@ -10,71 +10,91 @@ galerie:
   afficher: false
 ---
 
-## Important
+## Ouverture du terrain
 
-Le non-respect du règlement peut entraîner l'exclusion immédiate du terrain sans remboursement. La direction se réserve le droit de refuser l'accès à toute personne.
+Le terrain de l'ACSM est ouvert les 1er et 3ème week-end de chaque mois :
+- **Samedi** : de 14h à 17h pour le minicross
+- **Dimanche** : de 9h à 18h
 
-## 1. Accès au terrain
+**La piste de moto-cross est fermée le mois précédant la course.**
 
-- Le terrain est ouvert uniquement les 1er et 3ème week-end de chaque mois
-- Horaires : 9h-12h et 13h30-17h30
-- Tarif : 10€ la journée
-- Licence FFM obligatoire et en cours de validité
-- Port du casque et des équipements de protection obligatoire (bottes, gants, protections)
+## Investissement du licencié ACSM
 
-## 2. Sécurité
+Le licencié ou responsable légal pour les mineurs s'engage à fournir :
+- 1 journée de travaux d'entretien du terrain
+- 1 journée de permanence d'ouverture du terrain
+- 1 bénévole le jour de la course
 
-- Le port de l'équipement de protection intégral est obligatoire (casque, bottes, gants, protection dorsale recommandée)
-- Les véhicules doivent être en bon état de fonctionnement
-- Respecter les drapeaux et signaux des commissaires
-- Adapter sa vitesse en fonction de son niveau et des conditions de piste
-- En cas de chute, dégager rapidement la piste
-- Interdiction de rouler sous l'emprise d'alcool ou de stupéfiants
-- Les mineurs doivent être accompagnés d'un adulte responsable
+## La licence FFM
 
-## 3. Utilisation de la piste
+La licence est valable du 1er janvier au 31 décembre. Le montant de la cotisation du club est défini par le bureau soit **30€**.
 
-- Respecter le sens de roulage indiqué
-- Ne pas faire demi-tour sur la piste
-- Maintenir une distance de sécurité avec les autres pilotes
-- Les dépassements doivent se faire en sécurité
-- En cas de problème mécanique, quitter immédiatement la piste
-- Respecter les créneaux horaires par catégorie :
-  - **Samedi :** Minicross et 85cc débutant
-  - **Dimanche :** 85cc confirmés, 125cc, MX1, MX2, quad, side-car
+La licence est **obligatoire** pour les entraînements et les compétitions. Le pilote doit présenter sa licence sur demande d'un membre du bureau ou d'un officiel.
 
-## 4. Comportement
+Pour la catégorie minicross, la pratique de la moto ne peut se faire que le **samedi**, accompagné d'officiel du club et selon le calendrier défini (cf. site de l'ACSM).
 
-- Adopter un comportement respectueux envers les autres pilotes, le personnel et les spectateurs
-- Respecter les consignes données par les commissaires et les responsables
-- Interdiction de fumer dans les zones non autorisées
-- Garder le paddock propre et utiliser les poubelles
-- Les animaux doivent être tenus en laisse
-- Le bruit doit rester raisonnable - respecter les riverains
+**Aucune licence ne sera remboursée quel qu'en soit la cause.**
 
-## 5. Véhicules acceptés
+L'ACSM décline toute responsabilité envers d'éventuels visiteurs non licenciés.
 
-- Motocross toutes cylindrées
-- Quad
-- Side-car
-- Électrique
-- Enduro
+## Le CASM (certificat d'aptitude au sport mécanique)
 
-*Tous les véhicules doivent être homologués pour la pratique sportive.*
+Il est **obligatoire** pour tout licencié à partir de 12 ans excepté pour les licenciés entraînement (NET).
 
-## 6. Responsabilité
+## Accessibilité du terrain
 
-- La pratique du motocross se fait aux risques et périls du pilote
-- L'ACSM Chavagnes décline toute responsabilité en cas d'accident, de vol ou de dégradation
-- Une assurance responsabilité civile est obligatoire (incluse dans la licence FFM)
-- Les parents ou tuteurs légaux sont responsables des mineurs
+Le terrain est accessible aux licenciés FFM présentant une licence valide.
 
-## 7. Environnement
+L'ACSM accueille les licenciés des clubs extérieurs le 1er et 3ème dimanche du mois moyennant un forfait de **10€** à régler à la personne du club qui assure la permanence.
 
-- Respecter l'environnement et la nature
-- Ne jeter aucun déchet au sol
-- Utiliser les bacs de récupération pour les huiles usagées
-- Respecter les zones interdites
+Durant les journées d'entraînements, il ne sera admis aucune personne autre que les pilotes et dirigeants du club sur le terrain de l'ACSM.
+
+**En dehors des journées d'ouverture l'accès du terrain est strictement interdit sous peine de poursuites judiciaires.**
+
+La piste de moto-cross peut être fermée sur décision des dirigeants.
+
+## Membres du bureau
+
+Les membres du bureau sont les dirigeants : ils doivent être respectés de leur entourage, ne pas céder au chantage, quel qu'il soit. Toutes décisions prises par les membres du bureau seront applicables et sans appel.
+
+## Exclusion du club
+
+L'exclusion du club ACSM se fera par suite de :
+- Manque de courtoisie
+- Insultes envers les dirigeants ou commissaires
+- Conduite jugée dangereuse
+- Non-respect du règlement ou des statuts du club (loi 1901)
+
+Le club a pour but de susciter la bonne entente, le loisir et la détente des sports mécaniques.
+
+Un licencié peut se faire exclure par un dirigeant, toute la journée pour non-respect du règlement ou définitivement par décision du bureau.
+
+Toute faute grave d'un licencié peut entraîner une réunion de la Commission de discipline départementale FFM.
+
+## Sinistre
+
+Tout sinistre corporel parvenu sur un terrain homologué doit être déclaré dans les **48h** auprès du président ou de la secrétaire de l'ACSM.
+
+## Véhicules et équipements
+
+Le prêt de tout véhicule de compétition à un non licencié est **strictement interdit**.
+
+Tous les véhicules doivent être conformes au règlement technique en vigueur.
+
+Le parc de stationnement et la voie d'accès au terrain sont interdits à la pratique de la moto.
+
+## Divers
+
+- Ne laisser aucun désordre sur le terrain (poubelle)
+- L'ACSM décline toute responsabilité envers d'éventuels visiteurs non licenciés
+- Toute personne ayant une attitude dangereuse sur le terrain ou sur la piste sera priée de quitter les lieux
+- Tout individu donnant des signes d'ébriété ne sera pas admis sur le terrain
+
+## Application du règlement
+
+Tous les membres du club doivent être en possession de ce règlement, en avoir pris connaissance et en respecter les règles.
+
+**Ce règlement peut être modifié, aménagé suivant les désirs des adhérents et dirigeants.**
 
 ---
 

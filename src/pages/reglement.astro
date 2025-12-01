@@ -21,9 +21,9 @@ const heroData = page.data.hero || {
   description={page.data.description}
 >
   <HeroPage
-    titre={heroData.titre}
-    soustitre={heroData.soustitre}
-    image={heroData.image}
+    titre={heroData.titre ?? 'Règlement du terrain'}
+    soustitre={heroData.soustitre ?? 'Les règles à respecter pour votre sécurité'}
+    image={heroData.image ?? '/images/motocross-saut-1.jpg'}
   />
 
   <section class="section reglement-section">
@@ -194,6 +194,8 @@ const heroData = page.data.hero || {
     line-height: 1.8;
     margin-bottom: var(--spacing-md);
     color: var(--color-text-secondary);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   .markdown-content :global(ul),
@@ -225,6 +227,8 @@ const heroData = page.data.hero || {
 
   .markdown-content :global(strong) {
     color: var(--color-text);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   .markdown-content :global(em) {

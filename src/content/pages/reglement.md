@@ -10,85 +10,80 @@ galerie:
   afficher: false
 ---
 
-## Ouverture du terrain
+## 1. Ouverture du terrain
 
 Le terrain de l'ACSM est ouvert les 1er et 3ème week-end de chaque mois :
-- **Samedi** : de 14h à 17h pour le minicross
-- **Dimanche** : de 9h à 18h
 
-**La piste de moto-cross est fermée le mois précédant la course.**
+- **Le samedi** : de 14h à 18h pour les minicross et 85 cm³ ainsi que les pilotes du club
+- **Le dimanche** : pour les pilotes solo minimum 85 cm³ à 500 cm³, quad et side-car (dans la limite de 45 pilotes)
 
-## Investissement du licencié ACSM
+Les ouvertures sont visibles via le site internet **acsm-motocross.fr** et sur le Facebook du club (via la météo).
 
-Le licencié ou responsable légal pour les mineurs s'engage à fournir :
+**Le circuit est fermé le mois précédant la compétition !**
+
+## 2. Investissement du licencié ACSM
+
+Le licencié ACSM s'engage à fournir :
 - 1 journée de travaux d'entretien du terrain
-- 1 journée de permanence d'ouverture du terrain
+- 1 journée de permanence d'ouverture de terrain
 - 1 bénévole le jour de la course
 
-## La licence FFM
+## 3. La licence FFM
 
-La licence est valable du 1er janvier au 31 décembre. Le montant de la cotisation du club est défini par le bureau soit **30€**.
+La licence FFM est valable du 1er janvier au 31 décembre, sauf **primolicence** (1er septembre au 31 décembre de l'année d'après).
 
-La licence est **obligatoire** pour les entraînements et les compétitions. Le pilote doit présenter sa licence sur demande d'un membre du bureau ou d'un officiel.
+Le montant de sa cotisation est de :
+- **15 euros** pour les moins de 12 ans
+- **40 euros** pour les plus de 12 ans
 
-Pour la catégorie minicross, la pratique de la moto ne peut se faire que le **samedi**, accompagné d'officiel du club et selon le calendrier défini (cf. site de l'ACSM).
+Seul le bureau a le pouvoir de décision sur les tarifs.
 
-**Aucune licence ne sera remboursée quel qu'en soit la cause.**
+Elle ouvre le droit de pouvoir rouler sur tous les terrains de France labellisés FFM.
 
-L'ACSM décline toute responsabilité envers d'éventuels visiteurs non licenciés.
+Chaque pilote (ou parent) devra présenter sa licence à chaque entraînement au responsable de la journée de permanence.
 
-## Le CASM (certificat d'aptitude au sport mécanique)
+**Aucune licence ne sera remboursée quelle qu'en soit la cause.**
 
-Il est **obligatoire** pour tout licencié à partir de 12 ans excepté pour les licenciés entraînement (NET).
+L'ACSM décline toute responsabilité envers d'éventuels visiteurs sur le terrain non licenciés !
 
-## Accessibilité du terrain
+## 4. Le CASM (Certificat d'Aptitude au Sport Moto)
 
-Le terrain est accessible aux licenciés FFM présentant une licence valide.
+Il est **obligatoire** pour tous les licenciés de plus de 12 ans !
 
-L'ACSM accueille les licenciés des clubs extérieurs le 1er et 3ème dimanche du mois moyennant un forfait de **10€** à régler à la personne du club qui assure la permanence.
+## 5. Accessibilité du terrain
 
-Durant les journées d'entraînements, il ne sera admis aucune personne autre que les pilotes et dirigeants du club sur le terrain de l'ACSM.
+Le terrain est accessible aux licenciés FFM présentant sa licence en cours de validité.
 
-**En dehors des journées d'ouverture l'accès du terrain est strictement interdit sous peine de poursuites judiciaires.**
+Le forfait pilote à la journée pour rouler est :
+- **Gratuit** pour les licenciés du club
+- **15 euros** pour les licenciés solo hors club
+- **20 euros** pour les quads et side-car hors club
 
-La piste de moto-cross peut être fermée sur décision des dirigeants.
+La piste de lavage est à disposition des pilotes !
 
-## Membres du bureau
+**L'accès au terrain est strictement interdit en dehors de ses journées d'entraînement sous peine de poursuite judiciaire.**
 
-Les membres du bureau sont les dirigeants : ils doivent être respectés de leur entourage, ne pas céder au chantage, quel qu'il soit. Toutes décisions prises par les membres du bureau seront applicables et sans appel.
+## 6. Véhicules et équipement
 
-## Exclusion du club
+Tous les véhicules et équipements doivent être conformes aux règles en vigueur FFM.
 
-L'exclusion du club ACSM se fera par suite de :
-- Manque de courtoisie
-- Insultes envers les dirigeants ou commissaires
-- Conduite jugée dangereuse
-- Non-respect du règlement ou des statuts du club (loi 1901)
+## 7. Respect
 
-Le club a pour but de susciter la bonne entente, le loisir et la détente des sports mécaniques.
+**Des personnes** : les membres du bureau sont les dirigeants ; ils doivent être respectés par leur entourage. Toutes décisions prises par les membres seront applicables et sans appel.
 
-Un licencié peut se faire exclure par un dirigeant, toute la journée pour non-respect du règlement ou définitivement par décision du bureau.
+**Des lieux** : ne laisser aucun détritus sur le terrain et des pelles sont à disposition pour le parc pilotes.
 
-Toute faute grave d'un licencié peut entraîner une réunion de la Commission de discipline départementale FFM.
+La pratique des engins est interdite sur la voie d'accès et le parc de stationnement.
 
-## Sinistre
+## 8. Sanctions
 
-Tout sinistre corporel parvenu sur un terrain homologué doit être déclaré dans les **48h** auprès du président ou de la secrétaire de l'ACSM.
+L'exclusion de la piste concernera toutes personnes ayant des comportements irresponsables (pas de licence, non-respect des dirigeants).
 
-## Véhicules et équipements
+L'exclusion de l'ACSM peut se faire par la suite !
 
-Le prêt de tout véhicule de compétition à un non licencié est **strictement interdit**.
+## 9. Sinistre
 
-Tous les véhicules doivent être conformes au règlement technique en vigueur.
-
-Le parc de stationnement et la voie d'accès au terrain sont interdits à la pratique de la moto.
-
-## Divers
-
-- Ne laisser aucun désordre sur le terrain (poubelle)
-- L'ACSM décline toute responsabilité envers d'éventuels visiteurs non licenciés
-- Toute personne ayant une attitude dangereuse sur le terrain ou sur la piste sera priée de quitter les lieux
-- Tout individu donnant des signes d'ébriété ne sera pas admis sur le terrain
+Tout sinistre corporel survenu sur le terrain doit être déclaré à la FFM sous **48 heures**.
 
 ## Application du règlement
 

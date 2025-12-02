@@ -3,6 +3,7 @@ interface Video {
   src: string;
   titre?: string;
   poster: string;
+  landscape?: boolean;
 }
 
 interface Props {
@@ -21,7 +22,7 @@ const { videos, titre = "Vidéos", description } = Astro.props;
 
     <div class="gallery-grid">
       {videos.map((video, index) => (
-        <div class="gallery-item" data-index={index} data-video-src={video.src} data-poster={video.poster}>
+        <div class={`gallery-item ${video.landscape ? 'landscape' : ''}`} data-index={index} data-video-src={video.src} data-poster={video.poster}>
           <video
             src={video.src}
             poster={video.poster}
@@ -99,23 +100,35 @@ const { videos, titre = "Vidéos", description } = Astro.props;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-xl);
-    max-width: 1200px;
     margin: var(--spacing-xl) auto 0;
   }
 
   .gallery-item {
     position: relative;
     overflow: hidden;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
     cursor: pointer;
     aspect-ratio: 9 / 16;
     background: var(--color-steel);
     transition: transform var(--transition-normal), box-shadow var(--transition-normal);
   }
 
+  /* Vidéo paysage prend toute la largeur */
+  .gallery-item.landscape {
+    grid-column: 1 / -1;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    height: auto;
+  }
+
   .gallery-item:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .gallery-item.landscape:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 60px rgba(185, 28, 28, 0.3);
   }
 
   .gallery-item video {
@@ -336,7 +349,7 @@ const { videos, titre = "Vidéos", description } = Astro.props;
     }
 
     let currentIndex = 0;
-    const videos = [];
+    const videos: Array<{src: string, titre: string}> = [];
 
     // Collect videos data
     galleryItems.forEach((item, index) => {
@@ -379,16 +392,16 @@ const { videos, titre = "Vidéos", description } = Astro.props;
       });
     });
 
-    function openLightbox(index) {
+    function openLightbox(index: number) {
       currentIndex = index;
       updateLightbox();
-      lightbox.classList.add('active');
+      if (lightbox) lightbox.classList.add('active');
       document.body.style.overflow = 'hidden';
 
       // Play video when opened
       if (lightboxVideo) {
         setTimeout(() => {
-          lightboxVideo.play().catch(() => {
+          (lightboxVideo as HTMLVideoElement).play().catch(() => {
             console.log('Autoplay prevented');
           });
         }, 100);
@@ -396,13 +409,13 @@ const { videos, titre = "Vidéos", description } = Astro.props;
     }
 
     function closeLightbox() {
-      lightbox.classList.remove('active');
+      if (lightbox) lightbox.classList.remove('active');
       document.body.style.overflow = '';
 
       // Pause and reset video
       if (lightboxVideo) {
-        lightboxVideo.pause();
-        lightboxVideo.currentTime = 0;
+        (lightboxVideo as HTMLVideoElement).pause();
+        (lightboxVideo as HTMLVideoElement).currentTime = 0;
       }
     }
 
@@ -411,11 +424,11 @@ const { videos, titre = "Vidéos", description } = Astro.props;
 
       // Pause current video before switching
       if (lightboxVideo) {
-        lightboxVideo.pause();
+        (lightboxVideo as HTMLVideoElement).pause();
         const source = lightboxVideo.querySelector('source');
         if (source) {
           source.src = video.src;
-          lightboxVideo.load();
+          (lightboxVideo as HTMLVideoElement).load();
         }
       }
 
@@ -429,7 +442,7 @@ const { videos, titre = "Vidéos", description } = Astro.props;
       currentIndex = (currentIndex + 1) % videos.length;
       updateLightbox();
       setTimeout(() => {
-        lightboxVideo?.play().catch(() => {});
+        if (lightboxVideo) (lightboxVideo as HTMLVideoElement).play().catch(() => {});
       }, 100);
     }
 
@@ -437,7 +450,7 @@ const { videos, titre = "Vidéos", description } = Astro.props;
       currentIndex = (currentIndex - 1 + videos.length) % videos.length;
       updateLightbox();
       setTimeout(() => {
-        lightboxVideo?.play().catch(() => {});
+        if (lightboxVideo) (lightboxVideo as HTMLVideoElement).play().catch(() => {});
       }, 100);
     }
 

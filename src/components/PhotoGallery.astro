@@ -34,7 +34,7 @@ const { photos, titre = "Galerie photos", description } = Astro.props;
   </div>
 
   <!-- Lightbox Modal -->
-  <div id="lightbox" class="lightbox">
+  <div id="photo-lightbox" class="lightbox">
     <button class="lightbox-close" aria-label="Fermer">&times;</button>
     <button class="lightbox-prev" aria-label="Précédent">&#10094;</button>
     <button class="lightbox-next" aria-label="Suivant">&#10095;</button>
@@ -254,85 +254,91 @@ const { photos, titre = "Galerie photos", description } = Astro.props;
 </style>
 
 <script>
-  // Lightbox functionality
-  const galleryItems = document.querySelectorAll('.gallery-item');
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImage = document.getElementById('lightbox-image') as HTMLImageElement;
-  const lightboxCaption = document.getElementById('lightbox-caption');
-  const lightboxClose = document.querySelector('.lightbox-close');
-  const lightboxPrev = document.querySelector('.lightbox-prev');
-  const lightboxNext = document.querySelector('.lightbox-next');
-  const lightboxCounter = document.querySelector('.lightbox-counter');
+  document.addEventListener('DOMContentLoaded', () => {
+    // Lightbox functionality for photos only
+    const galleryItems = document.querySelectorAll('.photo-gallery-section .gallery-item');
+    const lightbox = document.getElementById('photo-lightbox');
+    const lightboxImage = document.getElementById('lightbox-image') as HTMLImageElement;
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const lightboxClose = document.querySelector('.photo-gallery-section .lightbox-close');
+    const lightboxPrev = document.querySelector('.photo-gallery-section .lightbox-prev');
+    const lightboxNext = document.querySelector('.photo-gallery-section .lightbox-next');
+    const lightboxCounter = document.querySelector('.photo-gallery-section .lightbox-counter');
 
-  let currentIndex = 0;
-  const photos: { src: string; alt: string; titre?: string }[] = [];
+    if (!galleryItems.length || !lightbox) {
+      return;
+    }
 
-  // Collect photos data
-  galleryItems.forEach((item, index) => {
-    const img = item.querySelector('img') as HTMLImageElement;
-    const caption = item.querySelector('.photo-caption');
+    let currentIndex = 0;
+    const photos: { src: string; alt: string; titre?: string }[] = [];
 
-    photos.push({
-      src: img.src,
-      alt: img.alt,
-      titre: caption?.textContent || img.alt
+    // Collect photos data
+    galleryItems.forEach((item, index) => {
+      const img = item.querySelector('img') as HTMLImageElement;
+      const caption = item.querySelector('.photo-caption');
+
+      photos.push({
+        src: img.src,
+        alt: img.alt,
+        titre: caption?.textContent || img.alt
+      });
+
+      item.addEventListener('click', () => {
+        openLightbox(index);
+      });
     });
 
-    item.addEventListener('click', () => {
-      openLightbox(index);
+    function openLightbox(index: number) {
+      currentIndex = index;
+      updateLightbox();
+      lightbox?.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox?.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function updateLightbox() {
+      const photo = photos[currentIndex];
+      if (lightboxImage) lightboxImage.src = photo.src;
+      if (lightboxImage) lightboxImage.alt = photo.alt;
+      if (lightboxCaption) lightboxCaption.textContent = photo.titre || '';
+      if (lightboxCounter) {
+        lightboxCounter.textContent = `${currentIndex + 1} / ${photos.length}`;
+      }
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % photos.length;
+      updateLightbox();
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + photos.length) % photos.length;
+      updateLightbox();
+    }
+
+    // Event listeners
+    lightboxClose?.addEventListener('click', closeLightbox);
+    lightboxNext?.addEventListener('click', showNext);
+    lightboxPrev?.addEventListener('click', showPrev);
+
+    // Close on background click
+    lightbox?.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
     });
-  });
 
-  function openLightbox(index: number) {
-    currentIndex = index;
-    updateLightbox();
-    lightbox?.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox?.classList.contains('active')) return;
 
-  function closeLightbox() {
-    lightbox?.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  function updateLightbox() {
-    const photo = photos[currentIndex];
-    if (lightboxImage) lightboxImage.src = photo.src;
-    if (lightboxImage) lightboxImage.alt = photo.alt;
-    if (lightboxCaption) lightboxCaption.textContent = photo.titre || '';
-    if (lightboxCounter) {
-      lightboxCounter.textContent = `${currentIndex + 1} / ${photos.length}`;
-    }
-  }
-
-  function showNext() {
-    currentIndex = (currentIndex + 1) % photos.length;
-    updateLightbox();
-  }
-
-  function showPrev() {
-    currentIndex = (currentIndex - 1 + photos.length) % photos.length;
-    updateLightbox();
-  }
-
-  // Event listeners
-  lightboxClose?.addEventListener('click', closeLightbox);
-  lightboxNext?.addEventListener('click', showNext);
-  lightboxPrev?.addEventListener('click', showPrev);
-
-  // Close on background click
-  lightbox?.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
-      closeLightbox();
-    }
-  });
-
-  // Keyboard navigation
-  document.addEventListener('keydown', (e) => {
-    if (!lightbox?.classList.contains('active')) return;
-
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowRight') showNext();
-    if (e.key === 'ArrowLeft') showPrev();
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'ArrowLeft') showPrev();
+    });
   });
 </script>

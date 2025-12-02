@@ -1,29 +1,23 @@
 ---
-interface Actualite {
-  slug: string;
-  data: {
-    titre: string;
-    description: string;
-    date: Date;
-    image: string;
-  };
-}
+import type { CollectionEntry } from 'astro:content';
+
+type Actualite = CollectionEntry<'actualites'>;
 
 interface Props {
-  actualites: Actualite[];
-  titre?: string;
-  soustitre?: string;
-  lienTexte?: string;
-  lienUrl?: string;
+	actualites: Actualite[];
+	titre?: string;
+	soustitre?: string;
+	lienTexte?: string;
+	lienUrl?: string;
 }
 
 const {
-  actualites,
-  titre = "ACTUALITÉS",
-  soustitre = "Les dernières nouvelles de l'ACSM Chavagnes",
-  lienTexte = "VOIR TOUTES LES ACTUALITÉS",
-  lienUrl = "/actualites"
-} = Astro.props;
+	actualites,
+	titre = "ACTUALITÉS",
+	soustitre = "Les dernières nouvelles de l'ACSM Chavagnes",
+	lienTexte = "VOIR TOUTES LES ACTUALITÉS",
+	lienUrl = "/actualites"
+} = Astro.props as Props;
 ---
 
 <section class="news-carousel-section">

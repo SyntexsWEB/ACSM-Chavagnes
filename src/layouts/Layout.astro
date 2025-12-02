@@ -45,12 +45,20 @@ const { titre, description = siteInfo.description } = Astro.props;
               <img src="/images/logo_acsm.svg" alt={siteInfo.nom} class="logo-image" loading="eager" />
             </a>
             <ul class="nav-menu">
+              <li class="mobile-logo">
+                <a href="/">
+                  <img src="/images/logo_acsm.svg" alt={siteInfo.nom} loading="eager" />
+                </a>
+              </li>
               <li><a href="/">Accueil</a></li>
               <li><a href="/presentation">Présentation</a></li>
               <li><a href="/presentation#galerie-photo">Galerie</a></li>
               <li><a href="/reglement">Règlement</a></li>
               <li><a href="/faq">FAQ</a></li>
               <li><a href="/contact" class="btn-nav">Contact</a></li>
+              <li class="mobile-credit">
+                <p>Réalisé par <a href="https://syntexs.com" target="_blank" rel="noopener">Syntexs</a></p>
+              </li>
             </ul>
             <button class="mobile-menu-toggle" aria-label="Menu">
               <span></span>
@@ -68,7 +76,7 @@ const { titre, description = siteInfo.description } = Astro.props;
 
     <footer>
       <div class="container">
-        <!-- Logo centré -->
+        <!-- Logo aligné à gauche -->
         <div class="footer-logo-section">
           <a href="/" class="footer-logo">
             <img src="/images/logo_acsm.svg" alt={siteInfo.nom} loading="lazy" />
@@ -111,15 +119,9 @@ const { titre, description = siteInfo.description } = Astro.props;
           </div>
         )}
 
-        <!-- Footer bottom avec copyright et contact -->
+        <!-- Footer bottom avec copyright centré -->
         <div class="footer-bottom">
-          <div class="footer-bottom-content">
-            <p class="copyright">Réalisé par <a href="https://syntexs.com" target="_blank" rel="noopener" class="credit-link">Syntexs</a></p>
-            <div class="footer-contact">
-              {siteInfo.email && <a href={`mailto:${siteInfo.email}`}>{siteInfo.email}</a>}
-              {siteInfo.telephone && <a href={`tel:${siteInfo.telephone}`}>{siteInfo.telephone}</a>}
-            </div>
-          </div>
+          <p class="copyright">Réalisé par <a href="https://syntexs.com" target="_blank" rel="noopener" class="credit-link">Syntexs</a></p>
         </div>
       </div>
     </footer>
@@ -246,6 +248,14 @@ const { titre, description = siteInfo.description } = Astro.props;
         transition: all var(--transition-fast);
       }
 
+      .mobile-logo {
+        display: none;
+      }
+
+      .mobile-credit {
+        display: none;
+      }
+
       /* Footer Minimaliste - Style identique à l'image */
       footer {
         background: var(--color-dark);
@@ -325,14 +335,7 @@ const { titre, description = siteInfo.description } = Astro.props;
       .footer-bottom {
         border-top: 1px solid rgba(255, 255, 255, 0.1);
         padding-top: var(--spacing-lg);
-      }
-
-      .footer-bottom-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: var(--spacing-md);
+        text-align: center;
       }
 
       .copyright {
@@ -351,30 +354,114 @@ const { titre, description = siteInfo.description } = Astro.props;
         color: var(--color-primary);
       }
 
-      .footer-contact {
-        display: flex;
-        gap: var(--spacing-lg);
-        flex-wrap: wrap;
-      }
-
-      .footer-contact a {
-        color: var(--color-text-secondary);
-        font-size: 0.85rem;
-        transition: color var(--transition-fast);
-      }
-
-      .footer-contact a:hover {
-        color: var(--color-primary);
-      }
-
       /* Mobile */
       @media (max-width: 768px) {
         .nav-menu {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 100%;
+          height: 100vh;
+          background: var(--color-dark);
+          flex-direction: column;
+          gap: 0;
+          padding: 6rem 2rem 2rem;
+          transition: right 0.3s ease;
+          box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+          z-index: 99;
+        }
+
+        .nav-menu.active {
+          right: 0;
+        }
+
+        .nav-menu li {
+          width: 100%;
+        }
+
+        .nav-menu li:not(.mobile-logo):not(.mobile-credit) {
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-menu a {
+          display: block;
+          padding: 1rem 0;
+          font-size: 1rem;
+        }
+
+        .nav-menu a:not(.btn-nav)::after {
           display: none;
+        }
+
+        .btn-nav {
+          margin-top: 1rem;
+          text-align: center;
+          display: block;
+          font-size: 0.8rem !important;
+          padding: 0.7rem 1.2rem !important;
         }
 
         .mobile-menu-toggle {
           display: flex;
+          z-index: 101;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+          opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+          transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        .mobile-logo {
+          display: block;
+          text-align: center;
+          padding: 0 0 var(--spacing-lg) 0;
+          margin-bottom: var(--spacing-lg);
+        }
+
+        .mobile-logo a {
+          display: inline-block;
+          padding: 0;
+        }
+
+        .mobile-logo img {
+          height: 80px;
+          width: auto;
+        }
+
+        .mobile-credit {
+          display: block;
+          margin-top: auto;
+          padding-top: var(--spacing-xl);
+        }
+
+        .mobile-credit p {
+          color: var(--color-text-secondary);
+          font-size: 0.85rem;
+          text-align: center;
+          margin: 0;
+          padding: var(--spacing-md) 0;
+        }
+
+        .mobile-credit a {
+          color: white !important;
+          font-weight: 600;
+          padding: 0 !important;
+          border: none !important;
+          background: none !important;
+          transition: color var(--transition-fast) !important;
+        }
+
+        .mobile-credit a:hover {
+          color: var(--color-primary) !important;
+          transform: none !important;
+          box-shadow: none !important;
         }
 
         .social-links {
@@ -408,6 +495,16 @@ const { titre, description = siteInfo.description } = Astro.props;
 
       menuToggle?.addEventListener('click', () => {
         navMenu?.classList.toggle('active');
+        menuToggle?.classList.toggle('active');
+      });
+
+      // Close menu when clicking on a link
+      const navLinks = document.querySelectorAll('.nav-menu a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          navMenu?.classList.remove('active');
+          menuToggle?.classList.remove('active');
+        });
       });
 
       // Header scroll effect

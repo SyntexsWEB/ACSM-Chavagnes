@@ -1,6 +1,6 @@
 ---
 interface Props {
-  image: string;
+  image?: string;
   titre: string;
   soustitre?: string;
   description: string;
@@ -23,10 +23,12 @@ const {
 ---
 
 <section class="training-section">
-  <div class="training-background">
-    <img src={image} alt={titre} loading="lazy" />
-    <div class="training-overlay"></div>
-  </div>
+  {image && (
+    <div class="training-background">
+      <img src={image} alt={titre} loading="lazy" />
+      <div class="training-overlay"></div>
+    </div>
+  )}
 
   <div class="training-content">
     <div class="container">
@@ -64,6 +66,7 @@ const {
     display: flex;
     align-items: center;
     overflow: hidden;
+    background: var(--color-dark);
   }
 
   .training-background {
@@ -224,6 +227,8 @@ const {
     .btn-training-secondary {
       width: 100%;
       text-align: center;
+      font-size: 0.75rem;
+      padding: 0.7rem 1.3rem;
     }
   }
 </style>

@@ -29,8 +29,8 @@ const { image } = Astro.props;
           <div class="info-text">
             <h4>HORAIRES D'OUVERTURE</h4>
             <p>{siteInfo.horaires.jours}</p>
-            <p class="info-detail">Samedi: {siteInfo.horaires.samedi}</p>
-            <p class="info-detail">Dimanche: {siteInfo.horaires.dimanche}</p>
+            <p class="info-detail">Samedi: 14h-18h</p>
+            <p class="info-detail">Dimanche: 9h-18h (Pause 12h30-13h30)</p>
           </div>
         </div>
 
@@ -44,7 +44,7 @@ const { image } = Astro.props;
           <div class="info-text">
             <h4>TARIF JOURNÉE</h4>
             <p class="tarif-highlight">{siteInfo.tarif}</p>
-            <p class="info-detail">Licence FFM acceptée</p>
+            <p class="info-detail"><a href="/tarifs" class="tarif-link">Voir tous les tarifs →</a></p>
           </div>
         </div>
 
@@ -178,6 +178,18 @@ const { image } = Astro.props;
     font-weight: 800 !important;
     color: #0a0a0a !important;
     margin: var(--spacing-xs) 0 !important;
+  }
+
+  .info-text .tarif-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all var(--transition-fast);
+  }
+
+  .info-text .tarif-link:hover {
+    text-decoration: underline;
+    color: #c41e1e;
   }
 
   /* Partie droite - Image */

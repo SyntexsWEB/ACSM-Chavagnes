@@ -40,7 +40,7 @@ const {
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <span>Tarif : {siteInfo.tarif}</span>
+              <span>Tarif : <a href="/tarifs" class="tarif-link">{siteInfo.tarif}</a></span>
             </li>
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -52,55 +52,85 @@ const {
         </div>
       </div>
 
-      <!-- Colonne droite : Catégories -->
+      <!-- Colonne droite : Horaires détaillés -->
       <div class="categories-column">
-        <!-- Ligne 1 : Image + Débutants -->
+        <!-- Ligne 1 : Image + 1er week-end -->
         <div class="category-row">
           <div class="category-image">
-            <img src={imageSamedi} alt="Pilotes débutants" loading="lazy" />
+            <img src={imageSamedi} alt="1er week-end du mois" loading="lazy" />
           </div>
-          <div class="category-info debutants">
-            <div class="category-badge samedi">SAMEDI</div>
-            <h3>PILOTES DÉBUTANTS</h3>
-            <p class="category-desc">Idéal pour les nouveaux pilotes et les plus jeunes. Apprentissage dans un environnement sécurisé.</p>
+          <div class="category-info premier-weekend">
+            <div class="category-badge samedi">1ER WEEK-END</div>
+            <h3>SAMEDI & DIMANCHE</h3>
             <div class="category-details">
-              <div class="detail-item">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span>{siteInfo.horaires.samedi}</span>
+              <div class="horaire-detail">
+                <div class="detail-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span><strong>Samedi 14h-18h</strong> - UFOLEP</span>
+                </div>
+                <ul class="category-list">
+                  <li>Minicross</li>
+                  <li>85cc débutant</li>
+                </ul>
               </div>
-              <ul class="category-list">
-                {(siteInfo.categories?.samedi?.liste || []).map((cat: string) => (
-                  <li>{cat}</li>
-                ))}
-              </ul>
+              <div class="horaire-detail">
+                <div class="detail-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span><strong>Dimanche 9h-18h</strong> - FFM</span>
+                </div>
+                <p class="pause-info">(Pause 12h30-13h30)</p>
+                <ul class="category-list">
+                  <li>85cc confirmés</li>
+                  <li>125cc</li>
+                  <li>MX1 & MX2</li>
+                  <li>Quad & Side-car</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Ligne 2 : Confirmés + Image -->
+        <!-- Ligne 2 : 3ème week-end + Image -->
         <div class="category-row reverse">
-          <div class="category-info confirmes">
-            <div class="category-badge dimanche">DIMANCHE</div>
-            <h3>PILOTES CONFIRMÉS</h3>
-            <p class="category-desc">Pour les pilotes expérimentés recherchant performance et adrénaline sur une piste technique.</p>
+          <div class="category-info troisieme-weekend">
+            <div class="category-badge dimanche">3ÈME WEEK-END</div>
+            <h3>SAMEDI & DIMANCHE</h3>
             <div class="category-details">
-              <div class="detail-item">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span>{siteInfo.horaires.dimanche}</span>
+              <div class="horaire-detail">
+                <div class="detail-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span><strong>Samedi 14h-18h</strong> - FFM</span>
+                </div>
+                <ul class="category-list">
+                  <li>85cc confirmés</li>
+                  <li>125cc</li>
+                  <li>MX1 & MX2</li>
+                  <li>Quad & Side-car</li>
+                </ul>
               </div>
-              <ul class="category-list">
-                {(siteInfo.categories?.dimanche?.liste || []).map((cat: string) => (
-                  <li>{cat}</li>
-                ))}
-              </ul>
+              <div class="horaire-detail">
+                <div class="detail-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span><strong>Dimanche 9h-18h</strong> - UFOLEP</span>
+                </div>
+                <p class="pause-info">(Pause 12h30-13h30)</p>
+                <ul class="category-list">
+                  <li>Minicross</li>
+                  <li>85cc débutant</li>
+                </ul>
+              </div>
             </div>
           </div>
           <div class="category-image">
-            <img src={imageDimanche} alt="Pilotes confirmés" loading="lazy" />
+            <img src={imageDimanche} alt="3ème week-end du mois" loading="lazy" />
           </div>
         </div>
       </div>
@@ -199,6 +229,58 @@ const {
     font-weight: 700;
   }
 
+  .horaires-details {
+    background: rgba(185, 28, 28, 0.1);
+    border-left: 3px solid var(--color-primary);
+    padding: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+    border-radius: var(--radius-sm);
+  }
+
+  .weekend-block {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .weekend-block:last-child {
+    margin-bottom: 0;
+  }
+
+  .weekend-block h5 {
+    color: var(--color-primary);
+    font-size: 0.95rem;
+    font-weight: 800;
+    margin-bottom: var(--spacing-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .weekend-block ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .weekend-block li {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 0.9rem;
+    line-height: 1.8;
+    padding-left: var(--spacing-md);
+    position: relative;
+  }
+
+  .weekend-block li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+
+  .weekend-block li strong {
+    color: white;
+    font-weight: 700;
+  }
+
   .info-box {
     background: rgba(10, 10, 10, 0.6);
     border: 1px solid var(--color-border);
@@ -235,6 +317,16 @@ const {
     color: var(--color-primary);
     flex-shrink: 0;
     margin-top: 2px;
+  }
+
+  .info-box .tarif-link {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: underline;
+    transition: color var(--transition-fast);
+  }
+
+  .info-box .tarif-link:hover {
+    color: var(--color-primary);
   }
 
   /* Colonne droite : Catégories */
@@ -305,19 +397,19 @@ const {
   }
 
   .category-info h3 {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     font-weight: 800;
     color: #0a0a0a;
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
     text-transform: uppercase;
     letter-spacing: -0.01em;
   }
 
   .category-desc {
-    font-size: 0.9rem;
-    line-height: 1.6;
+    font-size: 0.85rem;
+    line-height: 1.5;
     color: #333;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
   }
 
   .category-details {
@@ -354,6 +446,38 @@ const {
     font-size: 0.8rem;
     color: #0a0a0a;
     font-weight: 600;
+  }
+
+  .horaire-detail {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .horaire-detail:last-child {
+    margin-bottom: 0;
+  }
+
+  .horaire-detail .detail-item {
+    margin-bottom: 6px;
+  }
+
+  .horaire-detail .detail-item span {
+    font-size: 0.9rem;
+  }
+
+  .horaire-detail .detail-item span strong {
+    color: var(--color-primary);
+  }
+
+  .pause-info {
+    color: #666;
+    font-size: 0.8rem;
+    margin: 0 0 8px 0;
+    padding-left: calc(18px + var(--spacing-xs));
+    font-style: italic;
+  }
+
+  .category-list {
+    margin-top: 8px;
   }
 
   @media (max-width: 1024px) {

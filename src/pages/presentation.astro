@@ -40,7 +40,7 @@ const galerieData = page.data.galerie;
             <h3>Infos pratiques</h3>
             <ul class="info-list">
               {siteInfo.adresse && <li><strong>Localisation</strong><br>{siteInfo.adresse}</li>}
-              <li><strong>Tarif</strong><br>{siteInfo.tarif} la journée</li>
+              <li><strong>Tarif</strong><br><a href="/tarifs" class="tarif-link">{siteInfo.tarif} la journée</a></li>
               <li><strong>Licence</strong><br>FFM acceptée</li>
               <li><strong>Ouverture</strong><br>{siteInfo.horaires.jours}</li>
             </ul>
@@ -263,6 +263,17 @@ const galerieData = page.data.galerie;
     color: var(--color-text);
     display: block;
     margin-bottom: 4px;
+  }
+
+  .info-list .tarif-link {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .info-list .tarif-link:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
   }
 
   .doc-list {

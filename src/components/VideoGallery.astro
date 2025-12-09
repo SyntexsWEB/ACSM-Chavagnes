@@ -15,7 +15,7 @@ interface Props {
 const { videos, titre = "Vidéos", description } = Astro.props;
 ---
 
-<section class="video-gallery-section">
+<section id="galerie-video" class="video-gallery-section">
   <div class="container">
     {titre && <h2 class="gallery-title">{titre}</h2>}
     {description && <p class="gallery-description">{description}</p>}

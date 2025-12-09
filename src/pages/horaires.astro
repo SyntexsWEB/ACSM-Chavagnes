@@ -1,0 +1,319 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroPage from '../components/HeroPage.astro';
+import InfoCard from '../components/InfoCard.astro';
+import { getEntry } from 'astro:content';
+
+const page = await getEntry('pages', 'horaires');
+if (!page) throw new Error('Page not found: horaires');
+const { Content } = await page.render();
+
+const heroData = page.data.hero || {
+  image: '/images/vue-aerienne-terrain-1.jpg',
+  titre: 'Horaires d\'ouverture',
+  soustitre: 'Calendrier du terrain'
+};
+---
+
+<Layout
+  titre={page.data.titre}
+  description={page.data.description}
+>
+  <HeroPage
+    titre={heroData.titre ?? 'Horaires d\'ouverture'}
+    soustitre={heroData.soustitre ?? 'Calendrier du terrain'}
+    image={heroData.image ?? '/images/vue-aerienne-terrain-1.jpg'}
+  />
+
+  <section class="section horaires-section">
+    <div class="container">
+
+      <!-- Intro -->
+      <div class="horaires-intro">
+        <h2>Calendrier d'ouverture</h2>
+        <p>La piste de moto-cross de l'ACSM est ouverte les <strong>1er et 3ème week-end de chaque mois</strong></p>
+      </div>
+
+      <!-- Calendrier en cartes -->
+      <div class="calendrier-grid">
+        <!-- 1er weekend -->
+        <div class="weekend-card">
+          <div class="weekend-header">
+            <h3>1er week-end</h3>
+          </div>
+          <div class="jour-card">
+            <div class="jour-header samedi">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <h4>Samedi</h4>
+            </div>
+            <div class="jour-content">
+              <p class="horaire">14h - 18h</p>
+              <p class="federation ufolep">Licenciés UFOLEP</p>
+            </div>
+          </div>
+          <div class="jour-card">
+            <div class="jour-header dimanche">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <h4>Dimanche</h4>
+            </div>
+            <div class="jour-content">
+              <p class="horaire">9h - 18h</p>
+              <p class="pause">Pause : 12h30 - 13h30</p>
+              <p class="federation ffm">Licenciés FFM</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3ème weekend -->
+        <div class="weekend-card">
+          <div class="weekend-header">
+            <h3>3ème week-end</h3>
+          </div>
+          <div class="jour-card">
+            <div class="jour-header samedi">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <h4>Samedi</h4>
+            </div>
+            <div class="jour-content">
+              <p class="horaire">14h - 18h</p>
+              <p class="federation ffm">Licenciés FFM</p>
+            </div>
+          </div>
+          <div class="jour-card">
+            <div class="jour-header dimanche">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <h4>Dimanche</h4>
+            </div>
+            <div class="jour-content">
+              <p class="horaire">9h - 18h</p>
+              <p class="pause">Pause : 12h30 - 13h30</p>
+              <p class="federation ufolep">Licenciés UFOLEP</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Informations complémentaires -->
+      <div class="infos-complementaires">
+        <div class="info-box warning">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          <div>
+            <h4>Fermeture</h4>
+            <p>La piste de moto-cross est fermée le mois précédant la course.</p>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          <div>
+            <h4>Sessions spécifiques - Moins de 12 ans</h4>
+            <p>Des sessions spécifiques sont organisées durant les ouvertures du Samedi et du Dimanche avec un tracé adapté. Consultez le plan sur le tableau d'affichage à l'entrée du site.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contenu markdown -->
+      <div class="horaires-details markdown-content">
+        <Content />
+      </div>
+
+      <div class="cta-section">
+        <a href="/reglement" class="btn">Consulter le règlement</a>
+        <a href="/tarifs" class="btn btn-secondary">Voir les tarifs</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .horaires-section {
+    background: var(--color-dark);
+  }
+
+  .horaires-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--spacing-2xl);
+  }
+
+  .horaires-intro h2 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: var(--color-text);
+    margin-bottom: var(--spacing-md);
+    font-weight: 700;
+  }
+
+  .horaires-intro p {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  .calendrier-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .weekend-card {
+    background: var(--color-dark-lighter);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    border: 1px solid var(--color-border);
+  }
+
+  .weekend-header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 2px solid var(--color-primary);
+  }
+
+  .weekend-header h3 {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+
+  .jour-card {
+    background: var(--color-dark);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .jour-card:last-child {
+    margin-bottom: 0;
+  }
+
+  .jour-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .jour-header svg {
+    width: 20px;
+    height: 20px;
+    color: var(--color-primary);
+  }
+
+  .jour-header h4 {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .jour-content {
+    padding-left: var(--spacing-sm);
+  }
+
+  .horaire {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .pause {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    font-style: italic;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .federation {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-top: var(--spacing-xs);
+  }
+
+  .federation.ffm {
+    background: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+  }
+
+  .federation.ufolep {
+    background: rgba(168, 85, 247, 0.2);
+    color: #c084fc;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+  }
+
+  .infos-complementaires {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .info-box {
+    display: flex;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    background: var(--color-dark-lighter);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+  }
+
+  .info-box.warning {
+    border-color: var(--color-primary);
+    background: rgba(185, 28, 28, 0.1);
+  }
+
+  .info-box svg {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    color: var(--color-primary);
+  }
+
+  .info-box h4 {
+    color: var(--color-text);
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .info-box p {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .horaires-details {
+    max-width: 900px;
+    margin: 0 auto var(--spacing-2xl);
+    display: none; /* Hide markdown content as we're using custom HTML */
+  }
+
+  .cta-section {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    margin-top: var(--spacing-2xl);
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 768px) {
+    .calendrier-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-section {
+      flex-direction: column;
+    }
+
+    .cta-section .btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>

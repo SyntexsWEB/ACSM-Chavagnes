@@ -1,0 +1,178 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroPage from '../components/HeroPage.astro';
+import { getEntry } from 'astro:content';
+
+const page = await getEntry('pages', 'tarifs');
+if (!page) throw new Error('Page not found: tarifs');
+const { Content } = await page.render();
+
+const heroData = page.data.hero || {
+  image: '/images/motocross-saut-1.jpg',
+  titre: 'Tarifs',
+  soustitre: 'Accès au terrain et licences UFOLEP'
+};
+---
+
+<Layout
+  titre={page.data.titre}
+  description={page.data.description}
+>
+  <HeroPage
+    titre={heroData.titre ?? 'Tarifs'}
+    soustitre={heroData.soustitre ?? 'Accès au terrain et licences UFOLEP'}
+    image={heroData.image ?? '/images/motocross-saut-1.jpg'}
+  />
+
+  <section class="section tarifs-section">
+    <div class="container">
+      <div class="tarifs-content markdown-content">
+        <Content />
+      </div>
+
+      <div class="cta-section">
+        <a href="/reglement" class="btn">Consulter le règlement</a>
+        <a href="/contact" class="btn btn-secondary">Nous contacter</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .tarifs-section {
+    background: var(--color-dark);
+  }
+
+  .tarifs-content {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .markdown-content :global(h2) {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    margin-top: var(--spacing-2xl);
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 700;
+  }
+
+  .markdown-content :global(h3) {
+    color: var(--color-primary-light);
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+  }
+
+  .markdown-content :global(h4) {
+    color: var(--color-text);
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .markdown-content :global(p) {
+    line-height: 1.8;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-secondary);
+  }
+
+  .markdown-content :global(ul) {
+    margin: var(--spacing-md) 0;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .markdown-content :global(li) {
+    padding: var(--spacing-xs) 0 var(--spacing-xs) var(--spacing-lg);
+    color: var(--color-text-secondary);
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .markdown-content :global(li::before) {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+
+  .markdown-content :global(strong) {
+    color: var(--color-text);
+    font-weight: 700;
+  }
+
+  .markdown-content :global(em) {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+  }
+
+  .markdown-content :global(hr) {
+    border: none;
+    border-top: 2px solid var(--color-border);
+    margin: var(--spacing-2xl) 0;
+  }
+
+  /* Tables styling */
+  .markdown-content :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--spacing-lg) 0;
+    background: var(--color-dark-lighter);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .markdown-content :global(thead) {
+    background: var(--color-primary);
+  }
+
+  .markdown-content :global(th) {
+    padding: var(--spacing-md);
+    text-align: left;
+    color: white;
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+
+  .markdown-content :global(td) {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+  }
+
+  .markdown-content :global(tbody tr:last-child td) {
+    border-bottom: none;
+  }
+
+  .markdown-content :global(tbody tr:hover) {
+    background: rgba(185, 28, 28, 0.05);
+  }
+
+  .cta-section {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    margin-top: var(--spacing-2xl);
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 768px) {
+    .cta-section {
+      flex-direction: column;
+    }
+
+    .cta-section .btn {
+      width: 100%;
+      text-align: center;
+    }
+
+    .markdown-content :global(table) {
+      font-size: 0.85rem;
+    }
+
+    .markdown-content :global(th),
+    .markdown-content :global(td) {
+      padding: var(--spacing-xs) var(--spacing-sm);
+    }
+  }
+</style>

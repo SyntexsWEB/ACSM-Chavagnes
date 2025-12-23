@@ -15,7 +15,7 @@ interface Props {
 const { videos, titre = "Vidéos", description } = Astro.props;
 ---
 
-<section class="video-gallery-section">
+<section id="galerie-video" class="video-gallery-section">
   <div class="container">
     {titre && <h2 class="gallery-title">{titre}</h2>}
     {description && <p class="gallery-description">{description}</p>}
@@ -65,6 +65,7 @@ const { videos, titre = "Vidéos", description } = Astro.props;
   .video-gallery-section {
     padding: var(--spacing-2xl) 0;
     background: var(--color-dark);
+    scroll-margin-top: 100px;
   }
 
   .gallery-title {

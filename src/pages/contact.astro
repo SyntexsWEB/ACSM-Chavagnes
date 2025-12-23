@@ -62,6 +62,7 @@ const heroData = page.data.hero || {
               <select id="sujet" name="sujet" required>
                 <option value="">Sélectionnez un sujet</option>
                 <option value="inscription">Inscription / Licence</option>
+                <option value="ufolep">UFOLEP</option>
                 <option value="horaires">Horaires et planning</option>
                 <option value="tarifs">Tarifs</option>
                 <option value="partenariat">Partenariat</option>
@@ -85,23 +86,31 @@ const heroData = page.data.hero || {
               <div>
                 <strong>Président</strong>
                 <p>Mr Renault Pascal</p>
-                <p>Portable: 07 49 24 03 62</p>
-                <p>Email: <a href="mailto:pezotmickael@gmail.com">pezotmickael@gmail.com</a></p>
+                <p>Téléphone : 07 49 24 03 62</p>
+                <p>Email : <a href="mailto:pezotmickael@gmail.com">pezotmickael@gmail.com</a></p>
               </div>
             </div>
             <div class="info-item">
               <div>
-                <strong>Responsable permanent de terrain</strong>
-                <p>Grégoire Monchin</p>
-                <p>Téléphone: 06 31 23 46 66</p>
+                <strong>Responsable permanence</strong>
+                <p>Grégoire Monchy</p>
+                <p>Téléphone : 06 31 23 46 66</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <div>
+                <strong>Responsable FFM & UFOLEP</strong>
+                <p>Margaux Raveau</p>
+                <p>Téléphone : 07 87 92 52 61</p>
+                <p>Email : <a href="mailto:margaux.raveau@hotmail.fr">margaux.raveau@hotmail.fr</a></p>
               </div>
             </div>
             <div class="info-item">
               <div>
                 <strong>Responsable communication et presse</strong>
                 <p>Fabrice Tulane</p>
-                <p>Téléphone: 07 74 73 53 90</p>
-                <p>Email: <a href="mailto:fabtulane@hotmail.com">fabtulane@hotmail.com</a></p>
+                <p>Téléphone : 07 74 73 53 90</p>
+                <p>Email : <a href="mailto:fabtulane@hotmail.com">fabtulane@hotmail.com</a></p>
               </div>
             </div>
           </div>
@@ -122,12 +131,6 @@ const heroData = page.data.hero || {
                 <p>{siteInfo.horaires.jours}</p>
                 <p>Samedi: {siteInfo.horaires.samedi}</p>
                 <p>Dimanche: {siteInfo.horaires.dimanche}</p>
-              </div>
-            </div>
-            <div class="info-item">
-              <div>
-                <strong>Tarif</strong>
-                <p>{siteInfo.tarif} la journée</p>
               </div>
             </div>
           </div>

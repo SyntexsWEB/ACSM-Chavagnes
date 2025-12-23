@@ -40,7 +40,7 @@ const heroData = page.data.hero || {
         <RegleCard
           icone='<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>'
           titre="Inscription obligatoire"
-          description="Tout pilote doit s'inscrire à l'accueil avant de rouler. Présentation de la licence FFM ou signature d'une décharge pour les non-licenciés."
+          description="Tout pilote doit s'inscrire à l'accueil avant de rouler. Présentation de la licence FFM ou UFOLEP obligatoire. Les visiteurs non-licenciés doivent rester en zone publique."
         />
 
         <RegleCard
@@ -58,14 +58,8 @@ const heroData = page.data.hero || {
 
         <RegleCard
           icone='<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>'
-          titre="Bâches environnementales"
-          description="Les bâches sont obligatoires pour tous les véhicules afin de protéger l'environnement. Aucune fuite d'huile ou de carburant n'est tolérée sur le terrain."
-        />
-
-        <RegleCard
-          icone='<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>'
-          titre="Propreté du site"
-          description="Chaque pilote doit gérer ses déchets. Des poubelles sont à disposition. Laissez le terrain aussi propre que vous l'avez trouvé."
+          titre="Tapis environnemental obligatoire"
+          description="Le tapis environnemental est obligatoire pour tous les véhicules afin de protéger l'environnement. Aucune fuite d'huile ou de carburant n'est tolérée sur le terrain."
         />
 
         <RegleCard
@@ -76,28 +70,16 @@ const heroData = page.data.hero || {
         />
 
         <RegleCard
-          icone='<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>'
-          titre="Respect des horaires"
-          description="Le terrain est ouvert uniquement aux horaires indiqués. Merci de respecter les créneaux horaires définis pour chaque catégorie de pilotes."
-        />
-
-        <RegleCard
-          icone='<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" /></svg>'
-          titre="Véhicule en bon état"
-          description="Votre véhicule doit être en bon état de fonctionnement. Contrôlez freins, suspensions et niveau sonore avant de rouler."
-        />
-
-        <RegleCard
           icone='<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>'
           titre="Mineurs accompagnés"
-          description="Les mineurs doivent obligatoirement être accompagnés d'un adulte responsable présent sur le site durant toute la session."
+          description="Les mineurs doivent obligatoirement être accompagnés d'un adulte responsable présent sur le site durant toute la session. Sessions spécifiques organisées pour les moins de 12 ans."
         />
       </div>
 
       <!-- Règlement complet en texte -->
       <div class="reglement-details">
         <div class="details-header">
-          <h2>Règlement complet</h2>
+          <h2>Règlement complet 2026</h2>
           <div class="header-underline"></div>
         </div>
         <div class="reglement-content markdown-content">
@@ -181,13 +163,16 @@ const heroData = page.data.hero || {
     color: var(--color-primary);
     margin-bottom: var(--spacing-md);
     margin-top: var(--spacing-xl);
-    font-size: 1.5rem;
+    font-size: 1.75rem;
+    font-weight: 700;
   }
 
   .markdown-content :global(h3) {
     color: var(--color-primary-light);
     margin-top: var(--spacing-lg);
     margin-bottom: var(--spacing-md);
+    font-size: 1.25rem;
+    font-weight: 600;
   }
 
   .markdown-content :global(p) {

@@ -74,7 +74,7 @@ collections:
           - { label: "Email de contact", name: "email", widget: "string" }
           - { label: "Téléphone", name: "telephone", widget: "string", required: false }
           - { label: "Adresse", name: "adresse", widget: "text" }
-          - { label: "Tarif journée", name: "tarif", widget: "string", default: "15€" }
+          - { label: "Tarif journée", name: "tarif", widget: "string", default: "À partir de 10€" }
 
           - label: "Hero Accueil"
             name: "hero_accueil"

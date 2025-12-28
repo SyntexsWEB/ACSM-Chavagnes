@@ -1,6 +1,6 @@
 ---
 titre: "Questions fréquentes"
-description: "Questions fréquentes sur l'ACSM Chavagnes : inscription, licence, horaires, tarifs et accès au terrain."
+description: "FAQ motocross ACSM Chavagnes à Terranjou (Maine-et-Loire, Anjou) : inscription, licence FFM/UFOLEP, horaires, tarifs et accès au terrain"
 hero:
   image: /images/motocross-saut-2.jpg
   titre: Questions fréquentes
@@ -11,52 +11,73 @@ galerie:
 
 ## Inscription & Licence
 
-### Comment obtenir ma licence FFM ?
+### Comment obtenir ma licence FFM ou UFOLEP ?
 
-Pour obtenir votre licence FFM (Fédération Française de Motocyclisme), vous devez :
+Deux fédérations sont acceptées sur notre terrain :
 
-1. Vous rendre sur le site de la FFM : [www.ffmoto.org](https://www.ffmoto.org)
-2. Choisir le type de licence adapté à votre pratique (loisir, compétition)
-3. Remplir le formulaire d'inscription en ligne
-4. Fournir les documents nécessaires (certificat médical, photo, pièce d'identité)
-5. Payer la cotisation annuelle
+**Licence FFM (Fédération Française de Motocyclisme) :**
+1. Rendez-vous sur le site de la FFM : [www.ffmoto.org](https://www.ffmoto.org)
+2. Choisissez le type de licence adapté à votre pratique
+3. Remplissez le formulaire d'inscription en ligne en sélectionnant "ACSM Chavagnes les Eaux"
+4. Fournissez les documents nécessaires (certificat médical type FFM, photo, pièce d'identité)
+5. Payez la cotisation (la cotisation club sera prélevée directement via la FFM)
+6. Envoyez un chèque de caution de 100€ pour les journées travaux
 
-Vous pouvez également vous rapprocher d'un club affilié FFM près de chez vous.
+Contact : Géraldine Grosbois - [grosboisgarciau@sfr.fr](mailto:grosboisgarciau@sfr.fr) - [06 73 53 19 88](tel:0673531988)
+
+**Licence UFOLEP :**
+1. La prise de licence se fait uniquement par papier
+2. Contactez Margaux Raveau - [margaux.raveau@hotmail.fr](mailto:margaux.raveau@hotmail.fr) - [07 87 92 52 61](tel:0787925261)
+3. Fournissez les documents requis (certificat médical de moins de 6 mois, 3 chèques : licence + cotisation club + caution 100€)
 
 ### Quel type de licence dois-je avoir ?
 
-Pour rouler sur notre terrain, vous devez avoir une licence FFM valide. Plusieurs options :
+Pour rouler sur notre terrain, vous devez avoir une licence FFM ou UFOLEP valide :
 
+**Licences FFM :**
 - **Licence Pratique Loisir :** Pour la pratique occasionnelle en terrain privé
 - **Licence Pratique Compétition :** Pour participer aux compétitions officielles
 
-Les deux types de licences sont acceptés sur notre terrain.
+**Licences UFOLEP :**
+- **Licence Loisirs :** 151,75€ (adulte) / 133,70€ (jeune -16 ans)
+- **Licence Compétition :** 151,75€ (adulte) / 133,70€ (jeune -16 ans)
+
+Consultez notre [page tarifs](/tarifs) pour plus de détails.
 
 ### Dois-je m'inscrire à l'avance ?
 
 Non, aucune inscription préalable n'est nécessaire. Il suffit de vous présenter le jour même avec :
 
-- Votre licence FFM en cours de validité
+- Votre licence FFM ou UFOLEP en cours de validité
 - Votre équipement de protection complet
-- 10€ pour l'accès journée
+- Le tarif d'accès correspondant (sauf si vous êtes licencié ACSM)
 
 ## Horaires & Planning
 
 ### Quand le terrain est-il ouvert ?
 
-Le terrain est ouvert les **1er et 3ème week-end de chaque mois** :
+Le terrain est ouvert les **1er et 3ème week-end de chaque mois** selon le calendrier suivant :
 
-- **Samedi :** 9h-12h et 13h30-17h30 (Minicross et 85cc débutant)
-- **Dimanche :** 9h-12h et 13h30-17h30 (85cc confirmés, 125cc, MX1, MX2, quad, side-car)
+**1er week-end du mois :**
+- **Samedi :** 9h-18h (Pause 12h-13h30) - Licenciés UFOLEP
+- **Dimanche :** 9h-18h (Pause 12h30-13h30) - Licenciés FFM
 
-### Puis-je venir le samedi avec une 125cc ?
+**3ème week-end du mois :**
+- **Samedi :** 9h-18h (Pause 12h-13h30) - Licenciés FFM
+- **Dimanche :** 9h-18h (Pause 12h30-13h30) - Licenciés UFOLEP
 
-Non, le planning est organisé par catégories pour des raisons de sécurité :
+**Sessions spécifiques :** Des sessions sont organisées pour les pilotes de moins de 12 ans durant les ouvertures avec un tracé adapté.
 
-- **Samedi :** Réservé aux Minicross et 85cc *débutants*
-- **Dimanche :** Ouvert aux catégories supérieures (85cc confirmés, 125cc, MX1, MX2, quad, side-car)
+Consultez notre [page horaires](/horaires) pour plus de détails.
 
-Cette organisation permet d'adapter le terrain et le niveau de roulage à chaque catégorie.
+### Puis-je venir n'importe quel jour avec ma licence ?
+
+Non, l'organisation alterne selon les weekends :
+
+- **1er week-end :** Samedi réservé UFOLEP / Dimanche réservé FFM
+- **3ème week-end :** Samedi réservé FFM / Dimanche réservé UFOLEP
+
+Vérifiez bien le calendrier selon votre type de licence avant de vous déplacer.
 
 ### Le terrain est-il ouvert pendant les vacances scolaires ?
 
@@ -66,20 +87,34 @@ Oui, nous maintenons notre calendrier habituel (1er et 3ème week-end du mois) m
 
 ### Quel est le tarif d'accès ?
 
-Le tarif est de **10€ par jour et par pilote**. Ce tarif inclut l'accès au circuit pour la journée complète (matin et après-midi).
+Les tarifs d'accès pour les licenciés des clubs extérieurs sont :
+
+- **10€** par jour pour les **minicross**
+- **15€** par jour à partir de **85cm³ et quads**
+- **20€** par jour pour les **side-car**
+
+**Gratuit pour les licenciés UFOLEP ou FFM du club de l'ACSM** selon le calendrier d'ouverture.
+
+Les tarifs incluent l'accès au circuit pour la journée complète (matin et après-midi).
 
 ### Y a-t-il des tarifs préférentiels ?
 
-Actuellement, nous proposons un tarif unique de 10€ la journée pour tous les pilotes. Contactez-nous pour toute demande particulière (groupes, écoles de pilotage, etc.).
+Oui, l'accès est gratuit pour les membres du club ACSM (licenciés UFOLEP ou FFM de l'ACSM).
+
+Pour devenir membre, la cotisation club est de :
+- **25€** pour les licenciés de moins de 12 ans
+- **40€** pour les licenciés de plus de 12 ans
+
+Consultez notre [page tarifs](/tarifs) pour tous les détails.
 
 ### Quels moyens de paiement acceptez-vous ?
 
 Nous acceptons les paiements en :
 
 - Espèces
-- Chèque
+- Chèque à l'ordre de l'ACSM
 
-Le paiement se fait sur place à l'accueil.
+Le paiement se fait sur place auprès de la personne du club qui assure la permanence dès votre arrivée.
 
 ## Matériel & Équipement
 
@@ -140,9 +175,9 @@ Oui, les spectateurs et accompagnants sont les bienvenus. L'accès spectateur es
 Oui, les mineurs sont acceptés sous certaines conditions :
 
 - Présence obligatoire d'un parent ou tuteur légal responsable
-- Licence FFM valide adaptée à l'âge
+- Licence FFM ou UFOLEP valide adaptée à l'âge
 - Équipement de protection complet et adapté
-- Respect des créneaux horaires (samedi pour les débutants)
+- Respect des créneaux horaires et des sessions spécifiques pour les moins de 12 ans
 
 ---
 

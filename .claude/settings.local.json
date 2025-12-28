@@ -6,7 +6,9 @@
       "Bash(npx decap-server:*)",
       "Bash(git restore:*)",
       "Bash(npm run config:prod:*)",
-      "Bash(npm run config:dev:*)"
+      "Bash(npm run config:dev:*)",
+      "Bash(cat:*)",
+      "Bash(ls:*)"
     ],
     "deny": [],
     "ask": []

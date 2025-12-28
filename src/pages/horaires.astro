@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import HeroPage from '../components/HeroPage.astro';
 import InfoCard from '../components/InfoCard.astro';
 import { getEntry } from 'astro:content';
+import siteInfo from '../data/site-info.json';
 
 const page = await getEntry('pages', 'horaires');
 if (!page) throw new Error('Page not found: horaires');
@@ -47,8 +48,11 @@ const heroData = page.data.hero || {
               <h4>Samedi</h4>
             </div>
             <div class="jour-content">
-              <p class="horaire">14h - 18h</p>
-              <p class="federation ufolep">Licenciés UFOLEP</p>
+              <p class="horaire">{siteInfo.horaires_detailles.premier_weekend.samedi.horaire}</p>
+              {siteInfo.horaires_detailles.premier_weekend.samedi.pause && (
+                <p class="pause">Pause : {siteInfo.horaires_detailles.premier_weekend.samedi.pause}</p>
+              )}
+              <p class="federation ufolep">Licenciés {siteInfo.horaires_detailles.premier_weekend.samedi.federation}</p>
             </div>
           </div>
           <div class="jour-card">
@@ -57,9 +61,11 @@ const heroData = page.data.hero || {
               <h4>Dimanche</h4>
             </div>
             <div class="jour-content">
-              <p class="horaire">9h - 18h</p>
-              <p class="pause">Pause : 12h30 - 13h30</p>
-              <p class="federation ffm">Licenciés FFM</p>
+              <p class="horaire">{siteInfo.horaires_detailles.premier_weekend.dimanche.horaire}</p>
+              {siteInfo.horaires_detailles.premier_weekend.dimanche.pause && (
+                <p class="pause">Pause : {siteInfo.horaires_detailles.premier_weekend.dimanche.pause}</p>
+              )}
+              <p class="federation ffm">Licenciés {siteInfo.horaires_detailles.premier_weekend.dimanche.federation}</p>
             </div>
           </div>
         </div>
@@ -75,8 +81,11 @@ const heroData = page.data.hero || {
               <h4>Samedi</h4>
             </div>
             <div class="jour-content">
-              <p class="horaire">14h - 18h</p>
-              <p class="federation ffm">Licenciés FFM</p>
+              <p class="horaire">{siteInfo.horaires_detailles.troisieme_weekend.samedi.horaire}</p>
+              {siteInfo.horaires_detailles.troisieme_weekend.samedi.pause && (
+                <p class="pause">Pause : {siteInfo.horaires_detailles.troisieme_weekend.samedi.pause}</p>
+              )}
+              <p class="federation ffm">Licenciés {siteInfo.horaires_detailles.troisieme_weekend.samedi.federation}</p>
             </div>
           </div>
           <div class="jour-card">
@@ -85,9 +94,11 @@ const heroData = page.data.hero || {
               <h4>Dimanche</h4>
             </div>
             <div class="jour-content">
-              <p class="horaire">9h - 18h</p>
-              <p class="pause">Pause : 12h30 - 13h30</p>
-              <p class="federation ufolep">Licenciés UFOLEP</p>
+              <p class="horaire">{siteInfo.horaires_detailles.troisieme_weekend.dimanche.horaire}</p>
+              {siteInfo.horaires_detailles.troisieme_weekend.dimanche.pause && (
+                <p class="pause">Pause : {siteInfo.horaires_detailles.troisieme_weekend.dimanche.pause}</p>
+              )}
+              <p class="federation ufolep">Licenciés {siteInfo.horaires_detailles.troisieme_weekend.dimanche.federation}</p>
             </div>
           </div>
         </div>
@@ -237,15 +248,15 @@ const heroData = page.data.hero || {
   }
 
   .federation.ffm {
-    background: rgba(59, 130, 246, 0.2);
-    color: #60a5fa;
-    border: 1px solid rgba(59, 130, 246, 0.3);
+    background: rgba(185, 28, 28, 0.2);
+    color: #ef4444;
+    border: 1px solid rgba(185, 28, 28, 0.3);
   }
 
   .federation.ufolep {
-    background: rgba(168, 85, 247, 0.2);
-    color: #c084fc;
-    border: 1px solid rgba(168, 85, 247, 0.3);
+    background: rgba(185, 28, 28, 0.2);
+    color: #ef4444;
+    border: 1px solid rgba(185, 28, 28, 0.3);
   }
 
   .infos-complementaires {

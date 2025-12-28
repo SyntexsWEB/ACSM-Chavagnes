@@ -68,11 +68,15 @@ const {
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <span><strong>Samedi 14h-18h</strong> - UFOLEP</span>
+                  <span><strong>Samedi {siteInfo.horaires_detailles.premier_weekend.samedi.horaire}</strong> - {siteInfo.horaires_detailles.premier_weekend.samedi.federation}</span>
                 </div>
+                {siteInfo.horaires_detailles.premier_weekend.samedi.pause && (
+                  <p class="pause-info">(Pause {siteInfo.horaires_detailles.premier_weekend.samedi.pause})</p>
+                )}
                 <ul class="category-list">
-                  <li>Minicross</li>
-                  <li>85cc débutant</li>
+                  {siteInfo.horaires_detailles.premier_weekend.samedi.categories.map(cat => (
+                    <li>{cat}</li>
+                  ))}
                 </ul>
               </div>
               <div class="horaire-detail">
@@ -80,14 +84,15 @@ const {
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <span><strong>Dimanche 9h-18h</strong> - FFM</span>
+                  <span><strong>Dimanche {siteInfo.horaires_detailles.premier_weekend.dimanche.horaire}</strong> - {siteInfo.horaires_detailles.premier_weekend.dimanche.federation}</span>
                 </div>
-                <p class="pause-info">(Pause 12h30-13h30)</p>
+                {siteInfo.horaires_detailles.premier_weekend.dimanche.pause && (
+                  <p class="pause-info">(Pause {siteInfo.horaires_detailles.premier_weekend.dimanche.pause})</p>
+                )}
                 <ul class="category-list">
-                  <li>85cc confirmés</li>
-                  <li>125cc</li>
-                  <li>MX1 & MX2</li>
-                  <li>Quad & Side-car</li>
+                  {siteInfo.horaires_detailles.premier_weekend.dimanche.categories.map(cat => (
+                    <li>{cat}</li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -105,13 +110,15 @@ const {
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <span><strong>Samedi 14h-18h</strong> - FFM</span>
+                  <span><strong>Samedi {siteInfo.horaires_detailles.troisieme_weekend.samedi.horaire}</strong> - {siteInfo.horaires_detailles.troisieme_weekend.samedi.federation}</span>
                 </div>
+                {siteInfo.horaires_detailles.troisieme_weekend.samedi.pause && (
+                  <p class="pause-info">(Pause {siteInfo.horaires_detailles.troisieme_weekend.samedi.pause})</p>
+                )}
                 <ul class="category-list">
-                  <li>85cc confirmés</li>
-                  <li>125cc</li>
-                  <li>MX1 & MX2</li>
-                  <li>Quad & Side-car</li>
+                  {siteInfo.horaires_detailles.troisieme_weekend.samedi.categories.map(cat => (
+                    <li>{cat}</li>
+                  ))}
                 </ul>
               </div>
               <div class="horaire-detail">
@@ -119,12 +126,15 @@ const {
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <span><strong>Dimanche 9h-18h</strong> - UFOLEP</span>
+                  <span><strong>Dimanche {siteInfo.horaires_detailles.troisieme_weekend.dimanche.horaire}</strong> - {siteInfo.horaires_detailles.troisieme_weekend.dimanche.federation}</span>
                 </div>
-                <p class="pause-info">(Pause 12h30-13h30)</p>
+                {siteInfo.horaires_detailles.troisieme_weekend.dimanche.pause && (
+                  <p class="pause-info">(Pause {siteInfo.horaires_detailles.troisieme_weekend.dimanche.pause})</p>
+                )}
                 <ul class="category-list">
-                  <li>Minicross</li>
-                  <li>85cc débutant</li>
+                  {siteInfo.horaires_detailles.troisieme_weekend.dimanche.categories.map(cat => (
+                    <li>{cat}</li>
+                  ))}
                 </ul>
               </div>
             </div>

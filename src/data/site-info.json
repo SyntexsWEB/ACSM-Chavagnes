@@ -17,8 +17,8 @@
   "nom": "ACSM Chavagnes",
   "horaires": {
     "jours": "1er et 3ème week-end du mois",
-    "samedi": "9h-12h / 13h30-17h30",
-    "dimanche": "9h-12h / 13h30-17h30"
+    "samedi": "9h-18h (Pause 12h-13h30)",
+    "dimanche": "9h-18h (Pause 12h30-13h30)"
   },
   "social": {
     "facebook": "https://www.facebook.com/profile.php?id=100004808973777",
@@ -55,6 +55,36 @@
         "MX1 & MX2",
         "Quad & Side-car"
       ]
+    }
+  },
+  "horaires_detailles": {
+    "premier_weekend": {
+      "samedi": {
+        "horaire": "9h-18h",
+        "federation": "UFOLEP",
+        "pause": "12h-13h30",
+        "categories": ["Minicross", "85cc débutant"]
+      },
+      "dimanche": {
+        "horaire": "9h-18h",
+        "federation": "FFM",
+        "pause": "12h30-13h30",
+        "categories": ["85cc confirmés", "125cc", "MX1 & MX2", "Quad & Side-car"]
+      }
+    },
+    "troisieme_weekend": {
+      "samedi": {
+        "horaire": "9h-18h",
+        "federation": "FFM",
+        "pause": "12h-13h30",
+        "categories": ["85cc confirmés", "125cc", "MX1 & MX2", "Quad & Side-car"]
+      },
+      "dimanche": {
+        "horaire": "9h-18h",
+        "federation": "UFOLEP",
+        "pause": "12h30-13h30",
+        "categories": ["Minicross", "85cc débutant"]
+      }
     }
   },
   "email": "contact@acsm-chavagnes.fr",

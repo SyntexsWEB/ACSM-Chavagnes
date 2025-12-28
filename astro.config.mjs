@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://acsm-chavagnes.netlify.app',
+  site: 'https://motocross-chavagnes.fr',
   integrations: [mdx(), sitemap()],
   markdown: {
     shikiConfig: {

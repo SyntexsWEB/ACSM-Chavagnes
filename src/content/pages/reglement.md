@@ -1,7 +1,6 @@
 ---
 titre: Règlement du terrain
-description: Règlement du terrain de motocross ACSM Chavagnes. Consignes de
-  sécurité et règles à respecter.
+description: Règlement du terrain de motocross ACSM Chavagnes-les-Eaux à Terranjou (Maine-et-Loire). Consignes de sécurité pour pilotes FFM et UFOLEP en Anjou
 hero:
   image: /images/motocross-saut-4.jpg
   titre: Règlement du terrain

@@ -1,6 +1,6 @@
 ---
 titre: Horaires d'ouverture
-description: Calendrier d'ouverture du terrain de motocross ACSM Chavagnes - 1er et 3ème week-end de chaque mois
+description: Horaires du terrain de motocross ACSM Chavagnes-les-Eaux à Terranjou (Maine-et-Loire, Anjou) - Ouvert les 1er et 3ème week-end, licences FFM et UFOLEP
 hero:
   image: /images/vue-aerienne-terrain-1.jpg
   titre: Horaires d'ouverture

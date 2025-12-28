@@ -29,8 +29,9 @@ const { image } = Astro.props;
           <div class="info-text">
             <h4>HORAIRES D'OUVERTURE</h4>
             <p>{siteInfo.horaires.jours}</p>
-            <p class="info-detail">Samedi: 14h-18h</p>
-            <p class="info-detail">Dimanche: 9h-18h (Pause 12h30-13h30)</p>
+            <p class="info-detail">Samedi: {siteInfo.horaires.samedi}</p>
+            <p class="info-detail">Dimanche: {siteInfo.horaires.dimanche}</p>
+            <p class="info-detail"><a href="/horaires" class="horaires-link">Voir les horaires détaillés →</a></p>
           </div>
         </div>
 
@@ -163,9 +164,21 @@ const { image } = Astro.props;
 
   .info-text p {
     color: #333;
-    margin: var(--spacing-xs) 0;
+    margin: 4px 0;
     font-size: 0.95rem;
     line-height: 1.6;
+  }
+
+  .horaires-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all var(--transition-fast);
+  }
+
+  .horaires-link:hover {
+    text-decoration: underline;
+    color: #c41e1e;
   }
 
   .info-detail {

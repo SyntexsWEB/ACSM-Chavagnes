@@ -16,8 +16,8 @@ L'accès au terrain de motocross de l'ACSM Chavagnes est soumis aux tarifs suiva
 ### Tarifs journaliers
 
 - **10€** par jour pour les **minicross**
-- **15€** par jour à partir de **85cm³**
-- **20€** par jour pour les **quads et side-car**
+- **15€** par jour à partir de **85cm³ et quads**
+- **20€** par jour pour les **side-car**
 
 **Gratuit pour les licenciés UFOLEP ou FFM du club de l'ACSM** selon le calendrier d'ouverture.
 
@@ -34,107 +34,75 @@ Le montant de la cotisation du club est défini par le Comité Directeur :
 
 ---
 
-## Grille tarifaire UFOLEP 2025/26
+## <a id="tarifs-ffm"></a>Prise de licence FFM
 
-### Affiliation association
+### Tableau des tarifs FFM 2026
 
-#### Dirigée majoritairement par des plus de 30 ans
+Pour consulter les tarifs officiels de la Fédération Française de Motocyclisme pour 2026, veuillez télécharger le document officiel :
 
-| Type de licence | Tarif |
-|----------------|-------|
-| Ufolep | 259,74 € |
-| Ufolep+ | 309,74 € |
-| Ufolep pro CA < 100 000 € | 409,74 € |
-| Ufolep Pro 100 000 €< CA < 250 000 € | 759,74 € |
-| Ufolep Pro 250 000 €< CA < 500 000 € | 1 259,74 € |
-| Ufolep Pro 500 000 €< CA < 750 000 € | 1 759,74 € |
-| Ufolep Pro 750 000 €< CA < 1 000 000 € | 3 259,74 € |
-| Ufolep Pro 1 050 000 €< CA < 2 000 000 € | 4 259,74 € |
-| Ufolep Pro > 2 000 000 € | 5 259,74 € |
+[📄 Télécharger les tarifs licence FFM 2026](https://pratiquer.ffmoto.org/media/document/tarifs-licence-2026)
 
-#### Dirigée majoritairement par des moins de 30 ans
+### Certificat médical type
 
-| Type de licence | Tarif |
-|----------------|-------|
-| Ufolep | 91,06 € |
-| Ufolep+ | 141,06 € |
-| Ufolep pro CA < 100 000 € | 241,06 € |
-| Ufolep Pro 100 000 €< CA < 250 000 € | 591,06 € |
-| Ufolep Pro 250 000 €< CA < 500 000 € | 1 091,06 € |
-| Ufolep Pro 500 000 €< CA < 750 000 € | 1 591,06 € |
-| Ufolep Pro 750 000 €< CA < 1 000 000 € | 3 091,06 € |
-| Ufolep Pro 1 050 000 €< CA < 2 000 000 € | 4 091,06 € |
-| Ufolep Pro > 2 000 000 € | 5 091,06 € |
+Un certificat médical est obligatoire pour la prise de licence FFM. Vous pouvez télécharger le certificat type :
 
-### Affiliation structure non associative
+[📄 Télécharger le certificat médical type FFM](https://pratiquer.ffmoto.org/media/document/licence-annuelle-certificat-medical)
 
-| Type de licence | Tarif |
-|----------------|-------|
-| Ufolep | 212,29 € |
-| Ufolep pro CA < 100 000 € | 362,29 € |
-| Ufolep Pro 100 000 €< CA < 250 000 € | 712,29 € |
-| Ufolep Pro 250 000 €< CA < 500 000 € | 1 212,29 € |
-| Ufolep Pro 500 000 €< CA < 750 000 € | 1 712,29 € |
-| Ufolep Pro 750 000 €< CA < 1 000 000 € | 3 212,29 € |
-| Ufolep Pro 1 050 000 €< CA < 2 000 000 € | 4 212,29 € |
-| Ufolep Pro > 2 000 000 € | 5 212,29 € |
+### Prendre une licence FFM
 
-### Majorations / Réductions
+Pour prendre votre licence FFM en ligne, rendez-vous sur l'espace privatif de la FFM :
 
-| Type | Montant |
-|------|---------|
-| Majoration association avec salariés permanents | 48,22 € |
-| Réduction club mono-activité | -52,51 € |
-| Réduction première affiliation | -100,00 € |
-| Réduction asso marraine | -50,00 € |
+[🔗 Espace privatif FFM - Prise de licence](https://pratiquer.ffmoto.org/espace-prive)
 
-### Adhésion Ufopass
+### Conditions nécessaires
 
-| Catégorie | Tarif |
-|-----------|-------|
-| Adulte | 8,00 € |
-| Jeunes | 8,00 € |
-| Enfants | 8,00 € |
+Pour obtenir votre licence FFM avec l'ACSM Chavagnes les Eaux :
 
-### Licence dirigeant-e, animateur-trice, officiel-le
+1. **Faire remplir votre certificat médical type FFM** par votre médecin
+2. **Prendre votre licence en ligne** sur le site de la FFM
+3. **Choisir le club "ACSM Chavagnes les Eaux"** lors de votre inscription
+4. **La cotisation club est directement prélevée via la FFM** (Une régulation sera effectuée pour les moins de 12 ans)
+5. **Envoyer un chèque de caution de 100€** par la poste (pour les journées travaux)
+6. **La licence sera délivrée une fois le chèque de caution reçu**
 
-| Catégorie | Tarif |
-|-----------|-------|
-| Adulte | 31,26 € |
-| Jeunes | 15,43 € |
+### Contact
 
-### Licence MULTISPORTS
+Pour tout renseignement concernant la prise de licence FFM, veuillez contacter notre responsable FFM :
 
-| Catégorie | Loisirs | Compétition |
-|-----------|---------|-------------|
-| Adulte | 32,23 € | 36,05 € |
-| Jeune | 16,70 € | 18,48 € |
-| Enfant | 14,10 € | 16,19 € |
+**Géraldine Grosbois** - [grosboisgarciau@sfr.fr](mailto:grosboisgarciau@sfr.fr) - [06 73 53 19 88](tel:0673531988)
 
-### Licence MULTISPORTS +
+---
 
-| Catégorie | Loisirs | Compétition |
-|-----------|---------|-------------|
-| Adulte | 56,75 € | 70,75 € |
-| Jeune | 37,70 € | 45,70 € |
-| Enfant | 34,82 € | 42,82 € |
+## <a id="tarifs-ufolep"></a>Prise de licence UFOLEP
 
-### Licence SPORTS MÉCANIQUES
-
-| Catégorie | Loisirs | Compétition |
-|-----------|---------|-------------|
-| Adulte | 71,75 € | 71,75 € |
-| Jeune | 53,70 € | 53,70 € |
-| Enfant | 50,82 € | 50,82 € |
-
-### Licence MOTOCROSS
+### Grille tarifaire UFOLEP 2025/26
 
 | Catégorie | Loisirs | Compétition |
 |-----------|---------|-------------|
 | Adulte | 151,75 € | 151,75 € |
-| Jeune | 133,70 € | 133,70 € |
-| Enfant | 133,70 € | 133,70 € |
+| Jeune (- 16 ans) | 133,70 € | 133,70 € |
+
+### Procédure de prise de licence UFOLEP
+
+**La prise de licence UFOLEP se fait uniquement par papier.**
+
+Pour toute demande, veuillez contacter notre responsable UFOLEP :
+
+**Margaux Raveau** - [margaux.raveau@hotmail.fr](mailto:margaux.raveau@hotmail.fr) - [07 87 92 52 61](tel:0787925261)
+
+### Documents à fournir
+
+Pour obtenir votre licence UFOLEP, vous devez fournir :
+
+1. **Certificat médical** délivré par votre médecin de moins de 6 mois
+2. **3 chèques à l'ordre de l'ACSM** :
+   - Montant de la licence désirée (voir grille tarifaire ci-dessus)
+   - Cotisation club de **40€** (ou **25€** pour les moins de 12 ans)
+   - Chèque de caution de **100€** pour les journées travaux
+
+**⚠️ Important : La licence ne sera délivrée qu'après réception de tous les documents par la responsable.**
+
 
 ---
 
-*Pour toute question concernant les tarifs, n'hésitez pas à contacter Margaux Raveau (margaux.raveau@hotmail.fr) ou via le formulaire de contact.*
+*Pour toute question concernant les tarifs, n'hésitez pas à nous contacter via le formulaire de contact.*

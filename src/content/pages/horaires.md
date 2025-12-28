@@ -16,7 +16,8 @@ La piste de moto-cross de l'ACSM est ouverte les **1er et 3ème week-end de chaq
 ### 1er week-end de chaque mois
 
 #### Samedi - Licenciés UFOLEP
-- **Horaires :** 14h à 18h
+- **Horaires :** 9h à 18h
+- **Pause :** 12h à 13h30
 - **Public :** Licenciés UFOLEP
 
 #### Dimanche - Licenciés FFM
@@ -29,7 +30,8 @@ La piste de moto-cross de l'ACSM est ouverte les **1er et 3ème week-end de chaq
 ### 3ème week-end de chaque mois
 
 #### Samedi - Licenciés FFM
-- **Horaires :** 14h à 18h
+- **Horaires :** 9h à 18h
+- **Pause :** 12h à 13h30
 - **Public :** Licenciés FFM
 
 #### Dimanche - Licenciés UFOLEP

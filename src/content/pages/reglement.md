@@ -15,11 +15,11 @@ galerie:
 La piste de moto-cross de l'ACSM est ouverte les 1er et 3ème week-end de chaque mois :
 
 ### 1er week-end de chaque mois :
-- **Le Samedi** de 14h à 18h pour les licenciés UFOLEP
+- **Le Samedi** de 9h à 18h (Pause de 12h à 13h30) pour les licenciés UFOLEP
 - **Le Dimanche** de 9h à 18h (Pause de 12h30 à 13h30) pour les licenciés FFM
 
 ### 3ème week-end de chaque mois :
-- **Le Samedi** de 14h à 18h pour les licenciés FFM
+- **Le Samedi** de 9h à 18h (Pause de 12h à 13h30) pour les licenciés FFM
 - **Le Dimanche** de 9h à 18h (Pause de 12h30 à 13h30) pour les licenciés UFOLEP
 
 **La piste de moto-cross est fermée le mois précédant la course.**
@@ -41,7 +41,9 @@ Le montant de la cotisation du club est défini par le Comité Directeur soit :
 - **25€** pour les licenciés moins de 12 ans
 - **40€** pour les plus de 12 ans
 
-La licence est obligatoire pour les entraînements et les compétitions. Le pilote doit pouvoir présenter sa licence sur simple demande d'un membre du Comité directeur ou d'un Officiel.
+La licence est obligatoire pour les entraînements et les compétitions. Le pilote doit pouvoir présenter sa licence sur simple demande d'un membre du Comité directeur ou d'un Officiel. 
+
+**Il faudra également compter un chèque de caution de 100€ pour la journée travaux du terrain.**
 
 ### Sont considérés comme Officiels au sein de l'ACSM :
 - Les Représentants légaux de la FFM et de la Ligue Moto des Pays-De-La-Loire

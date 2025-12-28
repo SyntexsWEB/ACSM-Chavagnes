@@ -77,8 +77,22 @@ const { titre, description = siteInfo.description } = Astro.props;
                 </button>
                 <ul class="dropdown-menu">
                   <li><a href="/reglement">Règlement</a></li>
-                  <li><a href="/tarifs">Tarifs</a></li>
+                  <li><a href="/tarifs">Tarifs roulage</a></li>
                   <li><a href="/horaires">Horaires</a></li>
+                </ul>
+              </li>
+
+              <!-- Menu déroulant Prise de licence -->
+              <li class="dropdown">
+                <button class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                  Prise de licence
+                  <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a href="/tarifs#tarifs-ffm">Tarifs FFM</a></li>
+                  <li><a href="/tarifs#tarifs-ufolep">Tarifs UFOLEP</a></li>
                 </ul>
               </li>
 
@@ -303,6 +317,7 @@ const { titre, description = siteInfo.description } = Astro.props;
         transition: all var(--transition-fast);
         position: relative;
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        font-family: var(--font-body);
       }
 
       .dropdown-toggle:hover {

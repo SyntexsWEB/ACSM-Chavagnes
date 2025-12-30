@@ -5,6 +5,7 @@ dist/
 
 # IDE-specific files
 .claude/
+.vscode
 
 # dependencies
 node_modules/

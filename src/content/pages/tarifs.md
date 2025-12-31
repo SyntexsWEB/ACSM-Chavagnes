@@ -52,7 +52,7 @@ Un certificat médical est obligatoire pour la prise de licence FFM. Vous pouvez
 
 Pour prendre votre licence FFM en ligne, rendez-vous sur l'espace privatif de la FFM :
 
-[🔗 Espace privatif FFM - Prise de licence](https://pratiquer.ffmoto.org/espace-prive)
+[🔗 Espace privatif FFM - Prise de licence](https://licencie.ffmoto.net)
 
 ### Conditions nécessaires
 

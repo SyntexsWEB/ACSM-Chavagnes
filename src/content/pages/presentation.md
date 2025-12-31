@@ -1,5 +1,5 @@
 ---
-titre: Présentation du terrain
+titre: Le Circuit & Photos
 description: Découvrez le terrain de motocross de l'ACSM Chavagnes-les-Eaux à Terranjou (Maine-et-Loire, Anjou). Circuit homologué FFM, histoire, installations et partenaires
 hero:
   image: /images/vue-aerienne-terrain-1.jpg

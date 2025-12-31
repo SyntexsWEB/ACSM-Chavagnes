@@ -1,5 +1,5 @@
 ---
-titre: Tarifs
+titre: Tarifs Licences & Roulage
 description: Tarifs d'accès au terrain de motocross ACSM Chavagnes à Terranjou (Maine-et-Loire, Anjou) - Licences FFM et UFOLEP 2025/26, cotisations club
 hero:
   image: /images/motocross-saut-1.jpg

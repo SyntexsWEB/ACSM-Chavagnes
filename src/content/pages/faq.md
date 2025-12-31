@@ -1,5 +1,5 @@
 ---
-titre: "Questions fréquentes"
+titre: "FAQ - Questions Fréquentes"
 description: "FAQ motocross ACSM Chavagnes à Terranjou (Maine-et-Loire, Anjou) : inscription, licence FFM/UFOLEP, horaires, tarifs et accès au terrain"
 hero:
   image: /images/motocross-saut-2.jpg

@@ -100,7 +100,12 @@ const { titre, soustitre, image } = Astro.props;
   @media (max-width: 768px) {
     .hero-page {
       min-height: 40vh;
-      padding: var(--spacing-xl) 0;
+      padding-top: calc(var(--spacing-xl) + 80px);
+      padding-bottom: var(--spacing-xl);
+    }
+
+    .hero-subtitle {
+      display: none;
     }
 
     .hero-title {

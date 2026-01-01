@@ -1,0 +1,162 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  titre="Message envoyé - ACSM Chavagnes"
+  description="Votre message a bien été envoyé"
+>
+  <section class="merci-section">
+    <div class="container">
+      <div class="merci-content">
+        <div class="success-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+        </div>
+
+        <h1>Message envoyé !</h1>
+
+        <p class="main-message">
+          Votre message a bien été transmis à notre équipe.
+          Nous vous répondrons dans les plus brefs délais.
+        </p>
+
+        <p class="moto-message">
+          En attendant, préparez votre moto et on se voit sur la piste !
+        </p>
+
+        <div class="actions">
+          <a href="/" class="btn">Retour à l'accueil</a>
+          <a href="/horaires" class="btn btn-secondary">Voir les horaires</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .merci-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-dark);
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .merci-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: var(--spacing-2xl);
+    background: var(--color-dark-lighter);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+  }
+
+  .success-icon {
+    margin: 0 auto var(--spacing-xl);
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, #c41e1e 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: scaleIn 0.5s ease-out;
+  }
+
+  .success-icon svg {
+    color: white;
+    animation: checkmark 0.8s ease-in-out 0.2s both;
+  }
+
+  @keyframes scaleIn {
+    from {
+      transform: scale(0);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes checkmark {
+    0% {
+      stroke-dasharray: 0 100;
+    }
+    100% {
+      stroke-dasharray: 100 100;
+    }
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--color-text);
+    margin-bottom: var(--spacing-lg);
+    font-weight: 700;
+    animation: fadeInUp 0.6s ease-out 0.3s both;
+  }
+
+  .main-message {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+    animation: fadeInUp 0.6s ease-out 0.4s both;
+  }
+
+  .moto-message {
+    font-size: 1rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-bottom: var(--spacing-xl);
+    animation: fadeInUp 0.6s ease-out 0.5s both;
+  }
+
+  .actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.6s ease-out 0.6s both;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .merci-content {
+      padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    .success-icon {
+      width: 100px;
+      height: 100px;
+    }
+
+    .success-icon svg {
+      width: 60px;
+      height: 60px;
+    }
+
+    .actions {
+      flex-direction: column;
+    }
+
+    .actions .btn {
+      width: 100%;
+    }
+  }
+</style>

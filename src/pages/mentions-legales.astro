@@ -1,0 +1,126 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroPage from '../components/HeroPage.astro';
+---
+
+<Layout
+  titre="Mentions légales"
+  description="Mentions légales du site ACSM Chavagnes"
+>
+  <HeroPage
+    titre="Mentions légales"
+    soustitre="Informations légales et réglementaires"
+    image="/images/170822080831_gerhyfnudagcr2ptdb4nxsitctuxdn.jpg"
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="content-wrapper">
+        <p class="intro-text">Dernière mise-à-jour le 02/01/2026</p>
+
+        <p>Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance en l'économie numérique, il est précisé aux utilisateurs du site ASSOCIATION CHAVAGNAISE DES SPORTS MECANIQUE l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi.</p>
+
+        <h2>Édition du site</h2>
+        <p>Le présent site, accessible à l'URL <a href="https://www.motocross-chavagnes.fr">www.motocross-chavagnes.fr</a> (le « Site »), est édité par l'<strong>ASSOCIATION CHAVAGNAISE DES SPORTS MECANIQUE</strong>, association loi 1901.</p>
+        <p>Dont le siège social est situé à <strong>TERRAIN DE PLANCHE MALLET, 49380 TERRANJOU</strong>, représentée par <strong>Renault Pascal</strong> dûment habilité.</p>
+
+        <p><strong>Informations légales :</strong></p>
+        <ul>
+          <li>SIRET : 80050064700014</li>
+          <li>Inscription au RNA : depuis le 13/01/1983</li>
+          <li>Numéro individuel TVA : FR09800500647</li>
+        </ul>
+
+        <h2>Hébergement</h2>
+        <p>Le Site est hébergé par la société <strong>Netlify</strong>, situé 610 22ND St Ste 315 San Francisco, CA, 94107-3163 États-Unis, contact téléphonique : (925) 922-0921.</p>
+
+        <h2>Directeur de publication</h2>
+        <p>Le Directeur de la publication du Site est <strong>Renault Pascal</strong>.</p>
+
+        <h2>Nous contacter</h2>
+        <ul>
+          <li><strong>Par téléphone :</strong> <a href="tel:0642326326">06 42 32 63 26</a></li>
+          <li><strong>Par email :</strong> <a href="mailto:renaultpascal@orange.fr">renaultpascal@orange.fr</a></li>
+          <li><strong>Par courrier :</strong> ASSOCIATION CHAVAGNAISE DES SPORTS MECANIQUE - TERRAIN DE PLANCHE MALLET, 49380 TERRANJOU</li>
+        </ul>
+
+        <h2>Données personnelles</h2>
+        <p>Le traitement de vos données à caractère personnel est régi par notre Charte du respect de la vie privée, disponible depuis la section <a href="/politique-confidentialite">« Charte de Protection des Données Personnelles »</a>, conformément au Règlement Général sur la Protection des Données 2016/679 du 27 avril 2016 (« RGPD »).</p>
+
+        <h2>Limitation de responsabilité</h2>
+        <p>Les informations contenues sur ce site sont aussi précises que possibles et le site est périodiquement remis à jour, mais peut toutefois contenir des inexactitudes, des omissions ou des lacunes. Si vous constatez une lacune, erreur ou ce qui parait être un dysfonctionnement, merci de bien vouloir le signaler par email en décrivant le problème de la manière la plus précise possible (page posant problème, action déclenchante, type d'ordinateur et de navigateur utilisé, …).</p>
+
+        <p>Les photos et vidéos présentées sur le site sont données à titre informatif et illustratif.</p>
+
+        <p>Les liens hypertextes mis en place dans le cadre du présent site internet en direction d'autres ressources présentes sur le réseau Internet ne sauraient engager la responsabilité de l'ASSOCIATION CHAVAGNAISE DES SPORTS MECANIQUE.</p>
+
+        <h2>Informations et exclusion</h2>
+        <p>L'ASSOCIATION CHAVAGNAISE DES SPORTS MECANIQUE met en œuvre tous les moyens dont elle dispose, pour assurer une information fiable et une mise à jour fiable de ses sites internet. Toutefois, des erreurs ou omissions peuvent survenir. L'internaute devra donc s'assurer de l'exactitude des informations auprès de l'ASSOCIATION CHAVAGNAISE DES SPORTS MECANIQUE, et signaler toutes modifications du site qu'il jugerait utile. L'ASSOCIATION CHAVAGNAISE DES SPORTS MECANIQUE n'est en aucun cas responsable de l'utilisation faite de ces informations, et de tout préjudice direct ou indirect pouvant en découler.</p>
+
+        <h2>Propriété intellectuelle</h2>
+        <p>L'ensemble du contenu présent sur le site est protégé par les droits de propriété intellectuelle et notamment par le droit d'auteur dans le monde entier et pour la durée des droits telle qu'elle résulte des dispositions légales existantes et/ou des prolongations à intervenir. Toute reproduction, représentation, adaptation, modification et/ou utilisation hors de la sphère privée est strictement interdit.</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .content-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--spacing-xl) 0;
+  }
+
+  .intro-text {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    font-style: italic;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .content-wrapper h2 {
+    color: var(--color-primary);
+    margin-top: var(--spacing-2xl);
+    margin-bottom: var(--spacing-lg);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+  }
+
+  .content-wrapper h3 {
+    color: var(--color-text);
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+    font-size: 1.25rem;
+  }
+
+  .content-wrapper p {
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .content-wrapper ul {
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-lg);
+  }
+
+  .content-wrapper li {
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .content-wrapper a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .content-wrapper a:hover {
+    color: var(--color-primary-light);
+    text-decoration: underline;
+  }
+
+  .content-wrapper strong {
+    color: var(--color-text);
+  }
+</style>

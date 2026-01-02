@@ -222,6 +222,13 @@ const fullImageURL = new URL(image, siteURL).toString();
           </div>
         )}
 
+        <!-- Liens légaux -->
+        <div class="footer-links">
+          <a href="/mentions-legales">Mentions légales</a>
+          <span class="separator">•</span>
+          <a href="/politique-confidentialite">Politique de confidentialité</a>
+        </div>
+
         <!-- Footer bottom avec copyright centré -->
         <div class="footer-bottom">
           <p class="copyright">Réalisé par <a href="https://syntexs.com" target="_blank" rel="noopener" class="credit-link">Syntexs</a></p>
@@ -531,9 +538,35 @@ const fullImageURL = new URL(image, siteURL).toString();
         text-transform: uppercase;
       }
 
+      /* Footer Links */
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: var(--spacing-md);
+        margin-bottom: var(--spacing-lg);
+        padding-bottom: var(--spacing-lg);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .footer-links a {
+        color: var(--color-text-secondary);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color var(--transition-fast);
+      }
+
+      .footer-links a:hover {
+        color: var(--color-primary);
+      }
+
+      .footer-links .separator {
+        color: rgba(255, 255, 255, 0.3);
+        font-size: 0.8rem;
+      }
+
       /* Footer Bottom */
       .footer-bottom {
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
         padding-top: var(--spacing-lg);
         text-align: center;
       }
@@ -735,6 +768,15 @@ const fullImageURL = new URL(image, siteURL).toString();
 
         .footer-contact {
           justify-content: center;
+        }
+
+        .footer-links {
+          flex-wrap: wrap;
+          gap: var(--spacing-sm);
+        }
+
+        .footer-links a {
+          font-size: 0.85rem;
         }
       }
     </style>

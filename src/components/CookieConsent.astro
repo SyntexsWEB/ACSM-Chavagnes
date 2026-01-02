@@ -1,0 +1,323 @@
+---
+// Composant Cookie Consent pour la gestion RGPD des cookies
+---
+
+<!-- Import CSS et JS de vanilla-cookieconsent via CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.css">
+<script src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.umd.js"></script>
+<script is:inline>
+  // Attendre que le DOM et la bibliothèque soient chargés
+  document.addEventListener('DOMContentLoaded', function() {
+    // Vérifier que CookieConsent est disponible
+    if (typeof CookieConsent === 'undefined') {
+      console.error('CookieConsent library not loaded');
+      return;
+    }
+
+    // Initialisation de CookieConsent
+    CookieConsent.run({
+        // Mode auto (show modal on first visit)
+        autorun: true,
+
+        // Délai avant affichage (ms)
+        delay: 500,
+
+        // Cookie name
+        cookie_name: 'cc_cookie',
+
+        // Cookie expiration (jours)
+        cookie_expiration: 395, // ~13 mois
+
+        // Révision du cookie (forcer re-consentement si changement)
+        revision: 1,
+
+        // Options GUI
+        gui_options: {
+          consent_modal: {
+            layout: 'box',
+            position: 'bottom center',
+            transition: 'slide'
+          },
+          settings_modal: {
+            layout: 'box',
+            transition: 'slide'
+          }
+        },
+
+        // Langues
+        languages: {
+          fr: {
+            consent_modal: {
+              title: 'Nous utilisons des cookies',
+              description: 'Ce site utilise des cookies pour améliorer votre expérience de navigation et analyser notre trafic. En cliquant sur "Tout accepter", vous acceptez l\'utilisation de TOUS les cookies. Vous pouvez personnaliser vos préférences en cliquant sur "Personnaliser". <a href="/politique-confidentialite" class="cc-link">En savoir plus</a>',
+              primary_btn: {
+                text: 'Tout accepter',
+                role: 'accept_all'
+              },
+              secondary_btn: {
+                text: 'Personnaliser',
+                role: 'settings'
+              }
+            },
+            settings_modal: {
+              title: 'Préférences de cookies',
+              save_settings_btn: 'Enregistrer les paramètres',
+              accept_all_btn: 'Tout accepter',
+              reject_all_btn: 'Tout refuser',
+              close_btn_label: 'Fermer',
+              cookie_table_headers: [
+                { col1: 'Nom' },
+                { col2: 'Domaine' },
+                { col3: 'Expiration' },
+                { col4: 'Description' }
+              ],
+              blocks: [
+                {
+                  title: 'Utilisation des cookies',
+                  description: 'Nous utilisons des cookies pour améliorer votre expérience sur notre site et analyser son utilisation. Certains cookies sont nécessaires au fonctionnement du site, tandis que d\'autres nous aident à comprendre comment vous interagissez avec notre contenu.'
+                },
+                {
+                  title: 'Cookies strictement nécessaires',
+                  description: 'Ces cookies sont essentiels au bon fonctionnement du site. Le site fonctionne sans cookies strictement nécessaires.',
+                  toggle: {
+                    value: 'necessary',
+                    enabled: true,
+                    readonly: true
+                  }
+                },
+                {
+                  title: 'Cookies analytiques et de performance',
+                  description: 'Ces cookies nous permettent de mesurer et d\'analyser l\'utilisation de notre site web afin d\'améliorer ses performances et votre expérience utilisateur.',
+                  toggle: {
+                    value: 'analytics',
+                    enabled: false,
+                    readonly: false
+                  },
+                  cookie_table: [
+                    {
+                      col1: '_ga',
+                      col2: 'google.com',
+                      col3: '2 ans',
+                      col4: 'Cookie Google Analytics pour distinguer les utilisateurs'
+                    },
+                    {
+                      col1: '_gid',
+                      col2: 'google.com',
+                      col3: '24 heures',
+                      col4: 'Cookie Google Analytics pour distinguer les utilisateurs'
+                    },
+                    {
+                      col1: '_gat',
+                      col2: 'google.com',
+                      col3: '1 minute',
+                      col4: 'Cookie Google Analytics pour limiter le taux de requêtes'
+                    }
+                  ]
+                },
+                {
+                  title: 'Cookies de contenu tiers',
+                  description: 'Ces cookies sont définis par des services tiers intégrés sur notre site (comme YouTube pour les vidéos).',
+                  toggle: {
+                    value: 'targeting',
+                    enabled: false,
+                    readonly: false
+                  },
+                  cookie_table: [
+                    {
+                      col1: 'YSC',
+                      col2: 'youtube.com',
+                      col3: 'Session',
+                      col4: 'Cookie YouTube pour suivre les vues de vidéos intégrées'
+                    },
+                    {
+                      col1: 'VISITOR_INFO1_LIVE',
+                      col2: 'youtube.com',
+                      col3: '6 mois',
+                      col4: 'Cookie YouTube pour les préférences utilisateur'
+                    }
+                  ]
+                },
+                {
+                  title: 'Plus d\'informations',
+                  description: 'Pour toute question concernant notre politique de cookies et vos choix, veuillez <a href="/contact" class="cc-link">nous contacter</a> ou consulter notre <a href="/politique-confidentialite" class="cc-link">politique de confidentialité</a>.'
+                }
+              ]
+            }
+          }
+        },
+
+        // Callbacks
+        onFirstConsent: function({ cookie }) {
+          console.log('Premier consentement enregistré');
+          // Activer les scripts autorisés
+          enableScripts(cookie.categories);
+        },
+
+        onChange: function({ cookie, changedCategories, changedServices }) {
+          console.log('Consentement modifié', changedCategories);
+
+          // Recharger la page pour appliquer les changements
+          window.location.reload();
+        },
+
+        onConsent: function({ cookie }) {
+          console.log('Consentement:', cookie);
+          // Activer les scripts autorisés
+          enableScripts(cookie.categories);
+        }
+      });
+
+    // Fonction pour activer les scripts selon les catégories acceptées
+    function enableScripts(categories) {
+        // Récupérer tous les scripts bloqués
+        const blockedScripts = document.querySelectorAll('script[type="text/plain"][data-category]');
+
+        blockedScripts.forEach(script => {
+          const category = script.getAttribute('data-category');
+
+          // Si la catégorie est acceptée, activer le script
+          if (categories.includes(category)) {
+            const newScript = document.createElement('script');
+
+            // Copier tous les attributs sauf type et data-category
+            Array.from(script.attributes).forEach(attr => {
+              if (attr.name !== 'type' && attr.name !== 'data-category') {
+                newScript.setAttribute(attr.name, attr.value);
+              }
+            });
+
+            // Copier le contenu inline ou le src
+            if (script.src) {
+              newScript.src = script.src;
+            } else {
+              newScript.textContent = script.textContent;
+            }
+
+            // Remplacer le script bloqué
+            script.parentNode.replaceChild(newScript, script);
+          }
+        });
+      }
+  });
+</script>
+
+<style is:global>
+  /* Personnalisation du bandeau de cookies */
+  #cc-main {
+    font-family: var(--font-body, 'Inter', sans-serif);
+  }
+
+  #cm {
+    --cc-bg: #0a0a0a;
+    --cc-text: #f5f5f5;
+    --cc-btn-primary-bg: #b91c1c;
+    --cc-btn-primary-text: white;
+    --cc-btn-primary-hover-bg: #991b1b;
+    --cc-btn-secondary-bg: transparent;
+    --cc-btn-secondary-text: #f5f5f5;
+    --cc-btn-secondary-hover-bg: rgba(255, 255, 255, 0.1);
+    --cc-separator-border-color: rgba(255, 255, 255, 0.1);
+    --cc-cookie-category-block-bg: #1a1a1a;
+    --cc-cookie-category-block-border: rgba(255, 255, 255, 0.1);
+    --cc-toggle-on-bg: #b91c1c;
+    --cc-toggle-off-bg: #4a4a4a;
+    --cc-toggle-readonly-bg: #4a4a4a;
+  }
+
+  /* Modal principal */
+  #cm .cm {
+    background: var(--cc-bg);
+    border: 1px solid rgba(255, 184, 0, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Boutons */
+  #cm .cm__btn {
+    border-radius: 6px;
+    font-weight: 600;
+    padding: 0.7rem 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  #cm .cm__btn--primary {
+    background: var(--cc-btn-primary-bg);
+    border: 2px solid var(--cc-btn-primary-bg);
+  }
+
+  #cm .cm__btn--primary:hover {
+    background: var(--cc-btn-primary-hover-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(185, 28, 28, 0.4);
+  }
+
+  #cm .cm__btn--secondary {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+  }
+
+  #cm .cm__btn--secondary:hover {
+    background: var(--cc-btn-secondary-hover-bg);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  /* Liens */
+  #cm .cc-link {
+    color: #ffb800;
+    text-decoration: underline;
+  }
+
+  #cm .cc-link:hover {
+    color: #ffd000;
+  }
+
+  /* Modal de paramètres */
+  #s-inr {
+    background: var(--cc-bg);
+    border-radius: 12px;
+  }
+
+  /* Sections de cookies */
+  #s-bl .c-bl {
+    background: var(--cc-cookie-category-block-bg);
+    border: 1px solid var(--cc-cookie-category-block-border);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+
+  /* Toggle switch */
+  .c-tgl:checked ~ .c-tg {
+    background: var(--cc-toggle-on-bg);
+  }
+
+  /* Tableau de cookies */
+  #s-bl table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  #s-bl th {
+    background: rgba(185, 28, 28, 0.1);
+    color: var(--cc-text);
+    font-weight: 600;
+    padding: 0.75rem;
+    text-align: left;
+  }
+
+  #s-bl td {
+    padding: 0.75rem;
+    border-top: 1px solid var(--cc-separator-border-color);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    #cm .cm {
+      max-width: 95%;
+      margin: 1rem;
+    }
+
+    #cm .cm__btn {
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+  }
+</style>

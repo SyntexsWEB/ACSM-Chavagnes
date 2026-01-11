@@ -160,11 +160,10 @@
 
       // Callbacks
       onFirstConsent: function({ cookie }) {
-        console.log('Premier consentement enregistré');
+        // Premier consentement enregistré
       },
 
       onChange: function({ cookie, changedCategories }) {
-        console.log('Consentement modifié', changedCategories);
         // Recharger la page pour appliquer les changements
         if (changedCategories.length > 0) {
           window.location.reload();
@@ -172,7 +171,7 @@
       },
 
       onConsent: function({ cookie }) {
-        console.log('Consentement:', cookie);
+        // Consentement enregistré
       }
     });
   });

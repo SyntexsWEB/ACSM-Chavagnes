@@ -1,34 +1,43 @@
 ---
-titre: Ouverture de la saison 2025
-date: 2025-01-15
-description: La nouvelle saison démarre ! Retrouvez-nous dès le premier week-end
-  de février pour l'ouverture officielle du terrain.
+titre: Ouverture de la saison 2026
+date: 01/01/2026
+description: La nouvelle saison démarre ! Retrouvez-nous dès janvier pour
+  l'ouverture du terrain.
 image: /images/Pascal-dirigeant-ACSM.jpg
 auteur: ACSM Chavagnes
 publie: true
 ---
+## Terrain ouvert !
 
-Nous sommes ravis de vous annoncer l'ouverture de la **saison 2025** !
+Nous sommes heureux de vous annoncer la réouverture du terrain !
 
-## Planning d'ouverture
+Rendez-vous ce week-end pour deux nouvelles journées d’entraînement.
 
-Le terrain sera ouvert dès le **premier week-end de février** selon notre calendrier habituel :
-- **Samedi 1er février** : Minicross et 85cc débutant
-- **Dimanche 2 février** : Catégories confirmées (85cc, 125cc, MX1, MX2, quad, side-car)
+### 📅 Planning du week-end
 
-## Nouveautés 2025
+* **Samedi 17 janvier**
 
-Cette année, nous avons travaillé sur plusieurs améliorations :
-- Réaménagement de certains obstacles
-- Nouveau système d'arrosage pour une meilleure gestion de la piste
-- Agrandissement du paddock
+   : Licence 
 
-## Tarifs inchangés
+  **UFOLEP**
 
-Bonne nouvelle : nous maintenons le tarif à **10€ la journée** pour cette saison !
+   uniquement
 
-## Licence FFM
 
-N'oubliez pas de renouveler votre licence FFM si ce n'est pas déjà fait. Elle est obligatoire pour accéder au terrain.
+  **Dimanche 18 janvier**
 
-À très bientôt sur la piste ! 🏍️
+   : Licence 
+
+  **FFM**
+
+   uniquement
+
+Merci de bien respecter les conditions d’accès selon votre licence.
+
+### ℹ️ Rappel important
+
+La licence correspondant à la journée est **obligatoire** pour pouvoir rouler. Pensez à vérifier qu’elle soit bien à jour avant de vous déplacer.
+
+Nous vous attendons nombreux pour lancer cette nouvelle période d’entraînement dans les meilleures conditions.
+
+À très vite sur la piste ! 🏁

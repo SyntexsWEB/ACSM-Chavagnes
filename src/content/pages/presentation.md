@@ -1,6 +1,8 @@
 ---
 titre: Le Circuit & Photos
-description: Découvrez le terrain de motocross de l'ACSM Chavagnes-les-Eaux à Terranjou (Maine-et-Loire, Anjou). Circuit homologué FFM, histoire, installations et partenaires
+description: Découvrez le terrain de motocross de l'ACSM Chavagnes-les-Eaux à
+  Terranjou (Maine-et-Loire, Anjou). Circuit homologué FFM, histoire,
+  installations et partenaires
 hero:
   image: /images/vue-aerienne-terrain-1.jpg
   titre: Présentation du terrain
@@ -39,7 +41,7 @@ galerie:
 
 Bienvenue sur le terrain de motocross de l'ACSM Chavagnes les Eaux, situé à Terranjou. Notre club accueille les passionnés de motocross dans un cadre naturel exceptionnel, avec des installations modernes et sécurisées.
 
-## Historique du club
+## Historique du club test
 
 Le moto club de Chavagnes-les-Eaux est né en 1983 sous l'impulsion de Mr Rémy Lavigne et son équipe qui ont retroussé leurs manches pour défricher le terrain de Planche Mallet afin d'offrir une piste de 1200 mètres à l'époque pour y pratiquer les sports mécaniques tout-terrain (moto, quad, et même auto durant 10 ans), avec une première compétition UFOLEP en 1984.
 

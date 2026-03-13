@@ -37,6 +37,60 @@
     "bouton1_texte": "DÉCOUVRIR LE TERRAIN"
   },
   "adresse": "Terranjou, France",
+  "horaires_detailles": {
+    "premier_weekend": {
+      "samedi": {
+        "horaire": "9h-18h",
+        "federation": "UFOLEP",
+        "pause": "12h-13h30",
+        "categories": [
+          "85cc",
+          "125cc",
+          "MX2",
+          "MX1",
+          "Quad"
+        ]
+      },
+      "dimanche": {
+        "horaire": "9h-18h",
+        "federation": "FFM",
+        "pause": "12h30-13h30",
+        "categories": [
+          "Minicross",
+          "85cc",
+          "125cc",
+          "MX2",
+          "MX1"
+        ]
+      }
+    },
+    "troisieme_weekend": {
+      "samedi": {
+        "horaire": "9h-18h",
+        "federation": "FFM",
+        "pause": "12h-13h30",
+        "categories": [
+          "85cc",
+          "125cc",
+          "MX2",
+          "MX1",
+          "Quad"
+        ]
+      },
+      "dimanche": {
+        "horaire": "9h-18h",
+        "federation": "UFOLEP",
+        "pause": "12h30-13h30",
+        "categories": [
+          "85cc",
+          "125cc",
+          "MX2",
+          "MX1",
+          "Quad"
+        ]
+      }
+    }
+  },
   "categories": {
     "samedi": {
       "jour": "Samedi",
@@ -55,36 +109,6 @@
         "MX1 & MX2",
         "Quad & Side-car"
       ]
-    }
-  },
-  "horaires_detailles": {
-    "premier_weekend": {
-      "samedi": {
-        "horaire": "9h-18h",
-        "federation": "UFOLEP",
-        "pause": "12h-13h30",
-        "categories": ["Minicross", "85cc débutant"]
-      },
-      "dimanche": {
-        "horaire": "9h-18h",
-        "federation": "FFM",
-        "pause": "12h30-13h30",
-        "categories": ["85cc confirmés", "125cc", "MX1 & MX2", "Quad & Side-car"]
-      }
-    },
-    "troisieme_weekend": {
-      "samedi": {
-        "horaire": "9h-18h",
-        "federation": "FFM",
-        "pause": "12h-13h30",
-        "categories": ["85cc confirmés", "125cc", "MX1 & MX2", "Quad & Side-car"]
-      },
-      "dimanche": {
-        "horaire": "9h-18h",
-        "federation": "UFOLEP",
-        "pause": "12h30-13h30",
-        "categories": ["Minicross", "85cc débutant"]
-      }
     }
   },
   "email": "contact@acsm-chavagnes.fr",

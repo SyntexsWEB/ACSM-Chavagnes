@@ -89,6 +89,50 @@ collections:
                   - { label: "Jour", name: "jour", widget: "string", default: "Dimanche" }
                   - { label: "Titre", name: "titre", widget: "string", default: "Pilotes confirmés" }
                   - { label: "Liste des catégories", name: "liste", widget: "list", default: ["85cc confirmés", "125cc", "MX1 & MX2", "Quad & Side-car"] }
+          - label: "Horaires détaillés (section week-ends)"
+            name: "horaires_detailles"
+            widget: "object"
+            fields:
+              - label: "1er week-end"
+                name: "premier_weekend"
+                widget: "object"
+                fields:
+                  - label: "Samedi"
+                    name: "samedi"
+                    widget: "object"
+                    fields:
+                      - { label: "Horaire", name: "horaire", widget: "string", default: "9h-18h" }
+                      - { label: "Fédération", name: "federation", widget: "string", default: "UFOLEP" }
+                      - { label: "Pause", name: "pause", widget: "string", required: false, default: "12h-13h30" }
+                      - { label: "Catégories", name: "categories", widget: "list", default: ["Minicross", "85cc débutant"] }
+                  - label: "Dimanche"
+                    name: "dimanche"
+                    widget: "object"
+                    fields:
+                      - { label: "Horaire", name: "horaire", widget: "string", default: "9h-18h" }
+                      - { label: "Fédération", name: "federation", widget: "string", default: "FFM" }
+                      - { label: "Pause", name: "pause", widget: "string", required: false, default: "12h30-13h30" }
+                      - { label: "Catégories", name: "categories", widget: "list", default: ["85cc confirmés", "125cc", "MX1 & MX2", "Quad & Side-car"] }
+              - label: "3ème week-end"
+                name: "troisieme_weekend"
+                widget: "object"
+                fields:
+                  - label: "Samedi"
+                    name: "samedi"
+                    widget: "object"
+                    fields:
+                      - { label: "Horaire", name: "horaire", widget: "string", default: "9h-18h" }
+                      - { label: "Fédération", name: "federation", widget: "string", default: "FFM" }
+                      - { label: "Pause", name: "pause", widget: "string", required: false, default: "12h-13h30" }
+                      - { label: "Catégories", name: "categories", widget: "list", default: ["85cc confirmés", "125cc", "MX1 & MX2", "Quad & Side-car"] }
+                  - label: "Dimanche"
+                    name: "dimanche"
+                    widget: "object"
+                    fields:
+                      - { label: "Horaire", name: "horaire", widget: "string", default: "9h-18h" }
+                      - { label: "Fédération", name: "federation", widget: "string", default: "UFOLEP" }
+                      - { label: "Pause", name: "pause", widget: "string", required: false, default: "12h30-13h30" }
+                      - { label: "Catégories", name: "categories", widget: "list", default: ["Minicross", "85cc débutant"] }
           - label: "Section CTA (Appel à l'action)"
             name: "cta_accueil"
             widget: "object"

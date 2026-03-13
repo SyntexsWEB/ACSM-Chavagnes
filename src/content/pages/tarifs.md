@@ -1,6 +1,7 @@
 ---
 titre: Tarifs Licences & Roulage
-description: Tarifs d'accès au terrain de motocross ACSM Chavagnes à Terranjou (Maine-et-Loire, Anjou) - Licences FFM et UFOLEP 2025/26, cotisations club
+description: Tarifs d'accès au terrain de motocross ACSM Chavagnes à Terranjou
+  (Maine-et-Loire, Anjou) - Licences FFM et UFOLEP 2025/26, cotisations club
 hero:
   image: /images/motocross-saut-1.jpg
   titre: Tarifs
@@ -8,31 +9,30 @@ hero:
 galerie:
   afficher: false
 ---
-
 ## Tarifs d'accès au terrain
 
 L'accès au terrain de motocross de l'ACSM Chavagnes est soumis aux tarifs suivants pour les licenciés des clubs extérieurs :
 
 ### Tarifs journaliers
 
-- **10€** par jour pour les **minicross**
-- **15€** par jour à partir de **85cm³ et quads**
-- **20€** par jour pour les **side-car**
+* **10€** par jour pour les **minicross**
+* **15€** par jour pour les **85cm³, 125cm³, MX2, MX1 et quad**
+* **20€** par jour pour les **side-car**
 
 **Gratuit pour les licenciés UFOLEP ou FFM du club de l'ACSM** selon le calendrier d'ouverture.
 
 *Les tarifs sont à régler à la personne du club qui assure la permanence dès l'arrivée sur site.*
 
----
+- - -
 
 ## Cotisation du club ACSM
 
 Le montant de la cotisation du club est défini par le Comité Directeur :
 
-- **25€** pour les licenciés de **moins de 12 ans**
-- **40€** pour les licenciés de **plus de 12 ans**
+* **25€** pour les licenciés de **moins de 12 ans**
+* **40€** pour les licenciés de **plus de 12 ans**
 
----
+- - -
 
 ## <a id="tarifs-ffm"></a>Prise de licence FFM
 
@@ -71,16 +71,16 @@ Pour tout renseignement concernant la prise de licence FFM, veuillez contacter n
 
 **Géraldine Grosbois** - [grosboisgarciau@sfr.fr](mailto:grosboisgarciau@sfr.fr) - [06 73 53 19 88](tel:0673531988)
 
----
+- - -
 
 ## <a id="tarifs-ufolep"></a>Prise de licence UFOLEP
 
 ### Grille tarifaire UFOLEP 2025/26
 
-| Catégorie | Loisirs | Compétition |
-|-----------|---------|-------------|
-| Adulte | 151,75 € | 151,75 € |
-| Jeune (- 16 ans) | 133,70 € | 133,70 € |
+| Catégorie        | Loisirs  | Compétition |
+| ---------------- | -------- | ----------- |
+| Adulte           | 151,75 € | 151,75 €    |
+| Jeune (- 16 ans) | 133,70 € | 133,70 €    |
 
 ### Procédure de prise de licence UFOLEP
 
@@ -96,13 +96,13 @@ Pour obtenir votre licence UFOLEP, vous devez fournir :
 
 1. **Certificat médical** délivré par votre médecin de moins de 6 mois
 2. **3 chèques à l'ordre de l'ACSM** :
-   - Montant de la licence désirée (voir grille tarifaire ci-dessus)
-   - Cotisation club de **40€** (ou **25€** pour les moins de 12 ans)
-   - Chèque de caution de **100€** pour les journées travaux
+
+   * Montant de la licence désirée (voir grille tarifaire ci-dessus)
+   * Cotisation club de **40€** (ou **25€** pour les moins de 12 ans)
+   * Chèque de caution de **100€** pour les journées travaux
 
 **⚠️ Important : La licence ne sera délivrée qu'après réception de tous les documents par la responsable.**
 
-
----
+- - -
 
 *Pour toute question concernant les tarifs, n'hésitez pas à nous contacter via le formulaire de contact.*
